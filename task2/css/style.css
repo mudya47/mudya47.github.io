@@ -63,7 +63,7 @@ padding-right: 97px;
 
 .navbar .active{
 	color: #20cdc7;
-	color: #20cdc7;
+	
 }
 
 .button {
@@ -210,18 +210,17 @@ padding-right: 97px;
 	
 }
 
-.status img{
-	margin-top: 20px;
-	padding-left: 175px;
-	
+.status img {
+    margin-top: 20px;
+    padding-left: 125px;
 }
 
 .fl{
 	float:left;
 }
 
-.mt105{
-	margin-top: 101px;
+.mt65{
+	margin-top: 65px;
 }
 
 .status p{
@@ -243,7 +242,10 @@ padding-right: 97px;
 }
 
 
-
+.pl105{
+	 padding-left: 150px;
+}
+   
 
 
 .work1 {
@@ -361,8 +363,12 @@ padding-right: 97px;
 	margin-top: 67px;
 }
 .cl {
-	padding-left: 100px;
-	margin-left: 135px;
+/*	padding-left: 80px;*/
+    margin-left: 120px;
+}
+
+.cl img{
+	padding-left: 80px;
 }
 
 #contact {
