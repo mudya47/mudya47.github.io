@@ -203,16 +203,16 @@ padding-right: 97px;
 
 .status {
 	height: 240px;
-	background-color: #10c9c3;
-	color: #ffffff;
-	font-size: 18px;
-	padding-top: 1px;
-	
+    background-color: #10c9c3;
+    color: #ffffff;
+    font-size: 18px;
+    padding-top: 1px;
 }
 
 .status img {
-    margin-top: 20px;
-    padding-left: 125px;
+   margin-top: 20px;
+    float: left;
+    margin-right: 38px;
 }
 
 .fl{
@@ -221,11 +221,6 @@ padding-right: 97px;
 
 .mt65{
 	margin-top: 65px;
-}
-
-.status p{
-	float: right;
-	margin-left: 25px;
 }
 
 
@@ -354,21 +349,24 @@ padding-right: 97px;
 }
 
 .client {
-	height: 200px;
-	
+	    height: 200px;
     padding-top: 1px;
+    text-align: center;
 }
 
 .mt100{
 	margin-top: 67px;
 }
 .cl {
-/*	padding-left: 80px;*/
-    margin-left: 120px;
+
+    /* margin-left: 120px; */
+    display: inline-block;
+    /* text-align: center; */
+    margin-top: 3%;
 }
 
 .cl img{
-	padding-left: 80px;
+	    padding: 0 35%;
 }
 
 #contact {
@@ -544,4 +542,14 @@ float: left;
 
 .socialmedia ul li a{
 	color: #FFFFFF;
+}
+
+
+
+.stat {
+	    display: inline-block;
+    width: 20%;
+    /* text-align: center; */
+    margin-left: 3.5%;
+    margin-top: 4.2%;
 }
