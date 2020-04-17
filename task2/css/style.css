@@ -63,7 +63,7 @@ padding-right: 97px;
 
 .navbar .active{
 	color: #20cdc7;
-	color: #20cdc7;
+	
 }
 
 .button {
@@ -203,30 +203,24 @@ padding-right: 97px;
 
 .status {
 	height: 240px;
-	background-color: #10c9c3;
-	color: #ffffff;
-	font-size: 18px;
-	padding-top: 1px;
-	
+    background-color: #10c9c3;
+    color: #ffffff;
+    font-size: 18px;
+    padding-top: 1px;
 }
 
-.status img{
-	margin-top: 20px;
-	padding-left: 175px;
-	
+.status img {
+   margin-top: 20px;
+    float: left;
+    margin-right: 38px;
 }
 
 .fl{
 	float:left;
 }
 
-.mt105{
-	margin-top: 101px;
-}
-
-.status p{
-	float: right;
-	margin-left: 25px;
+.mt65{
+	margin-top: 65px;
 }
 
 
@@ -243,7 +237,10 @@ padding-right: 97px;
 }
 
 
-
+.pl105{
+	 padding-left: 150px;
+}
+   
 
 
 .work1 {
@@ -352,17 +349,24 @@ padding-right: 97px;
 }
 
 .client {
-	height: 200px;
-	
+	    height: 200px;
     padding-top: 1px;
+    text-align: center;
 }
 
 .mt100{
 	margin-top: 67px;
 }
 .cl {
-	padding-left: 100px;
-	margin-left: 135px;
+
+    /* margin-left: 120px; */
+    display: inline-block;
+    /* text-align: center; */
+    margin-top: 3%;
+}
+
+.cl img{
+	    padding: 0 35%;
 }
 
 #contact {
@@ -466,13 +470,86 @@ padding-right: 97px;
     margin: 30px 2px;
 }
 
-.footer {
-	height: 263px;
-	width: 100%;
+.footer{
+	height: 300px;
 	background-color: #000000;
-	padding-top: 1px;
+	color:#FFFFFF;
 }
 
-.piroll {
-	
+.copyright h5{
+	font-size: 18px;
+}
+
+.copyright p{
+	font-size: 15px;
+}
+
+.copyright {
+float: left;
+    margin-left: 95px;
+    margin-top: 90px;
+}
+
+
+
+.email_contact {
+	    color: #FFFFFF;
+    text-decoration: none;
+    float: left;
+    margin-top: 90px;
+    padding-left: 365px;
+	font-size: 15px;
+}
+
+.email_contact a{
+	color: #FFFFFF;
+}
+
+.menufoot {
+	    float: left;
+    color: #FFFFFF;
+    font-size: 15px;
+    margin-top: 90px;
+    margin-left: 150px;
+	display: flex;
+}
+
+.padleft{
+	padding-left:10px;
+}
+
+.menufoot ul li{
+	text-decoration: none;
+	list-style-type: none;
+}
+
+.menufoot ul li a{
+	color: #FFFFFF;
+}
+
+.socialmedia {
+	    float: left;
+    color: #FFFFFF;
+    font-size: 15px;
+    margin-top: 90px;
+    margin-left: 150px;
+}
+
+.socialmedia ul li{
+	text-decoration: none;
+	list-style-type: none;
+}
+
+.socialmedia ul li a{
+	color: #FFFFFF;
+}
+
+
+
+.stat {
+	    display: inline-block;
+    width: 20%;
+    /* text-align: center; */
+    margin-left: 3.5%;
+    margin-top: 4.2%;
 }
