@@ -49,11 +49,25 @@ ul {
 }
 
 .top {
-	height: 100px;
-    width: 1170px;
-    border-bottom: 1px solid #515369;
+    height: 100px;
+    width: 100%;
+/*    border-bottom: 1px solid #515369;*/
     margin: 0 auto;
+    padding-left: 35px;
+    padding-right: 43px;
 }
+
+.top:before {
+   content: "";
+    position: absolute;
+    left: 35px;
+    /* bottom: 46px; */
+    height: 15px;
+    width: 93.8%;
+    border-bottom: 1px solid #726E97;
+    top: 70px;
+}
+
 
 .header img{
 	
