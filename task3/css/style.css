@@ -1309,6 +1309,10 @@ margin-left: 250px;
 		display: none;
 	}
 	
+	.socmed{
+		display: inline-flex;
+	}
+	
 	.gp{
 		width: 40px;
 		height: 40px;
