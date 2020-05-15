@@ -703,6 +703,7 @@ margin-left: 250px;
 		border-top: 1px solid #333;
 		text-decoration: none;
 		color: #FFFFFF;
+		  line-height: 1.2;
 	  }
 
 	  /* Toggle Show/Hide Menu */
@@ -1204,17 +1205,16 @@ margin-left: 250px;
 	}
 
 	  /* Break down menu items into vertical */
-	  #hamitems a {
-		box-sizing: border-box;
-		display: block;
-		width: 100%;
-		border-top: 1px solid #333;
-		text-decoration: none;
-		color: #FFFFFF;
-	  }
-
+	 #hamitems a {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-top: 1px solid #333;
+    text-decoration: none;
+    color: #FFFFFF;
+}
 	  /* Toggle Show/Hide Menu */
-	  #hamitems { display: none; }
+	  #hamitems { display: none;}
 	  #hamnav input:checked ~ #hamitems { display: block; text-align: right;}
 	
 	.tab{
