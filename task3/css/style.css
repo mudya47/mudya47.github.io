@@ -987,7 +987,19 @@ margin-left: 250px;
 	
 	.dots {
 		text-align: center;
-		margin-top: 65px;
+		margin-top: 50px;
+	}
+	
+	.mb60{
+		margin-bottom: 157px;
+	}
+	
+	.mb124 {
+		margin-bottom: 120px;
+	}
+	
+	.mb123 {
+		margin-bottom: 121px;
 	}
 	
 	#download {
