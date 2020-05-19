@@ -69,12 +69,19 @@ ul {
 }
 
 .navigation a{
-	    text-decoration: none;
-    font-family: Raleway;
-    font-size: 13px;
-    font-weight: bold;
-    color: #cccdd3;
-    padding-left: 60px;
+	
+	font-family: Raleway;
+	font-size: 13px;
+	font-weight: bold;
+	color: #cccdd3;
+	padding-left: 0;
+	margin-left: 60px;
+	text-decoration: underline;
+}
+
+.navigation a:hover{
+	text-decoration: none;
+	color:#AEC408;
 }
 
 .masthead{
