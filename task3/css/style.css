@@ -1179,9 +1179,12 @@ margin-left: 250px;
 
 /*TAB*/
 @media screen and (min-width: 415px) and (max-width: 768px){
+	.wrapper{
+		width: 768px;
+	}
 	.top {
 		height: 100px;
-		width: 692px;
+		width: auto;
 		border-bottom: 1px solid #515369;
 		margin: 0 auto;
 	}
@@ -1194,7 +1197,7 @@ margin-left: 250px;
 		display: inline;
 		float: right;
 		clear: both;
-		padding-left: 380px;
+		padding-left: 420px;
 		margin-top: 25px;
 		z-index: 99999;
 		position: absolute;
@@ -1419,4 +1422,88 @@ margin-left: 250px;
 		width: 40px;
 		height: 40px;
 	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1169px){
+	
+	
+	.box{
+		display: inline-block;
+		float: unset;
+		margin-left: 0px;
+	}
+	.t1 {
+    margin-top: 101px;
+    
+}
+	.t2 {
+    margin-top: 101px;
+    
+    
+}
+	.t3 {
+    margin-top: 101px;
+    
+    
+}
+	.t4 {
+    margin-top: 101px;
+   
+}
+	#team {
+     width: unset; 
+    height: 1400px;
+    margin: 0 auto;
+		text-align: center;
+}
+	.container {
+    width: unset;
+    margin: 0 auto;
+		text-align: center;
+}
+	.loc {
+    
+    color: #f2f2f5;
+    text-align: center;
+    
+    margin-top: 66px;
+}
+	.media {
+    
+    color: #f2f2f5;
+    text-align: center;
+    
+    margin-top: 66px;
+}
+	.about {
+   
+    color: #f2f2f5;
+    text-align: center;
+    
+    margin-top: 66px;
+}
+	.pr{
+		padding-right: 10px;
+	}
+	.col {
+    width: auto; 
+    margin-left: 0px; 
+    margin-top: 121px;
+    float: unset;
+    /* text-align: center; */
+		display: inline-block;
+}
+	#feature{
+		width: auto;
+		text-align: center;
+	}
+	.top {
+		width: auto;
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+	.wrap{
+		width: auto;
+	}
+	
 }
