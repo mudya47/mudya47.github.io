@@ -76,11 +76,11 @@ ul {
 	color: #cccdd3;
 	padding-left: 0;
 	margin-left: 60px;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .navigation a:hover{
-	text-decoration: none;
+	text-decoration: underline;
 	color:#AEC408;
 }
 
