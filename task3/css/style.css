@@ -1223,7 +1223,7 @@ margin-left: 250px;
 
 
 /*TAB*/
-@media screen and (min-width: 415px) and (max-width: 767px){
+@media screen and (min-width: 415px) and (max-width: 768px){
 	.wrapper{
 		width: 768px;
 	}
