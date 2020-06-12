@@ -264,17 +264,71 @@ body{
 	
 }
 .reason_item3 .title{
-	color: #d0102c;
+	    color: #d0102c;
     font-size: 1.625em;
-    margin-top: 17px;
+    margin-top: 18px;
     margin-left: 60px;
+    text-align: center;
+    margin-right: 60px;
+    line-height: 1.4;
+	margin-bottom: 0px;
 }
 .reason_item3 .des{
 	font-size: 1em;
-    margin-left: 25px;
-    margin-top: 34px;
-    margin-right: 10px;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-right: 25px;
 }
 .reason_item3 img{
 	margin-left: 80px;
+}
+.banner{
+	text-align: center;
+}
+.banner img{
+	margin-top: 15px;
+}
+.heading_lv3{
+	background-image: url(../images/images/Lv3_10.jpg);
+    background-repeat: no-repeat;
+    margin-top: 60px;
+    margin-left: 10px;
+}
+.heading_lv3 h2{
+	margin-left: 30px;
+	font-size: 1.75em;
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+.question li a{
+	text-decoration: none;
+	font-size: 1.125em;
+}
+.question li a:hover{
+	text-decoration: underline;
+}
+
+.question li{
+	line-height: 1.7;
+	list-style: none;
+}
+li:before {
+  content: 'Q. ';
+	font-size: 21px;
+	color: #e6808e;
+	font-weight: bold;
+}
+.block_question .question{
+	padding-left: 12px;
+}
+.btn_question{
+	text-align: center;
+}
+.btn_question button{
+	text-align: center;
+    padding: 17px 40px;
+    margin-top: 5px;
+	font-size: 1.1250em;
+	font-weight: bold;
+	background-color: #ffffff;
 }
