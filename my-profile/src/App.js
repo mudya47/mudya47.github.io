@@ -1,6 +1,7 @@
 import './App.css';
 import Content from './Content';
 import Header from './Header';
+import ToTop from './ToTop';
 
 import './Content.css'
 
@@ -11,6 +12,7 @@ function App() {
         <Header />
       </header>
       <Content />
+      <ToTop />
     </div>
   );
 }
