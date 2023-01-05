@@ -88,7 +88,7 @@
     border-top-style: dotted;
 }
 
-@media only screen and (min-width: 548px) and (max-width:633px) {
+@media only screen and (max-width:633px) {
     .intro{
         padding: 10px 10px;
     }
@@ -115,6 +115,8 @@
         grid-template-rows: 0.25fr;
         grid-template-columns: none;
         text-align: center;
-
+    }
+    .fs-4vw{
+        font-size: 4vw;
     }
 }
