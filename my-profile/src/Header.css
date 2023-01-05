@@ -1,0 +1,26 @@
+.header {
+    overflow: hidden;
+    
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 1;
+}
+.d-flex.navBar{
+    background: rgba(13,56,67,.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+.d-flex.navBar p{
+    font-size: 30px;
+}
+.d-flex.navBar p:not(:last-child){
+    padding-right: 30px;
+}
+.navBar a{
+    text-decoration: none;
+    color: #e37b3f;
+}
+.navBar a:hover{
+    color: #e37b3f;
+}
