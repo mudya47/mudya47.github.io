@@ -18,14 +18,10 @@
     padding-right: 30px;
 }
 .navBar a{
+    font-size: 23px;
     text-decoration: none;
     color: #e37b3f;
 }
 .navBar a:hover{
     color: #e37b3f;
-}
-@media only screen and (max-width:500px) {
-    .d-flex.navBar{
-        padding: 0 10px ;
-    }
 }
