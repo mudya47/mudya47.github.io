@@ -3,8 +3,8 @@ import React from 'react';
 function Edu(){
     return(
         
-            <div class="contents border-top mw-1024" id="edu">
-                <div class="grid">
+            <div class="contents mw-1024" id="edu">
+                <div class="grid p-lr-20">
                     <div class="left">
                         <h2>Education</h2>
                     </div>

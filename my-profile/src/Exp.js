@@ -5,7 +5,7 @@ function Exp(){
         <>
         <div class="contents border-top mw-1024" id="exp">
             
-            <div class="grid">
+            <div class="grid p-lr-20">
                 <div class="left">
                 <h2>Work Experience</h2>
                 <p class="heading t-center mt-20">Transcosmos Indonesia<br></br>

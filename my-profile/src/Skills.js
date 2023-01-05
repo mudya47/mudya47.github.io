@@ -4,7 +4,7 @@ function Skills(){
     return(
         <>
         <div class="contents border-top mw-1024" id="skill">
-            <div class="grid-3">
+            <div class="grid-3 p-lr-20">
                 <div class="left">
                     <h2>Skills</h2>
                 </div>
