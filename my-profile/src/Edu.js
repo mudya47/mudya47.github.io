@@ -3,7 +3,7 @@ import React from 'react';
 function Edu(){
     return(
         
-            <div class="contents" id="edu">
+            <div class="contents border-top" id="edu">
                 <div class="grid">
                     <div class="left">
                         <h2>Education</h2>
