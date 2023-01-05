@@ -9,7 +9,7 @@
 .intro{
     position: absolute;
     padding: 10px 30px;
-    top: 50%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -86,4 +86,35 @@
 .border-top{
     border-top: 1px solid;
     border-top-style: dotted;
+}
+
+@media only screen and (min-width: 548px) and (max-width:633px) {
+    .intro{
+        padding: 10px 10px;
+    }
+    .flex-flow-column-sp {
+        flex-flow: column;
+    }
+    .left.pr-0 {
+        padding-right: 0px;
+    }
+    .flex-width-30{
+        max-width: 100%;
+    }
+    .flex-width-70{
+        max-width: 100%;
+    }
+    .contents .grid{
+        grid-template-rows: 0.5fr;
+        grid-template-columns: none;
+    }
+    .grid ul{
+        margin-left: 20px;
+    }
+    .contents .grid-3{
+        grid-template-rows: 0.25fr;
+        grid-template-columns: none;
+        text-align: center;
+
+    }
 }

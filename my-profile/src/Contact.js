@@ -5,7 +5,7 @@ import Email from './Email';
 
 function Contact() {
   return(
-    <div class="contents border-top">
+    <div class="contents border-top mw-1024">
         <h2>Contact Me on</h2>
         <div class="d-flex content-center">
             <div class="left pr-50">

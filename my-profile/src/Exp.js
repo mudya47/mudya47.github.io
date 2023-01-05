@@ -3,7 +3,7 @@ import React from 'react';
 function Exp(){
     return(
         <>
-        <div class="contents border-top" id="exp">
+        <div class="contents border-top mw-1024" id="exp">
             
             <div class="grid">
                 <div class="left">

@@ -5,8 +5,8 @@ function About(){
     return(
             <div class="contents mw-1024">
                 <h2  id="about">About me</h2>
-                <div class="d-flex">
-                    <div class="left flex-width-30 img-100">
+                <div class="d-flex flex-flow-column-sp">
+                    <div class="left flex-width-30 img-100 mb-20 pr-0">
                         <img src={profile} alt="" width="" height=""></img>
                     </div>
                     <div class="right flex-width-70">
