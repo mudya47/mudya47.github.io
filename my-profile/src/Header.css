@@ -14,7 +14,7 @@
     font-size: 30px;
 }
 .d-flex.navBar p:not(:last-child){
-    padding-right: 30px;
+    padding-right: 15px;
 }
 .navBar a{
     font-size: 23px;
