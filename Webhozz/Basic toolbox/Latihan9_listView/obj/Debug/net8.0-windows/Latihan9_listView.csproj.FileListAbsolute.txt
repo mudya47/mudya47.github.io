@@ -1,0 +1,16 @@
+D:\Webhozz\Basic toolbox\Latihan9_listView\bin\Debug\net8.0-windows\Latihan9_listView.exe
+D:\Webhozz\Basic toolbox\Latihan9_listView\bin\Debug\net8.0-windows\Latihan9_listView.deps.json
+D:\Webhozz\Basic toolbox\Latihan9_listView\bin\Debug\net8.0-windows\Latihan9_listView.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan9_listView\bin\Debug\net8.0-windows\Latihan9_listView.dll
+D:\Webhozz\Basic toolbox\Latihan9_listView\bin\Debug\net8.0-windows\Latihan9_listView.pdb
+D:\Webhozz\Basic toolbox\Latihan9_listView\obj\Debug\net8.0-windows\Latihan9_listView.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan9_listView\obj\Debug\net8.0-windows\Latihan9_listView.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan9_listView\obj\Debug\net8.0-windows\Latihan9_listView.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan9_listView\obj\Debug\net8.0-windows\Latihan9_listView.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan9_listView\obj\Debug\net8.0-windows\Latihan9_listView.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan9_listView\obj\Debug\net8.0-windows\Latihan9_listView.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan9_listView\obj\Debug\net8.0-windows\Latihan9_listView.dll
+D:\Webhozz\Basic toolbox\Latihan9_listView\obj\Debug\net8.0-windows\refint\Latihan9_listView.dll
+D:\Webhozz\Basic toolbox\Latihan9_listView\obj\Debug\net8.0-windows\Latihan9_listView.pdb
+D:\Webhozz\Basic toolbox\Latihan9_listView\obj\Debug\net8.0-windows\Latihan9_listView.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan9_listView\obj\Debug\net8.0-windows\ref\Latihan9_listView.dll

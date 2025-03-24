@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Latihan6_listbox/1.0.0": {
+        "runtime": {
+          "Latihan6_listbox.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Latihan6_listbox/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

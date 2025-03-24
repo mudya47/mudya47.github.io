@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Latihan11_messageBox/1.0.0": {
+        "runtime": {
+          "Latihan11_messageBox.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Latihan11_messageBox/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

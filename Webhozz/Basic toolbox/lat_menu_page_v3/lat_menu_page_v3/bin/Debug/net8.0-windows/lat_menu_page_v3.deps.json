@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "lat_menu_page_v3/1.0.0": {
+        "runtime": {
+          "lat_menu_page_v3.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "lat_menu_page_v3/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

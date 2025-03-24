@@ -1,0 +1,14 @@
+D:\Webhozz\Basic C#\Latihan4_Perulangan\obj\Debug\net8.0\Latihan4_Perulangan.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic C#\Latihan4_Perulangan\obj\Debug\net8.0\Latihan4_Perulangan.AssemblyInfoInputs.cache
+D:\Webhozz\Basic C#\Latihan4_Perulangan\obj\Debug\net8.0\Latihan4_Perulangan.AssemblyInfo.cs
+D:\Webhozz\Basic C#\Latihan4_Perulangan\obj\Debug\net8.0\Latihan4_Perulangan.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic C#\Latihan4_Perulangan\bin\Debug\net8.0\Latihan4_Perulangan.exe
+D:\Webhozz\Basic C#\Latihan4_Perulangan\bin\Debug\net8.0\Latihan4_Perulangan.deps.json
+D:\Webhozz\Basic C#\Latihan4_Perulangan\bin\Debug\net8.0\Latihan4_Perulangan.runtimeconfig.json
+D:\Webhozz\Basic C#\Latihan4_Perulangan\bin\Debug\net8.0\Latihan4_Perulangan.dll
+D:\Webhozz\Basic C#\Latihan4_Perulangan\bin\Debug\net8.0\Latihan4_Perulangan.pdb
+D:\Webhozz\Basic C#\Latihan4_Perulangan\obj\Debug\net8.0\Latihan4_Perulangan.dll
+D:\Webhozz\Basic C#\Latihan4_Perulangan\obj\Debug\net8.0\refint\Latihan4_Perulangan.dll
+D:\Webhozz\Basic C#\Latihan4_Perulangan\obj\Debug\net8.0\Latihan4_Perulangan.pdb
+D:\Webhozz\Basic C#\Latihan4_Perulangan\obj\Debug\net8.0\Latihan4_Perulangan.genruntimeconfig.cache
+D:\Webhozz\Basic C#\Latihan4_Perulangan\obj\Debug\net8.0\ref\Latihan4_Perulangan.dll

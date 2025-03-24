@@ -1,0 +1,14 @@
+D:\Webhozz\Basic C#\Latihan6_List\bin\Debug\net8.0\Latihan6_List.exe
+D:\Webhozz\Basic C#\Latihan6_List\bin\Debug\net8.0\Latihan6_List.deps.json
+D:\Webhozz\Basic C#\Latihan6_List\bin\Debug\net8.0\Latihan6_List.runtimeconfig.json
+D:\Webhozz\Basic C#\Latihan6_List\bin\Debug\net8.0\Latihan6_List.dll
+D:\Webhozz\Basic C#\Latihan6_List\bin\Debug\net8.0\Latihan6_List.pdb
+D:\Webhozz\Basic C#\Latihan6_List\obj\Debug\net8.0\Latihan6_List.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic C#\Latihan6_List\obj\Debug\net8.0\Latihan6_List.AssemblyInfoInputs.cache
+D:\Webhozz\Basic C#\Latihan6_List\obj\Debug\net8.0\Latihan6_List.AssemblyInfo.cs
+D:\Webhozz\Basic C#\Latihan6_List\obj\Debug\net8.0\Latihan6_List.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic C#\Latihan6_List\obj\Debug\net8.0\Latihan6_List.dll
+D:\Webhozz\Basic C#\Latihan6_List\obj\Debug\net8.0\refint\Latihan6_List.dll
+D:\Webhozz\Basic C#\Latihan6_List\obj\Debug\net8.0\Latihan6_List.pdb
+D:\Webhozz\Basic C#\Latihan6_List\obj\Debug\net8.0\Latihan6_List.genruntimeconfig.cache
+D:\Webhozz\Basic C#\Latihan6_List\obj\Debug\net8.0\ref\Latihan6_List.dll

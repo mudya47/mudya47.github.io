@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Latihan8.1_class_object_oop/1.0.0": {
+        "runtime": {
+          "Latihan8.1_class_object_oop.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Latihan8.1_class_object_oop/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

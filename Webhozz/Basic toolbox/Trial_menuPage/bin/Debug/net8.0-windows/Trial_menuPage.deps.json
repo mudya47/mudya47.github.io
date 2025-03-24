@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Trial_menuPage/1.0.0": {
+        "runtime": {
+          "Trial_menuPage.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Trial_menuPage/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

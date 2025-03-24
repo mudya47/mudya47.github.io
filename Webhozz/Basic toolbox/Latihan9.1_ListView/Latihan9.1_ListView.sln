@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Latihan9.1_ListView", "Latihan9.1_ListView.csproj", "{27998424-DB83-4A76-812E-94C1FF494FE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27998424-DB83-4A76-812E-94C1FF494FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27998424-DB83-4A76-812E-94C1FF494FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27998424-DB83-4A76-812E-94C1FF494FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27998424-DB83-4A76-812E-94C1FF494FE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1FECAD2-194C-488A-B762-149A8D67F2D5}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,17 @@
+D:\Webhozz\Study case\StudyCase2_ListCrud\bin\Debug\net8.0-windows\StudyCase2_ListCrud.exe
+D:\Webhozz\Study case\StudyCase2_ListCrud\bin\Debug\net8.0-windows\StudyCase2_ListCrud.deps.json
+D:\Webhozz\Study case\StudyCase2_ListCrud\bin\Debug\net8.0-windows\StudyCase2_ListCrud.runtimeconfig.json
+D:\Webhozz\Study case\StudyCase2_ListCrud\bin\Debug\net8.0-windows\StudyCase2_ListCrud.dll
+D:\Webhozz\Study case\StudyCase2_ListCrud\bin\Debug\net8.0-windows\StudyCase2_ListCrud.pdb
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\StudyCase2_ListCrud.Form1.resources
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\StudyCase2_ListCrud.csproj.GenerateResource.cache
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\StudyCase2_ListCrud.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\StudyCase2_ListCrud.AssemblyInfoInputs.cache
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\StudyCase2_ListCrud.AssemblyInfo.cs
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\StudyCase2_ListCrud.csproj.CoreCompileInputs.cache
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\StudyCase2_ListCrud.dll
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\refint\StudyCase2_ListCrud.dll
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\StudyCase2_ListCrud.pdb
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\StudyCase2_ListCrud.genruntimeconfig.cache
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\ref\StudyCase2_ListCrud.dll
+D:\Webhozz\Study case\StudyCase2_ListCrud\obj\Debug\net8.0-windows\StudyCase2_ListCrud.CreateEditForm.resources

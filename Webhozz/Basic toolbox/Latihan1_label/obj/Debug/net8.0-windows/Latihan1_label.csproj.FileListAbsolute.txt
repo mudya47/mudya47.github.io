@@ -1,0 +1,17 @@
+D:\Webhozz\Basic toolbox\Latihan1_label\bin\Debug\net8.0-windows\Latihan1_label.exe
+D:\Webhozz\Basic toolbox\Latihan1_label\bin\Debug\net8.0-windows\Latihan1_label.deps.json
+D:\Webhozz\Basic toolbox\Latihan1_label\bin\Debug\net8.0-windows\Latihan1_label.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan1_label\bin\Debug\net8.0-windows\Latihan1_label.dll
+D:\Webhozz\Basic toolbox\Latihan1_label\bin\Debug\net8.0-windows\Latihan1_label.pdb
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\Latihan1_label.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\Latihan1_label.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\Latihan1_label.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\Latihan1_label.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\Latihan1_label.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\Latihan1_label.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\Latihan1_label.dll
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\refint\Latihan1_label.dll
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\Latihan1_label.pdb
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\Latihan1_label.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\ref\Latihan1_label.dll
+D:\Webhozz\Basic toolbox\Latihan1_label\obj\Debug\net8.0-windows\Latihan1_label.Form2.resources

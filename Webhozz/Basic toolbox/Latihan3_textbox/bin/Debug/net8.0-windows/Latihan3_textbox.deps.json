@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Latihan3_textbox/1.0.0": {
+        "runtime": {
+          "Latihan3_textbox.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Latihan3_textbox/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,16 @@
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\bin\Debug\net8.0-windows\Latihan11_messageBox.exe
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\bin\Debug\net8.0-windows\Latihan11_messageBox.deps.json
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\bin\Debug\net8.0-windows\Latihan11_messageBox.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\bin\Debug\net8.0-windows\Latihan11_messageBox.dll
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\bin\Debug\net8.0-windows\Latihan11_messageBox.pdb
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\obj\Debug\net8.0-windows\Latihan11_messageBox.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\obj\Debug\net8.0-windows\Latihan11_messageBox.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\obj\Debug\net8.0-windows\Latihan11_messageBox.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\obj\Debug\net8.0-windows\Latihan11_messageBox.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\obj\Debug\net8.0-windows\Latihan11_messageBox.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\obj\Debug\net8.0-windows\Latihan11_messageBox.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\obj\Debug\net8.0-windows\Latihan11_messageBox.dll
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\obj\Debug\net8.0-windows\refint\Latihan11_messageBox.dll
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\obj\Debug\net8.0-windows\Latihan11_messageBox.pdb
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\obj\Debug\net8.0-windows\Latihan11_messageBox.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan11_messageBox\obj\Debug\net8.0-windows\ref\Latihan11_messageBox.dll

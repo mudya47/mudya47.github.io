@@ -1,0 +1,14 @@
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\bin\Debug\net8.0\Latihan8.1_class_object_oop.exe
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\bin\Debug\net8.0\Latihan8.1_class_object_oop.deps.json
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\bin\Debug\net8.0\Latihan8.1_class_object_oop.runtimeconfig.json
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\bin\Debug\net8.0\Latihan8.1_class_object_oop.dll
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\bin\Debug\net8.0\Latihan8.1_class_object_oop.pdb
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\obj\Debug\net8.0\Latihan8.1_class_object_oop.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\obj\Debug\net8.0\Latihan8.1_class_object_oop.AssemblyInfoInputs.cache
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\obj\Debug\net8.0\Latihan8.1_class_object_oop.AssemblyInfo.cs
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\obj\Debug\net8.0\Latihan8.1_class_object_oop.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\obj\Debug\net8.0\Latihan8.1_class_object_oop.dll
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\obj\Debug\net8.0\refint\Latihan8.1_class_object_oop.dll
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\obj\Debug\net8.0\Latihan8.1_class_object_oop.pdb
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\obj\Debug\net8.0\Latihan8.1_class_object_oop.genruntimeconfig.cache
+D:\Webhozz\Basic C#\OOP\Latihan8.1_class_object_oop\obj\Debug\net8.0\ref\Latihan8.1_class_object_oop.dll

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Latihan10_menuStrip/1.0.0": {
+        "runtime": {
+          "Latihan10_menuStrip.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Latihan10_menuStrip/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

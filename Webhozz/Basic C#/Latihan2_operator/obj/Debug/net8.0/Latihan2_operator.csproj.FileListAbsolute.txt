@@ -1,0 +1,14 @@
+D:\Webhozz\Basic C#\Latihan2_operator\bin\Debug\net8.0\Latihan2_operator.exe
+D:\Webhozz\Basic C#\Latihan2_operator\bin\Debug\net8.0\Latihan2_operator.deps.json
+D:\Webhozz\Basic C#\Latihan2_operator\bin\Debug\net8.0\Latihan2_operator.runtimeconfig.json
+D:\Webhozz\Basic C#\Latihan2_operator\bin\Debug\net8.0\Latihan2_operator.dll
+D:\Webhozz\Basic C#\Latihan2_operator\bin\Debug\net8.0\Latihan2_operator.pdb
+D:\Webhozz\Basic C#\Latihan2_operator\obj\Debug\net8.0\Latihan2_operator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic C#\Latihan2_operator\obj\Debug\net8.0\Latihan2_operator.AssemblyInfoInputs.cache
+D:\Webhozz\Basic C#\Latihan2_operator\obj\Debug\net8.0\Latihan2_operator.AssemblyInfo.cs
+D:\Webhozz\Basic C#\Latihan2_operator\obj\Debug\net8.0\Latihan2_operator.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic C#\Latihan2_operator\obj\Debug\net8.0\Latihan2_operator.dll
+D:\Webhozz\Basic C#\Latihan2_operator\obj\Debug\net8.0\refint\Latihan2_operator.dll
+D:\Webhozz\Basic C#\Latihan2_operator\obj\Debug\net8.0\Latihan2_operator.pdb
+D:\Webhozz\Basic C#\Latihan2_operator\obj\Debug\net8.0\Latihan2_operator.genruntimeconfig.cache
+D:\Webhozz\Basic C#\Latihan2_operator\obj\Debug\net8.0\ref\Latihan2_operator.dll

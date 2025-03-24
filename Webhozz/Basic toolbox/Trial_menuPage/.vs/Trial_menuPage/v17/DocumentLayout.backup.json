@@ -1,0 +1,93 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Webhozz\\Basic toolbox\\Trial_menuPage\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD3D4D2-196F-4C81-A6D7-B324B9BBC463}|Trial_menuPage.csproj|d:\\webhozz\\basic toolbox\\trial_menupage\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD3D4D2-196F-4C81-A6D7-B324B9BBC463}|Trial_menuPage.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD3D4D2-196F-4C81-A6D7-B324B9BBC463}|Trial_menuPage.csproj|d:\\webhozz\\basic toolbox\\trial_menupage\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BDD3D4D2-196F-4C81-A6D7-B324B9BBC463}|Trial_menuPage.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD3D4D2-196F-4C81-A6D7-B324B9BBC463}|Trial_menuPage.csproj|d:\\webhozz\\basic toolbox\\trial_menupage\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BDD3D4D2-196F-4C81-A6D7-B324B9BBC463}|Trial_menuPage.csproj|solutionrelative:dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD3D4D2-196F-4C81-A6D7-B324B9BBC463}|Trial_menuPage.csproj|d:\\webhozz\\basic toolbox\\trial_menupage\\contactus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BDD3D4D2-196F-4C81-A6D7-B324B9BBC463}|Trial_menuPage.csproj|solutionrelative:contactus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ContactUs.cs [Design]",
+              "DocumentMoniker": "D:\\Webhozz\\Basic toolbox\\Trial_menuPage\\ContactUs.cs",
+              "RelativeDocumentMoniker": "ContactUs.cs",
+              "ToolTip": "D:\\Webhozz\\Basic toolbox\\Trial_menuPage\\ContactUs.cs [Design]",
+              "RelativeToolTip": "ContactUs.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T03:28:35.845Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DashboardControl.cs [Design]",
+              "DocumentMoniker": "D:\\Webhozz\\Basic toolbox\\Trial_menuPage\\DashboardControl.cs",
+              "RelativeDocumentMoniker": "DashboardControl.cs",
+              "ToolTip": "D:\\Webhozz\\Basic toolbox\\Trial_menuPage\\DashboardControl.cs [Design]",
+              "RelativeToolTip": "DashboardControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T03:27:42.998Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\Webhozz\\Basic toolbox\\Trial_menuPage\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\Webhozz\\Basic toolbox\\Trial_menuPage\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAhwCUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T03:25:37.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\Webhozz\\Basic toolbox\\Trial_menuPage\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\Webhozz\\Basic toolbox\\Trial_menuPage\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T03:24:48.013Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

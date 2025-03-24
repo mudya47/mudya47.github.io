@@ -1,0 +1,93 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A9567B1B-6388-4B02-9FC1-39198040C4B7}|lat_menu_page_v3\\lat_menu_page_v3.csproj|D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A9567B1B-6388-4B02-9FC1-39198040C4B7}|lat_menu_page_v3\\lat_menu_page_v3.csproj|solutionrelative:lat_menu_page_v3\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9567B1B-6388-4B02-9FC1-39198040C4B7}|lat_menu_page_v3\\lat_menu_page_v3.csproj|D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A9567B1B-6388-4B02-9FC1-39198040C4B7}|lat_menu_page_v3\\lat_menu_page_v3.csproj|solutionrelative:lat_menu_page_v3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9567B1B-6388-4B02-9FC1-39198040C4B7}|lat_menu_page_v3\\lat_menu_page_v3.csproj|d:\\webhozz\\basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9567B1B-6388-4B02-9FC1-39198040C4B7}|lat_menu_page_v3\\lat_menu_page_v3.csproj|solutionrelative:lat_menu_page_v3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9567B1B-6388-4B02-9FC1-39198040C4B7}|lat_menu_page_v3\\lat_menu_page_v3.csproj|D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\kendaraancontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A9567B1B-6388-4B02-9FC1-39198040C4B7}|lat_menu_page_v3\\lat_menu_page_v3.csproj|solutionrelative:lat_menu_page_v3\\kendaraancontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\Form1.cs",
+              "RelativeDocumentMoniker": "lat_menu_page_v3\\Form1.cs",
+              "ToolTip": "D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\Form1.cs",
+              "RelativeToolTip": "lat_menu_page_v3\\Form1.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwCUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T10:29:39.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "KendaraanControl.cs [Design]",
+              "DocumentMoniker": "D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\KendaraanControl.cs",
+              "RelativeDocumentMoniker": "lat_menu_page_v3\\KendaraanControl.cs",
+              "ToolTip": "D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\KendaraanControl.cs [Design]",
+              "RelativeToolTip": "lat_menu_page_v3\\KendaraanControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T10:28:49.488Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashboardControl.cs [Design]",
+              "DocumentMoniker": "D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\DashboardControl.cs",
+              "RelativeDocumentMoniker": "lat_menu_page_v3\\DashboardControl.cs",
+              "ToolTip": "D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\DashboardControl.cs [Design]",
+              "RelativeToolTip": "lat_menu_page_v3\\DashboardControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T10:27:21.768Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\Form1.cs",
+              "RelativeDocumentMoniker": "lat_menu_page_v3\\Form1.cs",
+              "ToolTip": "D:\\Webhozz\\Basic toolbox\\lat_menu_page_v3\\lat_menu_page_v3\\Form1.cs [Design]",
+              "RelativeToolTip": "lat_menu_page_v3\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T10:25:29.802Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

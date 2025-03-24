@@ -1,0 +1,16 @@
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\bin\Debug\net8.0-windows\Latihan12_inputForms.exe
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\bin\Debug\net8.0-windows\Latihan12_inputForms.deps.json
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\bin\Debug\net8.0-windows\Latihan12_inputForms.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\bin\Debug\net8.0-windows\Latihan12_inputForms.dll
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\bin\Debug\net8.0-windows\Latihan12_inputForms.pdb
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\obj\Debug\net8.0-windows\Latihan12_inputForms.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\obj\Debug\net8.0-windows\Latihan12_inputForms.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\obj\Debug\net8.0-windows\Latihan12_inputForms.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\obj\Debug\net8.0-windows\Latihan12_inputForms.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\obj\Debug\net8.0-windows\Latihan12_inputForms.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\obj\Debug\net8.0-windows\Latihan12_inputForms.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\obj\Debug\net8.0-windows\Latihan12_inputForms.dll
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\obj\Debug\net8.0-windows\refint\Latihan12_inputForms.dll
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\obj\Debug\net8.0-windows\Latihan12_inputForms.pdb
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\obj\Debug\net8.0-windows\Latihan12_inputForms.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan12_inputForms\obj\Debug\net8.0-windows\ref\Latihan12_inputForms.dll

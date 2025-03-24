@@ -1,0 +1,16 @@
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\bin\Debug\net8.0-windows\Latihan8_dateTimePicker.exe
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\bin\Debug\net8.0-windows\Latihan8_dateTimePicker.deps.json
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\bin\Debug\net8.0-windows\Latihan8_dateTimePicker.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\bin\Debug\net8.0-windows\Latihan8_dateTimePicker.dll
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\bin\Debug\net8.0-windows\Latihan8_dateTimePicker.pdb
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\obj\Debug\net8.0-windows\Latihan8_dateTimePicker.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\obj\Debug\net8.0-windows\Latihan8_dateTimePicker.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\obj\Debug\net8.0-windows\Latihan8_dateTimePicker.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\obj\Debug\net8.0-windows\Latihan8_dateTimePicker.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\obj\Debug\net8.0-windows\Latihan8_dateTimePicker.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\obj\Debug\net8.0-windows\Latihan8_dateTimePicker.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\obj\Debug\net8.0-windows\Latihan8_dateTimePicker.dll
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\obj\Debug\net8.0-windows\refint\Latihan8_dateTimePicker.dll
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\obj\Debug\net8.0-windows\Latihan8_dateTimePicker.pdb
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\obj\Debug\net8.0-windows\Latihan8_dateTimePicker.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan8_dateTimePicker\obj\Debug\net8.0-windows\ref\Latihan8_dateTimePicker.dll

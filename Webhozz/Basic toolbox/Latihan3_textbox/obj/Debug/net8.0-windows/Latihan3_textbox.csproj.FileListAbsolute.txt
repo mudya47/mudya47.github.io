@@ -1,0 +1,16 @@
+D:\Webhozz\Basic toolbox\Latihan3_textbox\bin\Debug\net8.0-windows\Latihan3_textbox.exe
+D:\Webhozz\Basic toolbox\Latihan3_textbox\bin\Debug\net8.0-windows\Latihan3_textbox.deps.json
+D:\Webhozz\Basic toolbox\Latihan3_textbox\bin\Debug\net8.0-windows\Latihan3_textbox.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan3_textbox\bin\Debug\net8.0-windows\Latihan3_textbox.dll
+D:\Webhozz\Basic toolbox\Latihan3_textbox\bin\Debug\net8.0-windows\Latihan3_textbox.pdb
+D:\Webhozz\Basic toolbox\Latihan3_textbox\obj\Debug\net8.0-windows\Latihan3_textbox.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan3_textbox\obj\Debug\net8.0-windows\Latihan3_textbox.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan3_textbox\obj\Debug\net8.0-windows\Latihan3_textbox.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan3_textbox\obj\Debug\net8.0-windows\Latihan3_textbox.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan3_textbox\obj\Debug\net8.0-windows\Latihan3_textbox.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan3_textbox\obj\Debug\net8.0-windows\Latihan3_textbox.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan3_textbox\obj\Debug\net8.0-windows\Latihan3_textbox.dll
+D:\Webhozz\Basic toolbox\Latihan3_textbox\obj\Debug\net8.0-windows\refint\Latihan3_textbox.dll
+D:\Webhozz\Basic toolbox\Latihan3_textbox\obj\Debug\net8.0-windows\Latihan3_textbox.pdb
+D:\Webhozz\Basic toolbox\Latihan3_textbox\obj\Debug\net8.0-windows\Latihan3_textbox.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan3_textbox\obj\Debug\net8.0-windows\ref\Latihan3_textbox.dll

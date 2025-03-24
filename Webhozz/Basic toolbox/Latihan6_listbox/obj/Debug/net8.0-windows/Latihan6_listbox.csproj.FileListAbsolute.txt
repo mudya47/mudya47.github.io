@@ -1,0 +1,16 @@
+D:\Webhozz\Basic toolbox\Latihan6_listbox\bin\Debug\net8.0-windows\Latihan6_listbox.exe
+D:\Webhozz\Basic toolbox\Latihan6_listbox\bin\Debug\net8.0-windows\Latihan6_listbox.deps.json
+D:\Webhozz\Basic toolbox\Latihan6_listbox\bin\Debug\net8.0-windows\Latihan6_listbox.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan6_listbox\bin\Debug\net8.0-windows\Latihan6_listbox.dll
+D:\Webhozz\Basic toolbox\Latihan6_listbox\bin\Debug\net8.0-windows\Latihan6_listbox.pdb
+D:\Webhozz\Basic toolbox\Latihan6_listbox\obj\Debug\net8.0-windows\Latihan6_listbox.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan6_listbox\obj\Debug\net8.0-windows\Latihan6_listbox.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan6_listbox\obj\Debug\net8.0-windows\Latihan6_listbox.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan6_listbox\obj\Debug\net8.0-windows\Latihan6_listbox.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan6_listbox\obj\Debug\net8.0-windows\Latihan6_listbox.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan6_listbox\obj\Debug\net8.0-windows\Latihan6_listbox.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan6_listbox\obj\Debug\net8.0-windows\Latihan6_listbox.dll
+D:\Webhozz\Basic toolbox\Latihan6_listbox\obj\Debug\net8.0-windows\refint\Latihan6_listbox.dll
+D:\Webhozz\Basic toolbox\Latihan6_listbox\obj\Debug\net8.0-windows\Latihan6_listbox.pdb
+D:\Webhozz\Basic toolbox\Latihan6_listbox\obj\Debug\net8.0-windows\Latihan6_listbox.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan6_listbox\obj\Debug\net8.0-windows\ref\Latihan6_listbox.dll

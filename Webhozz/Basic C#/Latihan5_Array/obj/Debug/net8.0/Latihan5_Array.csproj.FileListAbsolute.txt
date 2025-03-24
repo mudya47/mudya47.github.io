@@ -1,0 +1,14 @@
+D:\Webhozz\Basic C#\Latihan5_Array\bin\Debug\net8.0\Latihan5_Array.exe
+D:\Webhozz\Basic C#\Latihan5_Array\bin\Debug\net8.0\Latihan5_Array.deps.json
+D:\Webhozz\Basic C#\Latihan5_Array\bin\Debug\net8.0\Latihan5_Array.runtimeconfig.json
+D:\Webhozz\Basic C#\Latihan5_Array\bin\Debug\net8.0\Latihan5_Array.dll
+D:\Webhozz\Basic C#\Latihan5_Array\bin\Debug\net8.0\Latihan5_Array.pdb
+D:\Webhozz\Basic C#\Latihan5_Array\obj\Debug\net8.0\Latihan5_Array.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic C#\Latihan5_Array\obj\Debug\net8.0\Latihan5_Array.AssemblyInfoInputs.cache
+D:\Webhozz\Basic C#\Latihan5_Array\obj\Debug\net8.0\Latihan5_Array.AssemblyInfo.cs
+D:\Webhozz\Basic C#\Latihan5_Array\obj\Debug\net8.0\Latihan5_Array.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic C#\Latihan5_Array\obj\Debug\net8.0\Latihan5_Array.dll
+D:\Webhozz\Basic C#\Latihan5_Array\obj\Debug\net8.0\refint\Latihan5_Array.dll
+D:\Webhozz\Basic C#\Latihan5_Array\obj\Debug\net8.0\Latihan5_Array.pdb
+D:\Webhozz\Basic C#\Latihan5_Array\obj\Debug\net8.0\Latihan5_Array.genruntimeconfig.cache
+D:\Webhozz\Basic C#\Latihan5_Array\obj\Debug\net8.0\ref\Latihan5_Array.dll

@@ -1,0 +1,14 @@
+D:\Webhozz\Basic C#\Latihan7_Method\bin\Debug\net8.0\Latihan7_Method.exe
+D:\Webhozz\Basic C#\Latihan7_Method\bin\Debug\net8.0\Latihan7_Method.deps.json
+D:\Webhozz\Basic C#\Latihan7_Method\bin\Debug\net8.0\Latihan7_Method.runtimeconfig.json
+D:\Webhozz\Basic C#\Latihan7_Method\bin\Debug\net8.0\Latihan7_Method.dll
+D:\Webhozz\Basic C#\Latihan7_Method\bin\Debug\net8.0\Latihan7_Method.pdb
+D:\Webhozz\Basic C#\Latihan7_Method\obj\Debug\net8.0\Latihan7_Method.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic C#\Latihan7_Method\obj\Debug\net8.0\Latihan7_Method.AssemblyInfoInputs.cache
+D:\Webhozz\Basic C#\Latihan7_Method\obj\Debug\net8.0\Latihan7_Method.AssemblyInfo.cs
+D:\Webhozz\Basic C#\Latihan7_Method\obj\Debug\net8.0\Latihan7_Method.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic C#\Latihan7_Method\obj\Debug\net8.0\Latihan7_Method.dll
+D:\Webhozz\Basic C#\Latihan7_Method\obj\Debug\net8.0\refint\Latihan7_Method.dll
+D:\Webhozz\Basic C#\Latihan7_Method\obj\Debug\net8.0\Latihan7_Method.pdb
+D:\Webhozz\Basic C#\Latihan7_Method\obj\Debug\net8.0\Latihan7_Method.genruntimeconfig.cache
+D:\Webhozz\Basic C#\Latihan7_Method\obj\Debug\net8.0\ref\Latihan7_Method.dll

@@ -1,0 +1,17 @@
+D:\Webhozz\Basic toolbox\Latihan5_Image\bin\Debug\net8.0-windows\Latihan5_Image.exe
+D:\Webhozz\Basic toolbox\Latihan5_Image\bin\Debug\net8.0-windows\Latihan5_Image.deps.json
+D:\Webhozz\Basic toolbox\Latihan5_Image\bin\Debug\net8.0-windows\Latihan5_Image.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan5_Image\bin\Debug\net8.0-windows\Latihan5_Image.dll
+D:\Webhozz\Basic toolbox\Latihan5_Image\bin\Debug\net8.0-windows\Latihan5_Image.pdb
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\Latihan5_Image.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\Latihan5_Image.Properties.Resources.resources
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\Latihan5_Image.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\Latihan5_Image.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\Latihan5_Image.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\Latihan5_Image.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\Latihan5_Image.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\Latihan5_Image.dll
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\refint\Latihan5_Image.dll
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\Latihan5_Image.pdb
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\Latihan5_Image.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan5_Image\obj\Debug\net8.0-windows\ref\Latihan5_Image.dll

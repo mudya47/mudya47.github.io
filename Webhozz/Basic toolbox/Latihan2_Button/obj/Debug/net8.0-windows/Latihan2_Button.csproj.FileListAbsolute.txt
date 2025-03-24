@@ -1,0 +1,16 @@
+D:\Webhozz\Basic toolbox\Latihan2_Button\bin\Debug\net8.0-windows\Latihan2_Button.exe
+D:\Webhozz\Basic toolbox\Latihan2_Button\bin\Debug\net8.0-windows\Latihan2_Button.deps.json
+D:\Webhozz\Basic toolbox\Latihan2_Button\bin\Debug\net8.0-windows\Latihan2_Button.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan2_Button\bin\Debug\net8.0-windows\Latihan2_Button.dll
+D:\Webhozz\Basic toolbox\Latihan2_Button\bin\Debug\net8.0-windows\Latihan2_Button.pdb
+D:\Webhozz\Basic toolbox\Latihan2_Button\obj\Debug\net8.0-windows\Latihan2_Button.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan2_Button\obj\Debug\net8.0-windows\Latihan2_Button.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan2_Button\obj\Debug\net8.0-windows\Latihan2_Button.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan2_Button\obj\Debug\net8.0-windows\Latihan2_Button.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan2_Button\obj\Debug\net8.0-windows\Latihan2_Button.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan2_Button\obj\Debug\net8.0-windows\Latihan2_Button.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan2_Button\obj\Debug\net8.0-windows\Latihan2_Button.dll
+D:\Webhozz\Basic toolbox\Latihan2_Button\obj\Debug\net8.0-windows\refint\Latihan2_Button.dll
+D:\Webhozz\Basic toolbox\Latihan2_Button\obj\Debug\net8.0-windows\Latihan2_Button.pdb
+D:\Webhozz\Basic toolbox\Latihan2_Button\obj\Debug\net8.0-windows\Latihan2_Button.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan2_Button\obj\Debug\net8.0-windows\ref\Latihan2_Button.dll

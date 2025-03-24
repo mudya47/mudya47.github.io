@@ -1,0 +1,14 @@
+D:\Webhozz\Basic C#\Latihan3_Percabangan\bin\Debug\net8.0\Latihan3_Percabangan.exe
+D:\Webhozz\Basic C#\Latihan3_Percabangan\bin\Debug\net8.0\Latihan3_Percabangan.deps.json
+D:\Webhozz\Basic C#\Latihan3_Percabangan\bin\Debug\net8.0\Latihan3_Percabangan.runtimeconfig.json
+D:\Webhozz\Basic C#\Latihan3_Percabangan\bin\Debug\net8.0\Latihan3_Percabangan.dll
+D:\Webhozz\Basic C#\Latihan3_Percabangan\bin\Debug\net8.0\Latihan3_Percabangan.pdb
+D:\Webhozz\Basic C#\Latihan3_Percabangan\obj\Debug\net8.0\Latihan3_Percabangan.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic C#\Latihan3_Percabangan\obj\Debug\net8.0\Latihan3_Percabangan.AssemblyInfoInputs.cache
+D:\Webhozz\Basic C#\Latihan3_Percabangan\obj\Debug\net8.0\Latihan3_Percabangan.AssemblyInfo.cs
+D:\Webhozz\Basic C#\Latihan3_Percabangan\obj\Debug\net8.0\Latihan3_Percabangan.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic C#\Latihan3_Percabangan\obj\Debug\net8.0\Latihan3_Percabangan.dll
+D:\Webhozz\Basic C#\Latihan3_Percabangan\obj\Debug\net8.0\refint\Latihan3_Percabangan.dll
+D:\Webhozz\Basic C#\Latihan3_Percabangan\obj\Debug\net8.0\Latihan3_Percabangan.pdb
+D:\Webhozz\Basic C#\Latihan3_Percabangan\obj\Debug\net8.0\Latihan3_Percabangan.genruntimeconfig.cache
+D:\Webhozz\Basic C#\Latihan3_Percabangan\obj\Debug\net8.0\ref\Latihan3_Percabangan.dll

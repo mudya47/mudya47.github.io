@@ -1,0 +1,16 @@
+D:\Webhozz\Basic toolbox\Latihan4_combobox\bin\Debug\net8.0-windows\Latihan4_combobox.exe
+D:\Webhozz\Basic toolbox\Latihan4_combobox\bin\Debug\net8.0-windows\Latihan4_combobox.deps.json
+D:\Webhozz\Basic toolbox\Latihan4_combobox\bin\Debug\net8.0-windows\Latihan4_combobox.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan4_combobox\bin\Debug\net8.0-windows\Latihan4_combobox.dll
+D:\Webhozz\Basic toolbox\Latihan4_combobox\bin\Debug\net8.0-windows\Latihan4_combobox.pdb
+D:\Webhozz\Basic toolbox\Latihan4_combobox\obj\Debug\net8.0-windows\Latihan4_combobox.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan4_combobox\obj\Debug\net8.0-windows\Latihan4_combobox.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan4_combobox\obj\Debug\net8.0-windows\Latihan4_combobox.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan4_combobox\obj\Debug\net8.0-windows\Latihan4_combobox.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan4_combobox\obj\Debug\net8.0-windows\Latihan4_combobox.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan4_combobox\obj\Debug\net8.0-windows\Latihan4_combobox.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan4_combobox\obj\Debug\net8.0-windows\Latihan4_combobox.dll
+D:\Webhozz\Basic toolbox\Latihan4_combobox\obj\Debug\net8.0-windows\refint\Latihan4_combobox.dll
+D:\Webhozz\Basic toolbox\Latihan4_combobox\obj\Debug\net8.0-windows\Latihan4_combobox.pdb
+D:\Webhozz\Basic toolbox\Latihan4_combobox\obj\Debug\net8.0-windows\Latihan4_combobox.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan4_combobox\obj\Debug\net8.0-windows\ref\Latihan4_combobox.dll

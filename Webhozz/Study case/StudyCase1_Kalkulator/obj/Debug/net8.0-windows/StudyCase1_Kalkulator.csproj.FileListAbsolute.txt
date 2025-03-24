@@ -1,0 +1,16 @@
+D:\Webhozz\Study case\StudyCase1_Kalkulator\bin\Debug\net8.0-windows\StudyCase1_Kalkulator.exe
+D:\Webhozz\Study case\StudyCase1_Kalkulator\bin\Debug\net8.0-windows\StudyCase1_Kalkulator.deps.json
+D:\Webhozz\Study case\StudyCase1_Kalkulator\bin\Debug\net8.0-windows\StudyCase1_Kalkulator.runtimeconfig.json
+D:\Webhozz\Study case\StudyCase1_Kalkulator\bin\Debug\net8.0-windows\StudyCase1_Kalkulator.dll
+D:\Webhozz\Study case\StudyCase1_Kalkulator\bin\Debug\net8.0-windows\StudyCase1_Kalkulator.pdb
+D:\Webhozz\Study case\StudyCase1_Kalkulator\obj\Debug\net8.0-windows\StudyCase1_Kalkulator.Form1.resources
+D:\Webhozz\Study case\StudyCase1_Kalkulator\obj\Debug\net8.0-windows\StudyCase1_Kalkulator.csproj.GenerateResource.cache
+D:\Webhozz\Study case\StudyCase1_Kalkulator\obj\Debug\net8.0-windows\StudyCase1_Kalkulator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Study case\StudyCase1_Kalkulator\obj\Debug\net8.0-windows\StudyCase1_Kalkulator.AssemblyInfoInputs.cache
+D:\Webhozz\Study case\StudyCase1_Kalkulator\obj\Debug\net8.0-windows\StudyCase1_Kalkulator.AssemblyInfo.cs
+D:\Webhozz\Study case\StudyCase1_Kalkulator\obj\Debug\net8.0-windows\StudyCase1_Kalkulator.csproj.CoreCompileInputs.cache
+D:\Webhozz\Study case\StudyCase1_Kalkulator\obj\Debug\net8.0-windows\StudyCase1_Kalkulator.dll
+D:\Webhozz\Study case\StudyCase1_Kalkulator\obj\Debug\net8.0-windows\refint\StudyCase1_Kalkulator.dll
+D:\Webhozz\Study case\StudyCase1_Kalkulator\obj\Debug\net8.0-windows\StudyCase1_Kalkulator.pdb
+D:\Webhozz\Study case\StudyCase1_Kalkulator\obj\Debug\net8.0-windows\StudyCase1_Kalkulator.genruntimeconfig.cache
+D:\Webhozz\Study case\StudyCase1_Kalkulator\obj\Debug\net8.0-windows\ref\StudyCase1_Kalkulator.dll

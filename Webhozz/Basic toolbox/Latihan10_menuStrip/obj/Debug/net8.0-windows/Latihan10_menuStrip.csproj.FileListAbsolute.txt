@@ -1,0 +1,16 @@
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\bin\Debug\net8.0-windows\Latihan10_menuStrip.exe
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\bin\Debug\net8.0-windows\Latihan10_menuStrip.deps.json
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\bin\Debug\net8.0-windows\Latihan10_menuStrip.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\bin\Debug\net8.0-windows\Latihan10_menuStrip.dll
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\bin\Debug\net8.0-windows\Latihan10_menuStrip.pdb
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\obj\Debug\net8.0-windows\Latihan10_menuStrip.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\obj\Debug\net8.0-windows\Latihan10_menuStrip.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\obj\Debug\net8.0-windows\Latihan10_menuStrip.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\obj\Debug\net8.0-windows\Latihan10_menuStrip.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\obj\Debug\net8.0-windows\Latihan10_menuStrip.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\obj\Debug\net8.0-windows\Latihan10_menuStrip.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\obj\Debug\net8.0-windows\Latihan10_menuStrip.dll
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\obj\Debug\net8.0-windows\refint\Latihan10_menuStrip.dll
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\obj\Debug\net8.0-windows\Latihan10_menuStrip.pdb
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\obj\Debug\net8.0-windows\Latihan10_menuStrip.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan10_menuStrip\obj\Debug\net8.0-windows\ref\Latihan10_menuStrip.dll

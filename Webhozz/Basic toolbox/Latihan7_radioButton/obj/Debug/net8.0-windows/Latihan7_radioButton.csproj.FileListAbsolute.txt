@@ -1,0 +1,16 @@
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\bin\Debug\net8.0-windows\Latihan7_radioButton.exe
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\bin\Debug\net8.0-windows\Latihan7_radioButton.deps.json
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\bin\Debug\net8.0-windows\Latihan7_radioButton.runtimeconfig.json
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\bin\Debug\net8.0-windows\Latihan7_radioButton.dll
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\bin\Debug\net8.0-windows\Latihan7_radioButton.pdb
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\obj\Debug\net8.0-windows\Latihan7_radioButton.Form1.resources
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\obj\Debug\net8.0-windows\Latihan7_radioButton.csproj.GenerateResource.cache
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\obj\Debug\net8.0-windows\Latihan7_radioButton.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\obj\Debug\net8.0-windows\Latihan7_radioButton.AssemblyInfoInputs.cache
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\obj\Debug\net8.0-windows\Latihan7_radioButton.AssemblyInfo.cs
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\obj\Debug\net8.0-windows\Latihan7_radioButton.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\obj\Debug\net8.0-windows\Latihan7_radioButton.dll
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\obj\Debug\net8.0-windows\refint\Latihan7_radioButton.dll
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\obj\Debug\net8.0-windows\Latihan7_radioButton.pdb
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\obj\Debug\net8.0-windows\Latihan7_radioButton.genruntimeconfig.cache
+D:\Webhozz\Basic toolbox\Latihan7_radioButton\obj\Debug\net8.0-windows\ref\Latihan7_radioButton.dll

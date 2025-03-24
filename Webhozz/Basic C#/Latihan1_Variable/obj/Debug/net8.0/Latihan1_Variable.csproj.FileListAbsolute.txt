@@ -1,0 +1,14 @@
+D:\Webhozz\Basic C#\Latihan1_Variable\bin\Debug\net8.0\Latihan1_Variable.exe
+D:\Webhozz\Basic C#\Latihan1_Variable\bin\Debug\net8.0\Latihan1_Variable.deps.json
+D:\Webhozz\Basic C#\Latihan1_Variable\bin\Debug\net8.0\Latihan1_Variable.runtimeconfig.json
+D:\Webhozz\Basic C#\Latihan1_Variable\bin\Debug\net8.0\Latihan1_Variable.dll
+D:\Webhozz\Basic C#\Latihan1_Variable\bin\Debug\net8.0\Latihan1_Variable.pdb
+D:\Webhozz\Basic C#\Latihan1_Variable\obj\Debug\net8.0\Latihan1_Variable.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webhozz\Basic C#\Latihan1_Variable\obj\Debug\net8.0\Latihan1_Variable.AssemblyInfoInputs.cache
+D:\Webhozz\Basic C#\Latihan1_Variable\obj\Debug\net8.0\Latihan1_Variable.AssemblyInfo.cs
+D:\Webhozz\Basic C#\Latihan1_Variable\obj\Debug\net8.0\Latihan1_Variable.csproj.CoreCompileInputs.cache
+D:\Webhozz\Basic C#\Latihan1_Variable\obj\Debug\net8.0\Latihan1_Variable.dll
+D:\Webhozz\Basic C#\Latihan1_Variable\obj\Debug\net8.0\refint\Latihan1_Variable.dll
+D:\Webhozz\Basic C#\Latihan1_Variable\obj\Debug\net8.0\Latihan1_Variable.pdb
+D:\Webhozz\Basic C#\Latihan1_Variable\obj\Debug\net8.0\Latihan1_Variable.genruntimeconfig.cache
+D:\Webhozz\Basic C#\Latihan1_Variable\obj\Debug\net8.0\ref\Latihan1_Variable.dll
