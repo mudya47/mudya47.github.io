@@ -50,7 +50,6 @@ D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\bin\Debug\net8.0-windows\runt
 D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\obj\Debug\net8.0-windows\StudyCase4_VehicleMonitoring.csproj.AssemblyReference.cache
-D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\obj\Debug\net8.0-windows\StudyCase4_VehicleMonitoring.Form1.resources
 D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\obj\Debug\net8.0-windows\StudyCase4_VehicleMonitoring.CreateEditForm.resources
 D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\obj\Debug\net8.0-windows\StudyCase4_VehicleMonitoring.csproj.GenerateResource.cache
 D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\obj\Debug\net8.0-windows\StudyCase4_VehicleMonitoring.GeneratedMSBuildEditorConfig.editorconfig
@@ -63,3 +62,7 @@ D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\obj\Debug\net8.0-windows\refi
 D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\obj\Debug\net8.0-windows\StudyCase4_VehicleMonitoring.pdb
 D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\obj\Debug\net8.0-windows\StudyCase4_VehicleMonitoring.genruntimeconfig.cache
 D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\obj\Debug\net8.0-windows\ref\StudyCase4_VehicleMonitoring.dll
+D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\bin\Debug\net8.0-windows\itextsharp.dll
+D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\bin\Debug\net8.0-windows\StudyCase4_VehicleMonitoring.dll.config
+D:\Webhozz\Study case\StudyCase4_VehicleMonitoring\obj\Debug\net8.0-windows\DatabaseHelper.resources

@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.Data.SqlClient;
-using System.Globalization;
+﻿using Microsoft.Data.SqlClient;
 
 namespace StudyCase4_VehicleMonitoring
 {
     public partial class CreateEditForm : Form
     {
-        private string connectionString = "Server=ALLEN_WILSON\\SQLEXPRESS; Database=Transport; Integrated Security=True; TrustServerCertificate=True;";
+        //jika connection ke databasenya nanti berbeda (Cloud, server atau local), maka connectionstring di bawah akan berubah lagi format isinya.
+        string connectionString = DatabaseHelper.GetConnectionString();
         public int? VehID { get; set; }
         public CreateEditForm(int? id = null)
         {
