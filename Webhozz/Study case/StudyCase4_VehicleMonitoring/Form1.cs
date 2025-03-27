@@ -61,37 +61,37 @@ namespace StudyCase4_VehicleMonitoring
                         DataGridViewTextBoxColumn colNo = new DataGridViewTextBoxColumn();
                         colNo.Name = "No";
                         colNo.HeaderText = "No";
-                        colNo.MinimumWidth = 50;
+                        colNo.MinimumWidth = 35;
                         dataGridView1.Columns.Add(colNo);
 
                         DataGridViewTextBoxColumn colDate = new DataGridViewTextBoxColumn();
                         colDate.Name = "Tanggal";
                         colDate.HeaderText = "Tanggal";
-                        colDate.MinimumWidth = 200;
+                        colDate.MinimumWidth = 150;
                         dataGridView1.Columns.Add(colDate);
 
                         DataGridViewTextBoxColumn colQty = new DataGridViewTextBoxColumn();
                         colQty.Name = "Qty_L";
-                        colQty.HeaderText = "Pembelian Bensin";
+                        colQty.HeaderText = "Pembelian Bensin"; //untuk header, format penulisan lebih baik tanpa ada underscore (hnaya pakai spasi)
                         colQty.MinimumWidth = 100;
                         dataGridView1.Columns.Add(colQty);
 
                         DataGridViewTextBoxColumn colHargaBbm = new DataGridViewTextBoxColumn();
                         colHargaBbm.Name = "Harga_BBM_Rp";
-                        colHargaBbm.HeaderText = "Harga_BBM_Rp";
-                        colHargaBbm.MinimumWidth = 80;
+                        colHargaBbm.HeaderText = "Harga BBM (Rp)";
+                        colHargaBbm.MinimumWidth = 50;
                         dataGridView1.Columns.Add(colHargaBbm);
 
                         DataGridViewTextBoxColumn colAdoBuka = new DataGridViewTextBoxColumn();
                         colAdoBuka.Name = "Adometer_Buka";
-                        colAdoBuka.HeaderText = "Adometer_Buka";
-                        colAdoBuka.MinimumWidth = 50;
+                        colAdoBuka.HeaderText = "Adometer Buka";
+                        colAdoBuka.MinimumWidth = 100;
                         dataGridView1.Columns.Add(colAdoBuka);
 
                         DataGridViewTextBoxColumn colAdoTutup = new DataGridViewTextBoxColumn();
                         colAdoTutup.Name = "Adometer_Tutup";
-                        colAdoTutup.HeaderText = "Adometer_Tutup";
-                        colAdoTutup.MinimumWidth = 50;
+                        colAdoTutup.HeaderText = "Adometer Tutup";
+                        colAdoTutup.MinimumWidth = 100;
                         dataGridView1.Columns.Add(colAdoTutup);
 
                         DataGridViewTextBoxColumn colKM = new DataGridViewTextBoxColumn();
@@ -102,31 +102,31 @@ namespace StudyCase4_VehicleMonitoring
 
                         DataGridViewTextBoxColumn colTotalBbm = new DataGridViewTextBoxColumn();
                         colTotalBbm.Name = "Total_BBM_Rp";
-                        colTotalBbm.HeaderText = "Total_BBM_Rp";
+                        colTotalBbm.HeaderText = "Total BBM (Rp)";
                         colTotalBbm.MinimumWidth = 50;
                         dataGridView1.Columns.Add(colTotalBbm);
 
                         DataGridViewTextBoxColumn colBiayaToll = new DataGridViewTextBoxColumn();
                         colBiayaToll.Name = "Biaya_Toll_Rp";
-                        colBiayaToll.HeaderText = "Biaya_Toll_Rp";
+                        colBiayaToll.HeaderText = "Biaya Toll (Rp)";
                         colBiayaToll.MinimumWidth = 50;
                         dataGridView1.Columns.Add(colBiayaToll);
 
                         DataGridViewTextBoxColumn colParkir = new DataGridViewTextBoxColumn();
                         colParkir.Name = "Parkir_Rp";
-                        colParkir.HeaderText = "Parkir_Rp";
+                        colParkir.HeaderText = "Parkir (Rp)";
                         colParkir.MinimumWidth = 50;
                         dataGridView1.Columns.Add(colParkir);
 
                         DataGridViewTextBoxColumn colGrandTotal = new DataGridViewTextBoxColumn();
                         colGrandTotal.Name = "Grand_Total";
-                        colGrandTotal.HeaderText = "Grand_Total";
+                        colGrandTotal.HeaderText = "Grand Total";
                         colGrandTotal.MinimumWidth = 50;
                         dataGridView1.Columns.Add(colGrandTotal);
 
                         DataGridViewTextBoxColumn colJobNo = new DataGridViewTextBoxColumn();
                         colJobNo.Name = "Job_Number";
-                        colJobNo.HeaderText = "Job_Number";
+                        colJobNo.HeaderText = "Job Number";
                         colJobNo.MinimumWidth = 50;
                         dataGridView1.Columns.Add(colJobNo);
 
@@ -138,7 +138,7 @@ namespace StudyCase4_VehicleMonitoring
 
                         DataGridViewTextBoxColumn colEfisienBbm = new DataGridViewTextBoxColumn();
                         colEfisienBbm.Name = "Efisiensi_BBM";
-                        colEfisienBbm.HeaderText = "Efisiensi_BBM";
+                        colEfisienBbm.HeaderText = "Efisiensi BBM";
                         colEfisienBbm.MinimumWidth = 50;
                         dataGridView1.Columns.Add(colEfisienBbm);
 
@@ -173,11 +173,10 @@ namespace StudyCase4_VehicleMonitoring
                 {
                     conn.Open();
 
-                    string query = @"
-                SELECT ID, Tanggal, Qty_L, Harga_BBM_Rp, Adometer_Buka, Adometer_Tutup, KM, Total_BBM_Rp, 
-                       Biaya_Toll_Rp, Parkir_Rp, Grand_Total, Job_Number, Supir, Efisiensi_BBM 
-                FROM TransportLog 
-                WHERE Tanggal BETWEEN @startDate AND @endDate";
+                    string query = @"SELECT ID, Tanggal, Qty_L, Harga_BBM_Rp, Adometer_Buka, Adometer_Tutup, KM, Total_BBM_Rp, 
+                                    Biaya_Toll_Rp, Parkir_Rp, Grand_Total, Job_Number, Supir, Efisiensi_BBM 
+                                    FROM TransportLog 
+                                    WHERE Tanggal BETWEEN @startDate AND @endDate";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -223,7 +222,7 @@ namespace StudyCase4_VehicleMonitoring
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            int idVehicle = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+            int idVehicle = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["No"].Value);
             CreateEditForm form = new CreateEditForm(idVehicle);
 
             form.StartPosition = FormStartPosition.Manual;

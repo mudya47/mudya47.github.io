@@ -55,6 +55,9 @@
             label13 = new Label();
             btnSubmit = new Button();
             cbEfisien = new ComboBox();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -157,7 +160,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(12, 258);
+            label7.Location = new Point(12, 283);
             label7.Name = "label7";
             label7.Size = new Size(109, 20);
             label7.TabIndex = 12;
@@ -165,7 +168,7 @@
             // 
             // tbTotal
             // 
-            tbTotal.Location = new Point(136, 255);
+            tbTotal.Location = new Point(136, 280);
             tbTotal.Name = "tbTotal";
             tbTotal.ReadOnly = true;
             tbTotal.Size = new Size(125, 27);
@@ -174,7 +177,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(12, 303);
+            label8.Location = new Point(12, 342);
             label8.Name = "label8";
             label8.Size = new Size(105, 20);
             label8.TabIndex = 14;
@@ -182,7 +185,7 @@
             // 
             // tbTol
             // 
-            tbTol.Location = new Point(136, 300);
+            tbTol.Location = new Point(136, 339);
             tbTol.Name = "tbTol";
             tbTol.Size = new Size(125, 27);
             tbTol.TabIndex = 15;
@@ -200,13 +203,13 @@
             // 
             tbParkir.Location = new Point(430, 49);
             tbParkir.Name = "tbParkir";
-            tbParkir.Size = new Size(125, 27);
+            tbParkir.Size = new Size(150, 27);
             tbParkir.TabIndex = 17;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(320, 360);
+            label10.Location = new Point(319, 345);
             label10.Name = "label10";
             label10.Size = new Size(86, 20);
             label10.TabIndex = 18;
@@ -214,7 +217,7 @@
             // 
             // tbGrand
             // 
-            tbGrand.Location = new Point(430, 357);
+            tbGrand.Location = new Point(429, 342);
             tbGrand.Name = "tbGrand";
             tbGrand.ReadOnly = true;
             tbGrand.Size = new Size(125, 27);
@@ -233,7 +236,7 @@
             // 
             tbJob.Location = new Point(430, 91);
             tbJob.Name = "tbJob";
-            tbJob.Size = new Size(125, 27);
+            tbJob.Size = new Size(150, 27);
             tbJob.TabIndex = 21;
             // 
             // label12
@@ -249,7 +252,7 @@
             // 
             tbSupir.Location = new Point(430, 132);
             tbSupir.Name = "tbSupir";
-            tbSupir.Size = new Size(125, 27);
+            tbSupir.Size = new Size(150, 27);
             tbSupir.TabIndex = 23;
             // 
             // label13
@@ -263,9 +266,9 @@
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(201, 408);
+            btnSubmit.Location = new Point(12, 408);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(94, 29);
+            btnSubmit.Size = new Size(568, 46);
             btnSubmit.TabIndex = 26;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
@@ -280,11 +283,44 @@
             cbEfisien.Size = new Size(151, 28);
             cbEfisien.TabIndex = 27;
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.Location = new Point(136, 250);
+            label14.Name = "label14";
+            label14.Size = new Size(120, 17);
+            label14.TabIndex = 28;
+            label14.Text = "*terhitung otomatis";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label15.Location = new Point(136, 310);
+            label15.Name = "label15";
+            label15.Size = new Size(120, 17);
+            label15.TabIndex = 29;
+            label15.Text = "*terhitung otomatis";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label16.Location = new Point(428, 372);
+            label16.Name = "label16";
+            label16.Size = new Size(120, 17);
+            label16.TabIndex = 30;
+            label16.Text = "*terhitung otomatis";
+            // 
             // CreateEditForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(592, 466);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(label14);
             Controls.Add(cbEfisien);
             Controls.Add(btnSubmit);
             Controls.Add(label13);
@@ -348,5 +384,8 @@
         private Label label13;
         private Button btnSubmit;
         private ComboBox cbEfisien;
+        private Label label14;
+        private Label label15;
+        private Label label16;
     }
 }

@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|d:\\webhozz\\study case\\studycase4_vehiclemonitoring\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|d:\\webhozz\\study case\\studycase4_vehiclemonitoring\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -21,6 +13,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|d:\\webhozz\\study case\\studycase4_vehiclemonitoring\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|d:\\webhozz\\study case\\studycase4_vehiclemonitoring\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A75FA05E-D509-4C7B-B670-3867C1BD52A7}|StudyCase4_VehicleMonitoring.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,46 +46,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "App.config",
               "DocumentMoniker": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\App.config",
               "RelativeDocumentMoniker": "App.config",
               "ToolTip": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\App.config",
               "RelativeToolTip": "App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2025-03-25T04:45:31.061Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Form2.cs",
               "DocumentMoniker": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
               "ToolTip": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\Form2.cs",
               "RelativeToolTip": "Form2.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwCQAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T03:29:33.567Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwBUAAAAFAAAAAAAAAA==",
+              "ToolTip": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\Form1.cs*",
+              "RelativeToolTip": "Form1.cs*",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAkwGMAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-22T05:39:15.339Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Form2.cs [Design]",
               "DocumentMoniker": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
@@ -97,12 +97,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\Form1.cs [Design]",
-              "RelativeToolTip": "Form1.cs [Design]",
+              "ToolTip": "D:\\Webhozz\\Study case\\StudyCase4_VehicleMonitoring\\Form1.cs [Design]*",
+              "RelativeToolTip": "Form1.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-22T03:38:12.289Z",
               "EditorCaption": " [Design]"
