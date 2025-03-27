@@ -1,0 +1,13 @@
+# Ignore build results
+bin/
+obj/
+.vs/
+
+# User-specific files
+*.user
+*.suo
+
+# Others
+*.exe
+*.dll
+*.log
