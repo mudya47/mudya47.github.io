@@ -1,20 +1,11 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using System.Configuration;
-
-// ✅ Alias declarations go here:
-using PdfFont = iTextSharp.text.Font;
-using BaseColor = iTextSharp.text.BaseColor;
-
-class DatabaseHelper
-{
-    public static string GetConnectionString()
-    {
-        return ConfigurationManager.ConnectionStrings["TransportDB"].ConnectionString;
-    }
-}
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+using QuestPDF.Drawing;
+using QuestPDF.Previewer;
 
 namespace StudyCase4_VehicleMonitoring
 {
@@ -199,7 +190,78 @@ namespace StudyCase4_VehicleMonitoring
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //ComboBox options list
+            comboQuickRange.Items.AddRange(new string[]
+            {
+                "Custom", // optional
+                "Today",
+                "Yesterday",
+                "This Week",
+                "Last Week",
+                "Month to Date",
+                "Last Month",
+                "Year to Date"
+            });
+            comboQuickRange.SelectedIndex = 0; // default to "Custom" or your choice
+        }
 
+        private void comboQuickRange_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            DateTime start = today, end = today;
+
+            switch (comboQuickRange.SelectedItem.ToString())
+            {
+                case "Today":
+                    start = end = today;
+                    break;
+                case "Yesterday":
+                    start = end = today.AddDays(-1);
+                    break;
+                case "This Week":
+                    int diff = (7 + (today.DayOfWeek - DayOfWeek.Monday)) % 7;
+                    start = today.AddDays(-1 * diff);
+                    end = today;
+                    break;
+                case "Last Week":
+                    int daysSinceMonday = (7 + (today.DayOfWeek - DayOfWeek.Monday)) % 7;
+                    end = today.AddDays(-1 * (daysSinceMonday + 1));
+                    start = end.AddDays(-6);
+                    break;
+                case "Month to Date":
+                    start = new DateTime(today.Year, today.Month, 1);
+                    end = today;
+                    break;
+                case "Last Month":
+                    DateTime firstDayOfThisMonth = new DateTime(today.Year, today.Month, 1);
+                    end = firstDayOfThisMonth.AddDays(-1);
+                    start = new DateTime(end.Year, end.Month, 1);
+                    break;
+                case "Year to Date":
+                    start = new DateTime(today.Year, 1, 1);
+                    end = today;
+                    break;
+                default:
+                    return;
+            }
+
+            startDate.Value = start;
+            endDate.Value = end;
+            LoadData(start, end);
+        }
+
+        private void startDate_ValueChanged(object sender, EventArgs e)
+        {
+            // Switch to "Custom" when user manually changes the start date
+            if (comboQuickRange.SelectedItem?.ToString() != "Custom")
+                comboQuickRange.SelectedItem = "Custom";
+        }
+
+        private void endDate_ValueChanged(object sender, EventArgs e)
+        {
+            // Switch to "Custom" when user manually changes the end date
+            if (comboQuickRange.SelectedItem?.ToString() != "Custom")
+                comboQuickRange.SelectedItem = "Custom";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -286,89 +348,114 @@ namespace StudyCase4_VehicleMonitoring
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            // Buat nama file dengan timestamp (format: yyyyMMdd_HHmmss)
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            DateTime dateStart = startDate.Value.Date;
+            DateTime dateEnd = endDate.Value.Date;
+            DataTable data = DataTransportLog(dateStart, dateEnd);
+
+            if (data == null || data.Rows.Count == 0 || data.Columns.Count == 0)
+            {
+                MessageBox.Show("Tidak ada data untuk dicetak!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
             string fileName = $"VehicleMonitoring_{timestamp}.pdf";
-
-            // Get user's Downloads folder path
             string downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
-
-            // Combine into full file path
             string filePath = Path.Combine(downloadsPath, fileName);
+
+            string SafeText(object val) => val == null || val == DBNull.Value ? "" : val.ToString();
 
             try
             {
-                Document doc = new Document(PageSize.A4.Rotate());
-                PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
-                doc.Open();
-
-                DateTime dateStart = startDate.Value.Date;
-                DateTime dateEnd = endDate.Value.Date;
-
-                string rangeText = $"TRANSPORT LOG {dateStart:dd-MM-yyyy} - {dateEnd:dd-MM-yyyy}";
-
-                // Paragraph title = new Paragraph("Data Karyawan", new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD));
-                Paragraph title = new Paragraph(rangeText);
-
-                title.Alignment = Element.ALIGN_CENTER;
-                doc.Add(title);
-                doc.Add(new Paragraph("\n"));
-
-                PdfPTable table = new PdfPTable(14); // Jumlah kolom
-                table.WidthPercentage = 100;
-
-                // Optional: header font (bold, white on gray)
-                PdfFont headerFont = new PdfFont(PdfFont.FontFamily.HELVETICA, 9f, PdfFont.BOLD, BaseColor.WHITE);
-                BaseColor headerBackground = BaseColor.DARK_GRAY;
-
-                // List of headers
-                string[] headers = {
-                    "No.", "Tanggal", "Pembelian Bensin (Qty L)", "Harga BBM (Rp)", "Adomete Buka",
-                    "Adometer Tutup", "KM", "Total BBM (Rp)", "Biaya Toll (Rp)", "Parkir Rp",
-                    "Grand Total", "Job Number", "Supir", "Efisiensi BBM"
-                };
-
-                // Add styled header cells
-                foreach (string header in headers)
+                Document.Create(container =>
                 {
-                    PdfPCell cell = new PdfPCell(new Phrase(header, headerFont));
-                    cell.BackgroundColor = headerBackground;
-                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                    table.AddCell(cell);
-                }
-
-                DataTable transportData = DataTransportLog(dateStart, dateEnd);
-
-                PdfFont tableFont = new PdfFont(PdfFont.FontFamily.HELVETICA, 9f, PdfFont.NORMAL, BaseColor.BLACK);
-
-                int rowNumber = 1;
-
-                foreach (DataRow row in transportData.Rows)
-                {
-                    // ⬇️ Add row number as first cell
-                    table.AddCell(new Phrase(rowNumber.ToString(), tableFont));
-
-                    // ⬇️ Add the rest of the columns starting from index 1
-                    for (int i = 1; i < transportData.Columns.Count; i++)
+                    container.Page(page =>
                     {
-                        table.AddCell(new Phrase(row[i].ToString(), tableFont));
-                    }
+                        page.Margin(30);
+                        page.Size(PageSizes.A4.Landscape());
 
-                    rowNumber++;
-                }
+                        page.Header().Element(x => x
+                            .PaddingBottom(10)
+                            .AlignCenter()
+                            .Text($"TRANSPORT LOG {dateStart:dd-MM-yyyy} - {dateEnd:dd-MM-yyyy}")
+                                .FontSize(16).Bold()
+                        );
 
+                        page.Content().Table(table =>
+                        {
+                            // 🧱 Column layout: No. + 14 data columns
+                            table.ColumnsDefinition(columns =>
+                            {
+                                columns.ConstantColumn(30); // No.
+                                for (int i = 0; i < data.Columns.Count; i++)
+                                    columns.RelativeColumn();
+                            });
 
-                doc.Add(table);
-                doc.Close();
+                            // 📌 Headers
+                            table.Cell().Element(CellStyle).Element(x => x
+                                .Background(Colors.Grey.Darken2)
+                                .Padding(4)
+                                .Text("No.")
+                                    .FontSize(10)
+                                    .Bold()
+                                    .FontColor(Colors.White)
+                                    .AlignCenter()
+                            );
 
-                // Tampilkan pesan jika berhasil
+                            foreach (DataColumn column in data.Columns)
+                            {
+                                table.Cell().Element(CellStyle).Element(x => x
+                                    .Background(Colors.Grey.Darken2)
+                                    .Padding(4)
+                                    .Text(column.ColumnName)
+                                        .FontSize(10)
+                                        .Bold()
+                                        .FontColor(Colors.White)
+                                        .AlignLeft()
+                                );
+                            }
+
+                            // 📌 Rows
+                            int rowNo = 1;
+                            foreach (DataRow row in data.Rows)
+                            {
+                                table.Cell().Element(CellStyle).Text(rowNo++.ToString()).FontSize(9).AlignCenter();
+
+                                for (int i = 0; i < data.Columns.Count; i++)
+                                {
+                                    string colName = data.Columns[i].ColumnName;
+                                    string raw = SafeText(row[i]);
+
+                                    // Format date
+                                    if (colName == "Tanggal" && DateTime.TryParse(raw, out DateTime dt))
+                                        raw = dt.ToString("dd/MM/yyyy");
+
+                                    // Format Rupiah
+                                    if (colName.Contains("Rp") || colName.Contains("Total") || colName.Contains("Harga") || colName.Contains("Parkir") || colName.Contains("Toll"))
+                                        raw = decimal.TryParse(raw, out var rp) ? $"Rp {rp:N0}" : raw;
+
+                                    table.Cell().Element(CellStyle).Text(raw).FontSize(9).AlignLeft();
+                                }
+                            }
+
+                            // 📌 Styling helper
+                            static IContainer CellStyle(IContainer container) =>
+                                container.BorderBottom(1).BorderColor(Colors.Grey.Lighten2);
+                        });
+
+                        // 📅 Footer
+                        page.Footer().AlignCenter().Text($"Generated on {DateTime.Now:dd-MM-yyyy HH:mm:ss}");
+                    });
+                })
+                .GeneratePdf(filePath);
+
                 MessageBox.Show($"PDF berhasil disimpan di:\n{filePath}", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             catch (Exception ex)
             {
-                // Tampilkan pesan error jika gagal
-                MessageBox.Show($"Terjadi kesalahan:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Gagal membuat PDF:\n{ex.Message}\n\nStack Trace:\n{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -385,5 +472,13 @@ namespace StudyCase4_VehicleMonitoring
 
             LoadData(dateStart, dateEnd);
         }
+    }
+}
+
+class DatabaseHelper
+{
+    public static string GetConnectionString()
+    {
+        return ConfigurationManager.ConnectionStrings["TransportDB"].ConnectionString;
     }
 }
