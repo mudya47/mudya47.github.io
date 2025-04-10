@@ -1,0 +1,101 @@
+﻿@page "/"
+@inject TransportLogService LogService
+@inject NavigationManager NavigationManager
+
+<h3>Transport Log Monitoring</h3>
+
+<div class="card p-3 mb-4">
+    <div class="row g-2 align-items-end">
+        <div class="col-md-3">
+            <label>Start Date</label>
+            <InputDate @bind-Value="startDate" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label>End Date</label>
+            <InputDate @bind-Value="endDate" class="form-control" />
+        </div>
+        <div class="col-md-6 d-flex gap-2">
+            <button class="btn btn-primary" @onclick="SearchLogs">Search</button>
+            <NavLink href="/create-edit" class="btn btn-success">Add New</NavLink>
+        </div>
+    </div>
+</div>
+
+@if (logs != null && logs.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Qty (L)</th>
+                    <th>Harga (Rp)</th>
+                    <th>Adometer Buka</th>
+                    <th>Adometer Tutup</th>
+                    <th>KM</th>
+                    <th>Total BBM (Rp)</th>
+                    <th>Toll</th>
+                    <th>Parkir</th>
+                    <th>Grand Total</th>
+                    <th>Job Number</th>
+                    <th>Supir</th>
+                    <th>Efisiensi</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var log in logs)
+                {
+                    <tr>
+                        <td>@(++no)</td>
+                        <td>@log.Tanggal.ToString("dd/MM/yyyy")</td>
+                        <td>@log.Qty_L</td>
+                        <td>@log.Harga_BBM_Rp</td>
+                        <td>@log.Adometer_Buka</td>
+                        <td>@log.Adometer_Tutup</td>
+                        <td>@log.KM</td>
+                        <td>@log.Total_BBM_Rp</td>
+                        <td>@log.Biaya_Toll_Rp</td>
+                        <td>@log.Parkir_Rp</td>
+                        <td>@log.Grand_Total</td>
+                        <td>@log.Job_Number</td>
+                        <td>@log.Supir</td>
+                        <td>@log.Efisiensi_BBM</td>
+                        <td>
+                            <NavLink class="btn btn-sm btn-link" href="@($"/create-edit/{log.ID}")">Edit</NavLink>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>No data found.</p>
+}
+
+@code {
+    private List<TransportLog> logs = new();
+    private DateTime startDate = DateTime.Today;
+    private DateTime endDate = DateTime.Today;
+    private int no = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadLogs();
+    }
+
+    private async Task LoadLogs()
+    {
+        no = 0;
+        logs = await LogService.GetLogsAsync(startDate, endDate);
+    }
+
+    private async Task SearchLogs()
+    {
+        no = 0;
+        logs = await LogService.GetLogsByDateRangeAsync(startDate, endDate);
+    }
+}

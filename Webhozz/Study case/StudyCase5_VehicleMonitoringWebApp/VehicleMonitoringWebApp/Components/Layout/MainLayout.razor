@@ -1,0 +1,17 @@
+﻿@inherits LayoutComponentBase
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div class="bg-dark text-white p-3" style="width: 220px; height: 5vh;">
+        <h5 class="text-center">🚚 VehicleMonitoring</h5>
+        <nav class="nav flex-column mt-4">
+            <NavLink class="nav-link text-white" href="/" Match="NavLinkMatch.All">Home</NavLink>
+            <NavLink class="nav-link text-white" href="/create-edit">Add New Log</NavLink>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-grow-1 p-4">
+        @Body
+    </div>
+</div>
