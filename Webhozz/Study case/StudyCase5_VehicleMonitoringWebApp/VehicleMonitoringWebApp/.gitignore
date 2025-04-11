@@ -12,6 +12,7 @@
 *.userosscache
 *.sln.docstates
 
+
 ## Auto-generated files
 *.GeneratedMSBuildEditorConfig.editorconfig
 *.AssemblyInfo.cs
@@ -90,3 +91,8 @@ VehicleMonitoringWebApp/wwwroot/bootstrap/bootstrap.min.css.map
 # Lock files and caches
 **/*.cache
 **/*.tmp
+
+## Visual Studio IDE metadata
+*.vsidx
+documentlayout.json
+documentlayout.backup.json
