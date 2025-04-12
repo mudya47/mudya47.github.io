@@ -54,10 +54,10 @@
                         <td>@log.Job_Number</td>
                         <td>@log.Supir</td>
                         <td>@log.Efisiensi_BBM</td>
-                        <td>
+                        <td class="no-print">
                             <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(log.ID)">Hapus</button>
                         </td>
-                        <td>
+                        <td class="no-print">
                             <button class="btn btn-sm btn-warning me-2" @onclick="@(() => Navigation.NavigateTo($"/edit/{log.ID}"))">Edit</button>
                         </td>
                     </tr>

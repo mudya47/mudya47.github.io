@@ -31,28 +31,56 @@ h1:focus {
 /*Print result CSS*/
 @media print {
     body * {
-        visibility: hidden !important;
+        visibility: hidden;
     }
 
     #print-area, #print-area * {
-        visibility: visible !important;
+        visibility: visible;
     }
 
     #print-area {
-        position: absolute !important;
-        top: 0;
+        position: absolute;
         left: 0;
+        top: 0;
+        width: 100%;
+        font-size: 11px;
+        font-family: Arial, sans-serif;
+    }
+
+    #print-area table {
+        border-collapse: collapse;
         width: 100%;
     }
 
-    /* Hide buttons, search bar, etc */
-    button, input, .btn {
-        display: none !important;
+    #print-area th, #print-area td {
+        border: 1px solid #999;
+        padding: 3px 6px;
+        text-align: left;
     }
 
-    /* Optional: Remove margins, paddings, etc. */
-    html, body {
-        margin: 0 !important;
-        padding: 0 !important;
+    #print-area th {
+        background-color: #666;
+    }
+
+    /* Hide action buttons in print */
+    #print-area .btn,
+    #print-area button {
+        display: none !important;
+    }
+    .no-print, .no-print * {
+        display: none !important;
+    }
+    @page {
+        size: landscape;
+    }
+    table th {
+        background-color: #666 !important;
+        color: #F2F3ED !important;
+        text-align: center; !important
+        vertical-align: middle;!important
+        padding: 8px;
+        border: 1px solid #ccc;
+        -webkit-print-color-adjust: exact; /* Safari, Chrome */
+        print-color-adjust: exact; /* Firefox */
     }
 }
