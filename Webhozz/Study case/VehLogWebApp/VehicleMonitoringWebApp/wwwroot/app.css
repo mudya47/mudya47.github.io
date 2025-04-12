@@ -27,3 +27,32 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+/*Print result CSS*/
+@media print {
+    body * {
+        visibility: hidden !important;
+    }
+
+    #print-area, #print-area * {
+        visibility: visible !important;
+    }
+
+    #print-area {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    /* Hide buttons, search bar, etc */
+    button, input, .btn {
+        display: none !important;
+    }
+
+    /* Optional: Remove margins, paddings, etc. */
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}

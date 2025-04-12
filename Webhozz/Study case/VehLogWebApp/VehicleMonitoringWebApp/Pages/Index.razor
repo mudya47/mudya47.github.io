@@ -4,72 +4,76 @@
 @using Microsoft.JSInterop
 @inject TransportLogService LogService
 @inject NavigationManager Navigation
+@inject IJSRuntime JS
 @page "/"
 
 <h3>Transport Log</h3>
+<button class="btn btn-secondary me-2" @onclick="PrintPage">Print</button>
 <button @onclick='() => Navigation.NavigateTo("/create")'>Tambah</button>
 <div class="mb-3">
     <input class="form-control" placeholder="Cari supir atau job number..." @bind="searchTerm" @bind:event="oninput" />
 </div>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>No</th>
-            <th @onclick="@(() => SortBy("Tanggal"))">Tanggal</th>
-            <th>Pengisian Bensin (L)</th>
-            <th>Harga BBM</th>
-            <th>Adometer Buka</th>
-            <th>Adometer Tutup</th>
-            <th>KM</th>
-            <th>Total BBM (Rp)</th>
-            <th>Biaya Toll (Rp)</th>
-            <th>Biaya Parkir (Rp)</th>
-            <th>Grand Total</th>
-            <th>Job Number</th>
-            <th>Supir</th>
-            <th>Efisiensi</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (_logs is not null && _logs.Count > 0)
-        {
-            int no = 1;
-            @foreach (var log in _filteredLogs)
+<div id="print-area">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th @onclick="@(() => SortBy("Tanggal"))">Tanggal</th>
+                <th>Pengisian Bensin (L)</th>
+                <th>Harga BBM</th>
+                <th>Adometer Buka</th>
+                <th>Adometer Tutup</th>
+                <th>KM</th>
+                <th>Total BBM (Rp)</th>
+                <th>Biaya Toll (Rp)</th>
+                <th>Biaya Parkir (Rp)</th>
+                <th>Grand Total</th>
+                <th>Job Number</th>
+                <th>Supir</th>
+                <th>Efisiensi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (_logs is not null && _logs.Count > 0)
+            {
+                int no = 1;
+                @foreach (var log in _filteredLogs)
+                {
+                    <tr>
+                        <td>@no</td>
+                        <td>@log.Tanggal.ToString("dd/MM/yyyy")</td>
+                        <td>@log.Qty_L</td>
+                        <td>@log.Harga_BBM_Rp</td>
+                        <td>@log.Adometer_Buka</td>
+                        <td>@log.Adometer_Tutup</td>
+                        <td>@log.KM</td>
+                        <td>@log.Total_BBM_Rp.ToString("N0")</td>
+                        <td>@log.Biaya_Toll_Rp</td>
+                        <td>@log.Parkir_Rp</td>
+                        <td>@log.Grand_Total.ToString("N0")</td>
+                        <td>@log.Job_Number</td>
+                        <td>@log.Supir</td>
+                        <td>@log.Efisiensi_BBM</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(log.ID)">Hapus</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-warning me-2" @onclick="@(() => Navigation.NavigateTo($"/edit/{log.ID}"))">Edit</button>
+                        </td>
+                    </tr>
+
+                    no++;
+                }
+            }
+            else
             {
                 <tr>
-                    <td>@no</td>
-                    <td>@log.Tanggal.ToString("dd/MM/yyyy")</td>
-                    <td>@log.Qty_L</td>
-                    <td>@log.Harga_BBM_Rp</td>
-                    <td>@log.Adometer_Buka</td>
-                    <td>@log.Adometer_Tutup</td>
-                    <td>@log.KM</td>
-                    <td>@log.Total_BBM_Rp.ToString("N0")</td>
-                    <td>@log.Biaya_Toll_Rp</td>
-                    <td>@log.Parkir_Rp</td>
-                    <td>@log.Grand_Total.ToString("N0")</td>
-                    <td>@log.Job_Number</td>
-                    <td>@log.Supir</td>
-                    <td>@log.Efisiensi_BBM</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(log.ID)">Hapus</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-sm btn-warning me-2" @onclick="@(() => Navigation.NavigateTo($"/edit/{log.ID}"))">Edit</button>
-                    </td>
+                    <td colspan="7">Tidak ada data ditemukan.</td>
                 </tr>
-
-                no++;
             }
-        }
-        else
-        {
-            <tr>
-                <td colspan="7">Tidak ada data ditemukan.</td>
-            </tr>
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
 
 @inject IJSRuntime JS
 
@@ -156,5 +160,11 @@
             "Supir" => log.Supir,
             _ => null
         };
+    }
+
+    //Print feature block
+    private async Task PrintPage()
+    {
+        await JS.InvokeVoidAsync("window.print");
     }
 }
