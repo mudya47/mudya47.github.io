@@ -60,20 +60,16 @@ namespace StudyCase4_VehicleMonitoring
 
                 if (VehID == null)
                 {
-                    // Removed KM, Total_BBM_Rp, and Grand_Total from INSERT
                     query = "INSERT INTO TransportLog (Tanggal, Qty_L, Harga_BBM_Rp, Adometer_Buka, Adometer_Tutup, Biaya_Toll_Rp, Parkir_Rp, Job_Number, Supir, Efisiensi_BBM) " +
                             "VALUES (@Tanggal, @Qty_L, @Harga_BBM_Rp, @Adometer_Buka, @Adometer_Tutup, @Biaya_Toll_Rp, @Parkir_Rp, @Job_Number, @Supir, @Efisiensi_BBM)";
                 }
                 else
                 {
-                    // Removed KM, Total_BBM_Rp, and Grand_Total from UPDATE
                     query = "UPDATE TransportLog SET Tanggal=@Tanggal, Qty_L=@Qty_L, Harga_BBM_Rp=@Harga_BBM_Rp, Adometer_Buka=@Adometer_Buka, Adometer_Tutup=@Adometer_Tutup, " +
                             "Biaya_Toll_Rp=@Biaya_Toll_Rp, Parkir_Rp=@Parkir_Rp, Job_Number=@Job_Number, Supir=@Supir, Efisiensi_BBM=@Efisiensi_BBM WHERE ID=@id";
                 }
 
                 SqlCommand cmd = new SqlCommand(query, conn);
-
-                // Add parameters
                 cmd.Parameters.AddWithValue("@Tanggal", dateTimePicker1.Value);
                 cmd.Parameters.AddWithValue("@Qty_L", Convert.ToDouble(tbQty.Text));
                 cmd.Parameters.AddWithValue("@Harga_BBM_Rp", Convert.ToInt32(tbHarga.Text));
@@ -83,14 +79,15 @@ namespace StudyCase4_VehicleMonitoring
                 cmd.Parameters.AddWithValue("@Parkir_Rp", Convert.ToInt32(tbParkir.Text));
                 cmd.Parameters.AddWithValue("@Job_Number", tbJob.Text);
                 cmd.Parameters.AddWithValue("@Supir", tbSupir.Text);
-                cmd.Parameters.AddWithValue("@Efisiensi_BBM", cbEfisien.SelectedItem?.ToString() ?? "");
+
+                string efisiensiText = cbEfisien.SelectedItem?.ToString() ?? "";
+                cmd.Parameters.AddWithValue("@Efisiensi_BBM", efisiensiText);
 
                 if (cbEfisien.SelectedItem == null)
                 {
                     MessageBox.Show("Please select an Efisiensi BBM value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
 
                 if (VehID != null)
                     cmd.Parameters.AddWithValue("@id", VehID.Value);
@@ -101,9 +98,6 @@ namespace StudyCase4_VehicleMonitoring
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-
-
-
         }
     }
 }

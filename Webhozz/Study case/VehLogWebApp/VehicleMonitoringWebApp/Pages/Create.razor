@@ -1,0 +1,73 @@
+﻿@page "/create"
+@using Microsoft.AspNetCore.Components.Forms
+@using VehicleMonitoringWebApp.Models
+@using VehicleMonitoringWebApp.Services
+@inject TransportLogService LogService
+@inject NavigationManager Navigation
+
+<h3>Tambah Transport Log</h3>
+
+<EditForm Model="@logEntry" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label>Tanggal</label>
+        <InputDate class="form-control" @bind-Value="logEntry.Tanggal" />
+    </div>
+    <div class="mb-3">
+        <label>Qty (L)</label>
+        <InputNumber class="form-control" @bind-Value="logEntry.Qty_L" />
+    </div>
+    <div class="mb-3">
+        <label>Harga BBM (Rp)</label>
+        <InputNumber class="form-control" @bind-Value="logEntry.Harga_BBM_Rp" />
+    </div>
+    <div class="mb-3">
+        <label>Adometer Buka</label>
+        <InputNumber class="form-control" @bind-Value="logEntry.Adometer_Buka" />
+    </div>
+    <div class="mb-3">
+        <label>Adometer Tutup</label>
+        <InputNumber class="form-control" @bind-Value="logEntry.Adometer_Tutup" />
+    </div>
+    <div class="mb-3">
+        <label>Supir</label>
+        <InputText class="form-control" @bind-Value="logEntry.Supir" />
+    </div>
+    <div class="mb-3">
+        <label>Biaya Tol (Rp)</label>
+        <InputNumber class="form-control" @bind-Value="logEntry.Biaya_Toll_Rp" />
+    </div>
+    <div class="mb-3">
+        <label>Biaya Parkir (Rp)</label>
+        <InputNumber class="form-control" @bind-Value="logEntry.Parkir_Rp" />
+    </div>
+    <div class="mb-3">
+        <label>Job Number</label>
+        <InputText class="form-control" @bind-Value="logEntry.Job_Number" />
+        <ValidationMessage For="@(() => logEntry.Job_Number)" />
+    </div>
+    <div class="mb-3">
+        <label>Efisiensi BBM</label>
+        <InputSelect class="form-control" @bind-Value="logEntry.Efisiensi_BBM">
+            <option value="">-- Pilih --</option>
+            @foreach (Efisiensi value in Enum.GetValues(typeof(Efisiensi)))
+            {
+                <option value="@value.ToString()">@value</option>
+            }
+        </InputSelect>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Simpan</button>
+</EditForm>
+
+@code {
+    private TransportLog logEntry = new();
+
+    private async Task HandleValidSubmit()
+    {
+        await LogService.CreateAsync(logEntry);
+        Navigation.NavigateTo("/");
+    }
+}

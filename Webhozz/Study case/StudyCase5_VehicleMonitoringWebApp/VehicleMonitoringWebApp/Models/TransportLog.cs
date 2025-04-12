@@ -15,8 +15,8 @@ public class TransportLog
     [Required]
     public DateTime Tanggal { get; set; } = DateTime.Today;
 
-    [Range(0, double.MaxValue)]
-    public double Qty_L { get; set; }
+    [Range(0, float.MaxValue)]
+    public float Qty_L { get; set; }
 
     [Range(0, int.MaxValue)]
     public int Harga_BBM_Rp { get; set; }

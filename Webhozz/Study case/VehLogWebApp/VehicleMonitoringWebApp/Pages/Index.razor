@@ -1,0 +1,160 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using VehicleMonitoringWebApp.Services
+@using VehicleMonitoringWebApp.Models
+@using Microsoft.JSInterop
+@inject TransportLogService LogService
+@inject NavigationManager Navigation
+@page "/"
+
+<h3>Transport Log</h3>
+<button @onclick='() => Navigation.NavigateTo("/create")'>Tambah</button>
+<div class="mb-3">
+    <input class="form-control" placeholder="Cari supir atau job number..." @bind="searchTerm" @bind:event="oninput" />
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th @onclick="@(() => SortBy("Tanggal"))">Tanggal</th>
+            <th>Pengisian Bensin (L)</th>
+            <th>Harga BBM</th>
+            <th>Adometer Buka</th>
+            <th>Adometer Tutup</th>
+            <th>KM</th>
+            <th>Total BBM (Rp)</th>
+            <th>Biaya Toll (Rp)</th>
+            <th>Biaya Parkir (Rp)</th>
+            <th>Grand Total</th>
+            <th>Job Number</th>
+            <th>Supir</th>
+            <th>Efisiensi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (_logs is not null && _logs.Count > 0)
+        {
+            int no = 1;
+            @foreach (var log in _filteredLogs)
+            {
+                <tr>
+                    <td>@no</td>
+                    <td>@log.Tanggal.ToString("dd/MM/yyyy")</td>
+                    <td>@log.Qty_L</td>
+                    <td>@log.Harga_BBM_Rp</td>
+                    <td>@log.Adometer_Buka</td>
+                    <td>@log.Adometer_Tutup</td>
+                    <td>@log.KM</td>
+                    <td>@log.Total_BBM_Rp.ToString("N0")</td>
+                    <td>@log.Biaya_Toll_Rp</td>
+                    <td>@log.Parkir_Rp</td>
+                    <td>@log.Grand_Total.ToString("N0")</td>
+                    <td>@log.Job_Number</td>
+                    <td>@log.Supir</td>
+                    <td>@log.Efisiensi_BBM</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(log.ID)">Hapus</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-warning me-2" @onclick="@(() => Navigation.NavigateTo($"/edit/{log.ID}"))">Edit</button>
+                    </td>
+                </tr>
+
+                no++;
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7">Tidak ada data ditemukan.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@inject IJSRuntime JS
+
+@code {
+    private List<TransportLog> _logs = new();
+    private List<TransportLog> _filteredLogs = new();
+    private string _searchTerm = string.Empty;
+    private bool sortAscending = true;
+    private string currentSortField = string.Empty;
+
+    //Load data block
+    protected override async Task OnInitializedAsync()
+    {
+        _logs = await LogService.GetAllLogsAsync();
+        _filteredLogs = _logs;
+    }
+
+    //Delete button block
+    private async Task ConfirmDelete(int id)
+    {
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", $"Yakin ingin menghapus data dengan ID {id}?");
+        if (confirmed)
+        {
+            await LogService.DeleteAsync(id);
+            _logs = await LogService.GetAllLogsAsync(); // refresh tabel
+        }
+    }
+
+    //Filter feature block
+    private void ApplyFilter()
+    {
+        if (string.IsNullOrWhiteSpace(searchTerm))
+        {
+            _filteredLogs = _logs;
+        }
+        else
+        {
+            _filteredLogs = _logs.Where(log =>
+                (!string.IsNullOrEmpty(log.Supir) && log.Supir.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)) ||
+                (!string.IsNullOrEmpty(log.Job_Number) && log.Job_Number.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+            ).ToList();
+        }
+    }
+
+    private void OnSearchChanged(ChangeEventArgs e)
+    {
+        searchTerm = e.Value?.ToString() ?? string.Empty;
+        ApplyFilter();
+    }
+    private string searchTerm
+    {
+        get => _searchTerm;
+        set
+        {
+            if (_searchTerm != value)
+            {
+                _searchTerm = value;
+                ApplyFilter(); // ⬅️ panggil filter setiap kali nilai berubah
+            }
+        }
+    }
+
+    //Sort feature block
+    private void SortBy(string field)
+    {
+        if (currentSortField == field)
+            sortAscending = !sortAscending;
+        else
+        {
+            currentSortField = field;
+            sortAscending = true;
+        }
+
+        _filteredLogs = sortAscending
+            ? _filteredLogs.OrderBy(log => GetSortValue(log, field)).ToList()
+            : _filteredLogs.OrderByDescending(log => GetSortValue(log, field)).ToList();
+    }
+
+    private object? GetSortValue(TransportLog log, string field)
+    {
+        return field switch
+        {
+            "Tanggal" => log.Tanggal,
+            "Supir" => log.Supir,
+            _ => null
+        };
+    }
+}

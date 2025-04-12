@@ -113,14 +113,14 @@ public class TransportLogService
         cmd.Parameters.AddWithValue("@Parkir", log.Parkir_Rp);
         cmd.Parameters.AddWithValue("@Job", log.Job_Number);
         cmd.Parameters.AddWithValue("@Supir", log.Supir);
-        cmd.Parameters.AddWithValue("@Efisien", log.Efisiensi_BBM.ToString());
+        cmd.Parameters.AddWithValue("@Efisien", (int)log.Efisiensi_BBM);
     }
 
     private static TransportLog ReadLog(SqlDataReader reader) => new()
     {
         ID = Convert.ToInt32(reader["ID"]),
         Tanggal = Convert.ToDateTime(reader["Tanggal"]),
-        Qty_L = Convert.ToDouble(reader["Qty_L"]),
+        Qty_L = (float)Convert.ToDouble(reader["Qty_L"]),
         Harga_BBM_Rp = Convert.ToInt32(reader["Harga_BBM_Rp"]),
         Adometer_Buka = Convert.ToInt32(reader["Adometer_Buka"]),
         Adometer_Tutup = Convert.ToInt32(reader["Adometer_Tutup"]),
@@ -128,6 +128,8 @@ public class TransportLogService
         Parkir_Rp = Convert.ToInt32(reader["Parkir_Rp"]),
         Job_Number = reader["Job_Number"].ToString() ?? "",
         Supir = reader["Supir"].ToString() ?? "",
-        Efisiensi_BBM = Enum.TryParse<Efisiensi>(reader["Efisiensi_BBM"].ToString(), out var result) ? result : Efisiensi.Good
+         Efisiensi_BBM = Enum.IsDefined(typeof(Efisiensi), (int)reader["Efisiensi_BBM"])
+        ? (Efisiensi)(int)reader["Efisiensi_BBM"]
+        : Efisiensi.Good
     };
 }

@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{5FEB84E9-68A6-4332-A721-8F031192558C}|VehicleMonitoringWebApp.csproj|solutionrelative:components\\pages\\createedit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5FEB84E9-68A6-4332-A721-8F031192558C}|VehicleMonitoringWebApp.csproj|d:\\github\\mudya47.github.io\\webhozz\\study case\\studycase5_vehiclemonitoringwebapp\\vehiclemonitoringwebapp\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5FEB84E9-68A6-4332-A721-8F031192558C}|VehicleMonitoringWebApp.csproj|solutionrelative:components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5FEB84E9-68A6-4332-A721-8F031192558C}|VehicleMonitoringWebApp.csproj|d:\\github\\mudya47.github.io\\webhozz\\study case\\studycase5_vehiclemonitoringwebapp\\vehiclemonitoringwebapp\\models\\transportlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5FEB84E9-68A6-4332-A721-8F031192558C}|VehicleMonitoringWebApp.csproj|solutionrelative:models\\transportlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FEB84E9-68A6-4332-A721-8F031192558C}|VehicleMonitoringWebApp.csproj|d:\\github\\mudya47.github.io\\webhozz\\study case\\studycase5_vehiclemonitoringwebapp\\vehiclemonitoringwebapp\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5FEB84E9-68A6-4332-A721-8F031192558C}|VehicleMonitoringWebApp.csproj|solutionrelative:components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5FEB84E9-68A6-4332-A721-8F031192558C}|VehicleMonitoringWebApp.csproj|d:\\github\\mudya47.github.io\\webhozz\\study case\\studycase5_vehiclemonitoringwebapp\\vehiclemonitoringwebapp\\services\\transportlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -48,22 +48,22 @@
               "RelativeDocumentMoniker": "Services\\TransportLogService.cs",
               "ToolTip": "D:\\github\\mudya47.github.io\\Webhozz\\Study case\\StudyCase5_VehicleMonitoringWebApp\\VehicleMonitoringWebApp\\Services\\TransportLogService.cs",
               "RelativeToolTip": "Services\\TransportLogService.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAAwIQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAswGsAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T02:53:03.431Z",
+              "WhenOpened": "2025-04-11T03:47:55.854Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "TransportLog.cs",
               "DocumentMoniker": "D:\\github\\mudya47.github.io\\Webhozz\\Study case\\StudyCase5_VehicleMonitoringWebApp\\VehicleMonitoringWebApp\\Models\\TransportLog.cs",
               "RelativeDocumentMoniker": "Models\\TransportLog.cs",
               "ToolTip": "D:\\github\\mudya47.github.io\\Webhozz\\Study case\\StudyCase5_VehicleMonitoringWebApp\\VehicleMonitoringWebApp\\Models\\TransportLog.cs",
               "RelativeToolTip": "Models\\TransportLog.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAADwvy8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T04:12:55.088Z",
+              "WhenOpened": "2025-04-11T03:47:49.009Z",
               "EditorCaption": ""
             },
             {
@@ -72,24 +72,24 @@
               "Title": "CreateEdit.razor",
               "DocumentMoniker": "D:\\github\\mudya47.github.io\\Webhozz\\Study case\\StudyCase5_VehicleMonitoringWebApp\\VehicleMonitoringWebApp\\Components\\Pages\\CreateEdit.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\CreateEdit.razor",
-              "ToolTip": "D:\\github\\mudya47.github.io\\Webhozz\\Study case\\StudyCase5_VehicleMonitoringWebApp\\VehicleMonitoringWebApp\\Components\\Pages\\CreateEdit.razor",
-              "RelativeToolTip": "Components\\Pages\\CreateEdit.razor",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAQwGEAAAANAAAAAAAAAA==",
+              "ToolTip": "D:\\github\\mudya47.github.io\\Webhozz\\Study case\\StudyCase5_VehicleMonitoringWebApp\\VehicleMonitoringWebApp\\Components\\Pages\\CreateEdit.razor*",
+              "RelativeToolTip": "Components\\Pages\\CreateEdit.razor*",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFUAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T03:33:55.255Z",
+              "WhenOpened": "2025-04-11T01:27:34.815Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.razor",
               "DocumentMoniker": "D:\\github\\mudya47.github.io\\Webhozz\\Study case\\StudyCase5_VehicleMonitoringWebApp\\VehicleMonitoringWebApp\\Components\\Pages\\Index.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Index.razor",
               "ToolTip": "D:\\github\\mudya47.github.io\\Webhozz\\Study case\\StudyCase5_VehicleMonitoringWebApp\\VehicleMonitoringWebApp\\Components\\Pages\\Index.razor",
               "RelativeToolTip": "Components\\Pages\\Index.razor",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAQwGQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAQwF0AAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-07T08:46:15.763Z",
+              "WhenOpened": "2025-04-11T01:27:22.102Z",
               "EditorCaption": ""
             }
           ]

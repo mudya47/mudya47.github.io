@@ -1,91 +1,102 @@
 ﻿@page "/create-edit"
+@page "/create-edit/{Id:int}"
 @using Microsoft.AspNetCore.Components.Forms
 @using VehicleMonitoringWebApp.Models
 @inject TransportLogService LogService
 @inject NavigationManager NavigationManager
+<link href="css/blazor_ui_styles.css" rel="stylesheet" />
 
 <h3>Create / Edit Transport Log</h3>
 
-<EditForm Model="logEntry" OnValidSubmit="HandleValidSubmit" FormName="MainTransportForm">
+@if (isLoaded)
+{
+    <EditForm Model="logEntry" OnValidSubmit="HandleValidSubmit" FormName="MainTransportForm">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="row mb-3">
+            <div class="col">
+                <label for="tanggal">Tanggal</label>
+                <InputDate id="tanggal" class="form-control" @bind-Value="logEntry.Tanggal" />
+            </div>
+            <div class="col">
+                <label for="qty">BBM Qty (L)</label>
+                <InputNumber id="qty" class="form-control" @bind-Value="logEntry.Qty_L" />
+            </div>
+            <div class="col">
+                <label for="harga">Harga BBM (Rp)</label>
+                <InputNumber id="harga" class="form-control" @bind-Value="logEntry.Harga_BBM_Rp" />
+            </div>
+        </div>
 
-    <div class="row mb-3">
-        <div class="col">
-            <label for="tanggal">Tanggal</label>
-            <InputDate id="tanggal" class="form-control" @bind-Value="logEntry.Tanggal" />
+        <div class="row mb-3">
+            <div class="col">
+                <label for="adoBuka">Adometer Buka</label>
+                <InputNumber id="adoBuka" class="form-control" @bind-Value="logEntry.Adometer_Buka" />
+            </div>
+            <div class="col">
+                <label for="adoTutup">Adometer Tutup</label>
+                <InputNumber id="adoTutup" class="form-control" @bind-Value="logEntry.Adometer_Tutup" />
+            </div>
+            <div class="col">
+                <label>KM</label>
+                <input class="form-control" value="@logEntry.KM" disabled />
+            </div>
         </div>
-        <div class="col">
-            <label for="qty">BBM Qty (L)</label>
-            <InputNumber id="qty" class="form-control" @bind-Value="logEntry.Qty_L" />
-        </div>
-        <div class="col">
-            <label for="harga">Harga BBM (Rp)</label>
-            <InputNumber id="harga" class="form-control" @bind-Value="logEntry.Harga_BBM_Rp" />
-        </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="col">
-            <label for="adoBuka">Adometer Buka</label>
-            <InputNumber id="adoBuka" class="form-control" @bind-Value="logEntry.Adometer_Buka" />
+        <div class="row mb-3">
+            <div class="col">
+                <label>Total BBM (Rp)</label>
+                <input class="form-control" value="@logEntry.Total_BBM_Rp" disabled />
+            </div>
+            <div class="col">
+                <label for="tol">Biaya Toll (Rp)</label>
+                <InputNumber id="tol" class="form-control" @bind-Value="logEntry.Biaya_Toll_Rp" />
+            </div>
+            <div class="col">
+                <label for="parkir">Parkir (Rp)</label>
+                <InputNumber id="parkir" class="form-control" @bind-Value="logEntry.Parkir_Rp" />
+            </div>
         </div>
-        <div class="col">
-            <label for="adoTutup">Adometer Tutup</label>
-            <InputNumber id="adoTutup" class="form-control" @bind-Value="logEntry.Adometer_Tutup" />
-        </div>
-        <div class="col">
-            <label>KM</label>
-            <input class="form-control" value="@logEntry.KM" disabled />
-        </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="col">
-            <label>Total BBM (Rp)</label>
-            <input class="form-control" value="@logEntry.Total_BBM_Rp" disabled />
+        <div class="row mb-3">
+            <div class="col">
+                <label>Grand Total</label>
+                <input class="form-control" value="@logEntry.Grand_Total" disabled />
+            </div>
+            <div class="col">
+                <label for="job">Job Number</label>
+                <InputText id="job" class="form-control" @bind-Value="logEntry.Job_Number" />
+            </div>
+            <div class="col">
+                <label for="supir">Supir</label>
+                <InputText id="supir" class="form-control" @bind-Value="logEntry.Supir" />
+            </div>
         </div>
-        <div class="col">
-            <label for="tol">Biaya Toll (Rp)</label>
-            <InputNumber id="tol" class="form-control" @bind-Value="logEntry.Biaya_Toll_Rp" />
-        </div>
-        <div class="col">
-            <label for="parkir">Parkir (Rp)</label>
-            <InputNumber id="parkir" class="form-control" @bind-Value="logEntry.Parkir_Rp" />
-        </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="col">
-            <label>Grand Total</label>
-            <input class="form-control" value="@logEntry.Grand_Total" disabled />
+        <div class="mb-3">
+            <label for="efisiensi">Efisiensi BBM</label>
+            <InputSelect id="efisiensi" class="form-select" @bind-Value="logEntry.Efisiensi_BBM">
+                @foreach (Efisiensi value in Enum.GetValues(typeof(Efisiensi)))
+                {
+                    <option value="@value">@value</option>
+                }
+            </InputSelect>
+            <ValidationMessage For="@(() => logEntry.Efisiensi_BBM)" />
         </div>
-        <div class="col">
-            <label for="job">Job Number</label>
-            <InputText id="job" class="form-control" @bind-Value="logEntry.Job_Number" />
-        </div>
-        <div class="col">
-            <label for="supir">Supir</label>
-            <InputText id="supir" class="form-control" @bind-Value="logEntry.Supir" />
-        </div>
-    </div>
-
-    <div class="mb-3">
-        <label for="efisiensi">Efisiensi BBM</label>
-        <InputSelect id="efisiensi" class="form-select" @bind-Value="logEntry.Efisiensi_BBM">
-            @foreach (Efisiensi value in Enum.GetValues(typeof(Efisiensi)))
-            {
-                <option value="@value">@value</option>
-            }
-        </InputSelect>
-        <ValidationMessage For="@(() => logEntry.Efisiensi_BBM)" />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-</EditForm>
+        <pre>@System.Text.Json.JsonSerializer.Serialize(logEntry)</pre>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </EditForm>
+}
+else
+{
+    <p>Loading data log...</p>
+}
 
 @code {
     [Parameter] public int? Id { get; set; }
 
     private TransportLog logEntry = new();
+    private bool isLoaded = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -97,24 +108,27 @@
                 logEntry = existing;
             }
         }
+        isLoaded = true;
     }
 
     private async Task HandleValidSubmit()
     {
-        Console.WriteLine("🚀 SUBMIT:");
-        Console.WriteLine($"Tanggal: {logEntry.Tanggal}");
-        Console.WriteLine($"Qty_L: {logEntry.Qty_L}");
-        Console.WriteLine($"Harga: {logEntry.Harga_BBM_Rp}");
-        Console.WriteLine($"AdoBuka: {logEntry.Adometer_Buka}");
-        Console.WriteLine($"Efisiensi: {logEntry.Efisiensi_BBM}");
-        Console.WriteLine($"Job: {logEntry.Job_Number}");
-        Console.WriteLine($"Supir: {logEntry.Supir}");
+        try
+        {
+            Console.WriteLine("SUBMIT:");
+            Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(logEntry));
 
-        if (Id.HasValue)
-            await LogService.UpdateLogAsync(logEntry);
-        else
-            await LogService.CreateLogAsync(logEntry);
+            if (Id.HasValue)
+                await LogService.UpdateLogAsync(logEntry);
+            else
+                await LogService.CreateLogAsync(logEntry);
 
-        NavigationManager.NavigateTo("/");
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("❌ Error saat submit:");
+            Console.WriteLine(ex.Message);
+        }
     }
 }

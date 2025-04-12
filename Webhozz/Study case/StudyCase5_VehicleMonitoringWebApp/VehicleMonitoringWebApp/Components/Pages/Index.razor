@@ -1,8 +1,9 @@
 ﻿@page "/"
 @inject TransportLogService LogService
 @inject NavigationManager NavigationManager
-
+<link href="css/blazor_ui_styles.css" rel="stylesheet" />
 <h3>Transport Log Monitoring</h3>
+
 
 <div class="card p-3 mb-4">
     <div class="row g-2 align-items-end">
@@ -90,12 +91,13 @@ else
     private async Task LoadLogs()
     {
         no = 0;
-        logs = await LogService.GetLogsAsync(startDate, endDate);
+        logs = await LogService.GetLogsAsync(startDate.Date, endDate.Date.AddDays(1).AddTicks(-1));
     }
+
 
     private async Task SearchLogs()
     {
         no = 0;
-        logs = await LogService.GetLogsByDateRangeAsync(startDate, endDate);
+        logs = await LogService.GetLogsByDateRangeAsync(startDate.Date, endDate.Date.AddDays(1).AddTicks(-1));
     }
 }

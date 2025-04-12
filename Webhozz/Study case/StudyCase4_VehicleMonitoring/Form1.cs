@@ -21,6 +21,12 @@ namespace StudyCase4_VehicleMonitoring
             
             LoadData(dateNow, dateNow);
         }
+        public enum Efisiensi
+        {
+            Good,
+            Fair,
+            Bad
+        }
         private void LoadData(DateTime startDate, DateTime endDate)
         {
             try
@@ -28,11 +34,11 @@ namespace StudyCase4_VehicleMonitoring
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-   
-                    string query = @"SELECT ID, Tanggal, Qty_L, Harga_BBM_Rp, Adometer_Buka, Adometer_Tutup, KM, Total_BBM_Rp, 
-                                    Biaya_Toll_Rp, Parkir_Rp, Grand_Total, Job_Number, Supir, Efisiensi_BBM 
-                                     FROM TransportLog 
-                                    WHERE Tanggal BETWEEN @startDate AND @endDate";
+
+                    string query = @"SELECT ID, Tanggal, Qty_L, Harga_BBM_Rp, Adometer_Buka, Adometer_Tutup, KM, Total_BBM_Rp,
+                                Biaya_Toll_Rp, Parkir_Rp, Grand_Total, Job_Number, Supir, Efisiensi_BBM
+                                FROM TransportLog 
+                                WHERE Tanggal BETWEEN @startDate AND @endDate";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -42,12 +48,15 @@ namespace StudyCase4_VehicleMonitoring
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
-                        // lanjutkan bind ke DataGridView
 
-
-                        // ?? Bersihkan DataGridView sebelum load ulang
                         dataGridView1.Rows.Clear();
                         dataGridView1.Columns.Clear();
+
+                        DataGridViewTextBoxColumn colID = new DataGridViewTextBoxColumn();
+                        colID.Name = "ID";
+                        colID.HeaderText = "ID";
+                        colID.Visible = false;
+                        dataGridView1.Columns.Add(colID);
 
                         DataGridViewTextBoxColumn colNo = new DataGridViewTextBoxColumn();
                         colNo.Name = "No";
@@ -55,95 +64,33 @@ namespace StudyCase4_VehicleMonitoring
                         colNo.MinimumWidth = 35;
                         dataGridView1.Columns.Add(colNo);
 
-                        DataGridViewTextBoxColumn colDate = new DataGridViewTextBoxColumn();
-                        colDate.Name = "Tanggal";
-                        colDate.HeaderText = "Tanggal";
-                        colDate.MinimumWidth = 150;
-                        dataGridView1.Columns.Add(colDate);
+                        dataGridView1.Columns.AddRange(
+                            new DataGridViewTextBoxColumn { Name = "Tanggal", HeaderText = "Tanggal", MinimumWidth = 150 },
+                            new DataGridViewTextBoxColumn { Name = "Qty_L", HeaderText = "Pembelian Bensin", MinimumWidth = 100 },
+                            new DataGridViewTextBoxColumn { Name = "Harga_BBM_Rp", HeaderText = "Harga BBM (Rp)", MinimumWidth = 50 },
+                            new DataGridViewTextBoxColumn { Name = "Adometer_Buka", HeaderText = "Adometer Buka", MinimumWidth = 100 },
+                            new DataGridViewTextBoxColumn { Name = "Adometer_Tutup", HeaderText = "Adometer Tutup", MinimumWidth = 100 },
+                            new DataGridViewTextBoxColumn { Name = "KM", HeaderText = "KM", MinimumWidth = 50 },
+                            new DataGridViewTextBoxColumn { Name = "Total_BBM_Rp", HeaderText = "Total BBM (Rp)", MinimumWidth = 50 },
+                            new DataGridViewTextBoxColumn { Name = "Biaya_Toll_Rp", HeaderText = "Biaya Toll (Rp)", MinimumWidth = 50 },
+                            new DataGridViewTextBoxColumn { Name = "Parkir_Rp", HeaderText = "Parkir (Rp)", MinimumWidth = 50 },
+                            new DataGridViewTextBoxColumn { Name = "Grand_Total", HeaderText = "Grand Total", MinimumWidth = 50 },
+                            new DataGridViewTextBoxColumn { Name = "Job_Number", HeaderText = "Job Number", MinimumWidth = 50 },
+                            new DataGridViewTextBoxColumn { Name = "Supir", HeaderText = "Supir", MinimumWidth = 50 },
+                            new DataGridViewTextBoxColumn { Name = "Efisiensi_BBM", HeaderText = "Efisiensi BBM", MinimumWidth = 50 }
+                        );
 
-                        DataGridViewTextBoxColumn colQty = new DataGridViewTextBoxColumn();
-                        colQty.Name = "Qty_L";
-                        colQty.HeaderText = "Pembelian Bensin"; //untuk header, format penulisan lebih baik tanpa ada underscore (hnaya pakai spasi)
-                        colQty.MinimumWidth = 100;
-                        dataGridView1.Columns.Add(colQty);
-
-                        DataGridViewTextBoxColumn colHargaBbm = new DataGridViewTextBoxColumn();
-                        colHargaBbm.Name = "Harga_BBM_Rp";
-                        colHargaBbm.HeaderText = "Harga BBM (Rp)";
-                        colHargaBbm.MinimumWidth = 50;
-                        dataGridView1.Columns.Add(colHargaBbm);
-
-                        DataGridViewTextBoxColumn colAdoBuka = new DataGridViewTextBoxColumn();
-                        colAdoBuka.Name = "Adometer_Buka";
-                        colAdoBuka.HeaderText = "Adometer Buka";
-                        colAdoBuka.MinimumWidth = 100;
-                        dataGridView1.Columns.Add(colAdoBuka);
-
-                        DataGridViewTextBoxColumn colAdoTutup = new DataGridViewTextBoxColumn();
-                        colAdoTutup.Name = "Adometer_Tutup";
-                        colAdoTutup.HeaderText = "Adometer Tutup";
-                        colAdoTutup.MinimumWidth = 100;
-                        dataGridView1.Columns.Add(colAdoTutup);
-
-                        DataGridViewTextBoxColumn colKM = new DataGridViewTextBoxColumn();
-                        colKM.Name = "KM";
-                        colKM.HeaderText = "KM";
-                        colKM.MinimumWidth = 50;
-                        dataGridView1.Columns.Add(colKM);
-
-                        DataGridViewTextBoxColumn colTotalBbm = new DataGridViewTextBoxColumn();
-                        colTotalBbm.Name = "Total_BBM_Rp";
-                        colTotalBbm.HeaderText = "Total BBM (Rp)";
-                        colTotalBbm.MinimumWidth = 50;
-                        dataGridView1.Columns.Add(colTotalBbm);
-
-                        DataGridViewTextBoxColumn colBiayaToll = new DataGridViewTextBoxColumn();
-                        colBiayaToll.Name = "Biaya_Toll_Rp";
-                        colBiayaToll.HeaderText = "Biaya Toll (Rp)";
-                        colBiayaToll.MinimumWidth = 50;
-                        dataGridView1.Columns.Add(colBiayaToll);
-
-                        DataGridViewTextBoxColumn colParkir = new DataGridViewTextBoxColumn();
-                        colParkir.Name = "Parkir_Rp";
-                        colParkir.HeaderText = "Parkir (Rp)";
-                        colParkir.MinimumWidth = 50;
-                        dataGridView1.Columns.Add(colParkir);
-
-                        DataGridViewTextBoxColumn colGrandTotal = new DataGridViewTextBoxColumn();
-                        colGrandTotal.Name = "Grand_Total";
-                        colGrandTotal.HeaderText = "Grand Total";
-                        colGrandTotal.MinimumWidth = 50;
-                        dataGridView1.Columns.Add(colGrandTotal);
-
-                        DataGridViewTextBoxColumn colJobNo = new DataGridViewTextBoxColumn();
-                        colJobNo.Name = "Job_Number";
-                        colJobNo.HeaderText = "Job Number";
-                        colJobNo.MinimumWidth = 50;
-                        dataGridView1.Columns.Add(colJobNo);
-
-                        DataGridViewTextBoxColumn colSupir = new DataGridViewTextBoxColumn();
-                        colSupir.Name = "Supir";
-                        colSupir.HeaderText = "Supir";
-                        colSupir.MinimumWidth = 50;
-                        dataGridView1.Columns.Add(colSupir);
-
-                        DataGridViewTextBoxColumn colEfisienBbm = new DataGridViewTextBoxColumn();
-                        colEfisienBbm.Name = "Efisiensi_BBM";
-                        colEfisienBbm.HeaderText = "Efisiensi BBM";
-                        colEfisienBbm.MinimumWidth = 50;
-                        dataGridView1.Columns.Add(colEfisienBbm);
-
-                        // ?? Tambahkan data ke dalam DataGridView
                         int rowNumber = 1;
                         foreach (DataRow row in dt.Rows)
                         {
-                            dataGridView1.Rows.Add(rowNumber, row["Tanggal"], row["Qty_L"],
+                            string efisiensiLabel = row["Efisiensi_BBM"].ToString();
+
+                            dataGridView1.Rows.Add(
+                                row["ID"], rowNumber++, row["Tanggal"], row["Qty_L"],
                                 row["Harga_BBM_Rp"], row["Adometer_Buka"], row["Adometer_Tutup"],
                                 row["KM"], row["Total_BBM_Rp"], row["Biaya_Toll_Rp"],
                                 row["Parkir_Rp"], row["Grand_Total"], row["Job_Number"],
-                                row["Supir"], row["Efisiensi_BBM"]);
-
-                            rowNumber++;
+                                row["Supir"], efisiensiLabel);
                         }
                     }
                 }

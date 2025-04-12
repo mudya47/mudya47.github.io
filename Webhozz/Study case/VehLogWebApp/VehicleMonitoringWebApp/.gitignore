@@ -1,0 +1,98 @@
+#############################
+# .NET & Visual Studio
+#############################
+
+## Build results
+[Bb]in/
+[Oo]bj/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+
+## Auto-generated files
+*.GeneratedMSBuildEditorConfig.editorconfig
+*.AssemblyInfo.cs
+*.AssemblyAttributes.cs
+*.RazorAssemblyInfo.cs
+*.g.cs
+*.g.i.cs
+
+## Logs
+*.log
+
+## Debugging
+*.pdb
+*.mdb
+
+## Publish / runtime
+*.exe
+*.dll
+*.runtimeconfig.json
+*.deps.json
+*.staticwebassets.runtime.json
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+project.lock.json
+project.fragment.lock.json
+project.assets.json
+*.csproj.nuget.*
+
+## Rider & VS Code
+.idea/
+.vscode/
+*.code-workspace
+
+## ASP.NET Static Assets
+**/wwwroot/**/*.map
+**/wwwroot/**/*.min.css
+**/wwwroot/**/*.min.js
+**/wwwroot/**/*.gz
+**/wwwroot/**/*.br
+
+## Local configuration
+appsettings.Development.json
+launchSettings.json
+
+## Web build bundles
+*.zip
+*.tar.gz
+*.tgz
+
+## OS-specific
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+#############################
+# Project Specific
+#############################
+
+# Blazor build output
+VehicleMonitoringWebApp/bin/
+VehicleMonitoringWebApp/obj/
+
+# Temporary bundle
+VehicleMonitoringWebApp.zip
+
+# Scoped CSS build outputs
+**/scopedcss/**/*.css
+
+# Minified source map
+VehicleMonitoringWebApp/wwwroot/bootstrap/bootstrap.min.css.map
+
+# Lock files and caches
+**/*.cache
+**/*.tmp
+
+## Visual Studio IDE metadata
+*.vsidx
+documentlayout.json
+documentlayout.backup.json
