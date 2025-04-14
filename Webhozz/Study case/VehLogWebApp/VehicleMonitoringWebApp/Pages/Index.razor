@@ -1,11 +1,18 @@
-﻿@using Microsoft.AspNetCore.Components.Web
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.Web
 @using VehicleMonitoringWebApp.Services
 @using VehicleMonitoringWebApp.Models
 @using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Components.Forms
 @inject TransportLogService LogService
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
-@page "/"
+
+
+<!-- Sidebar (fixed left) -->
+<div style="position: fixed; left: 0; top: 0; bottom: 0; width: 60px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; border-right: 1px solid #ccc;">
+    <img src="your-logo.svg" alt="Logo" style="width: 40px; height: 40px;" />
+</div>
 
 <h3>Transport Log</h3>
 <button class="btn btn-secondary me-2" @onclick="PrintPage">Print</button>
@@ -13,6 +20,40 @@
 <div class="mb-3">
     <input class="form-control" placeholder="Cari supir atau job number..." @bind="searchTerm" @bind:event="oninput" />
 </div>
+
+<!--Date Filter block-->
+<div class="mb-3 row">
+    <div class="col">
+        <label for="startDate">Dari:</label>
+        <InputDate @bind-Value="_startDate" TValue="DateTime?" class="form-control" />
+    </div>
+    <div class="col">
+        <label for="endDate">Sampai:</label>
+        <InputDate @bind-Value="_endDate" TValue="DateTime?" class="form-control" />
+    </div>
+    <div class="col d-flex align-items-end">
+        <button class="btn btn-primary" @onclick="ApplyDateFilter">Filter</button>
+    </div>
+</div>
+<!--Date Filter block-->
+
+<!--Quick Date Filter-->
+<div class="mb-3">
+    <label for="quickFilter">Quick Date Filter:</label>
+    <select class="form-control" id="quickFilter" @bind="selectedQuickFilter">
+        <option value="">-- Pilih --</option>
+        <option value="Today">Today</option>
+        <option value="Yesterday">Yesterday</option>
+        <option value="ThisWeek">This Week</option>
+        <option value="LastWeek">Last Week</option>
+        <option value="MonthToDate">Month to Date</option>
+        <option value="LastMonth">Last Month</option>
+        <option value="YearToDate">Year to Date</option>
+    </select>
+</div>
+<!--Quick Date Filter-->
+
+
 <div id="print-area">
     <table class="table table-striped">
         <thead>
@@ -34,10 +75,10 @@
             </tr>
         </thead>
         <tbody>
-            @if (_logs is not null && _logs.Count > 0)
+            @if (GetCurrentPageLogs() is not null && GetCurrentPageLogs().Count > 0)
             {
                 int no = 1;
-                @foreach (var log in _filteredLogs)
+                @foreach (var log in GetCurrentPageLogs())
                 {
                     <tr>
                         <td>@no</td>
@@ -73,9 +114,32 @@
             }
         </tbody>
     </table>
+    <p>Current Page: @currentPage</p>
+    
 </div>
+<!-- Pagination Controls -->
+@if (TotalPages > 1)
+{
+    <nav>
+        <ul class="pagination">
+            <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                <button class="page-link" @onclick="() => ChangePage(currentPage - 1)">Previous</button>
+            </li>
 
-@inject IJSRuntime JS
+            @*@for (int page = 1; page <= TotalPages; page++)
+            {
+                <li class="page-item @(currentPage == page ? "active" : "")">
+                    <button class="page-link" @onclick="() => ChangePage(page)">@(page)</button>
+                </li>
+            }*@ 
+
+            <li class="page-item @(currentPage == TotalPages ? "disabled" : "")">
+                <button class="page-link" @onclick="() => ChangePage(currentPage + 1)">Next</button>
+            </li>
+        </ul>
+    </nav>
+}
+
 
 @code {
     private List<TransportLog> _logs = new();
@@ -83,6 +147,9 @@
     private string _searchTerm = string.Empty;
     private bool sortAscending = true;
     private string currentSortField = string.Empty;
+    private int currentPage = 1;
+    private int pageSize = 10;
+    private int TotalPages => (int)Math.Ceiling((double)_filteredLogs.Count / pageSize);
 
     //Load data block
     protected override async Task OnInitializedAsync()
@@ -116,6 +183,7 @@
                 (!string.IsNullOrEmpty(log.Job_Number) && log.Job_Number.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
             ).ToList();
         }
+        currentPage = 1;
     }
 
     private void OnSearchChanged(ChangeEventArgs e)
@@ -166,5 +234,141 @@
     private async Task PrintPage()
     {
         await JS.InvokeVoidAsync("window.print");
+    }
+
+    //Date filter block
+    private DateTime? _startDate { get; set; }
+    private DateTime? _endDate { get; set; }
+
+    private void ApplyDateFilter()
+    {
+        if (_startDate.HasValue && _endDate.HasValue)
+        {
+            _filteredLogs = _logs
+                .Where(log => log.Tanggal.Date >= _startDate.Value.Date && log.Tanggal.Date <= _endDate.Value.Date)
+                .ToList();
+        }
+        else
+        {
+            _filteredLogs = _logs; // fallback
+        }
+        currentPage = 1;
+    }
+
+    //Quick Date Filter
+    private string _selectedQuickFilter = "";
+
+    private string selectedQuickFilter
+    {
+        get => _selectedQuickFilter;
+        set
+        {
+            if (_selectedQuickFilter != value)
+            {
+                _selectedQuickFilter = value;
+                ApplyQuickDateFilter();
+            }
+        }
+    }
+
+    private void ApplyDateRangeFilter()
+    {
+        if (_startDate.HasValue && _endDate.HasValue)
+        {
+            _filteredLogs = _logs
+                .Where(log => log.Tanggal.Date >= _startDate.Value.Date && log.Tanggal.Date <= _endDate.Value.Date)
+                .ToList();
+        }
+        else
+        {
+            _filteredLogs = _logs;
+        }
+    }
+
+    private void ApplyQuickDateFilter()
+    {
+        var today = DateTime.Today;
+
+        switch (selectedQuickFilter)
+        {
+            case "Today":
+                _startDate = _endDate = today;
+                break;
+            case "Yesterday":
+                _startDate = _endDate = today.AddDays(-1);
+                break;
+            case "ThisWeek":
+                int diff = (7 + (today.DayOfWeek - DayOfWeek.Monday)) % 7;
+                _startDate = today.AddDays(-diff);
+                _endDate = today;
+                break;
+            case "LastWeek":
+                int daysSinceMonday = (7 + (today.DayOfWeek - DayOfWeek.Monday)) % 7;
+                var lastWeekEnd = today.AddDays(-(daysSinceMonday + 1));
+                var lastWeekStart = lastWeekEnd.AddDays(-6);
+                _startDate = lastWeekStart;
+                _endDate = lastWeekEnd;
+                break;
+            case "MonthToDate":
+                _startDate = new DateTime(today.Year, today.Month, 1);
+                _endDate = today;
+                break;
+            case "LastMonth":
+                var firstDayThisMonth = new DateTime(today.Year, today.Month, 1);
+                var lastMonthEnd = firstDayThisMonth.AddDays(-1);
+                var lastMonthStart = new DateTime(lastMonthEnd.Year, lastMonthEnd.Month, 1);
+                _startDate = lastMonthStart;
+                _endDate = lastMonthEnd;
+                break;
+            case "YearToDate":
+                _startDate = new DateTime(today.Year, 1, 1);
+                _endDate = today;
+                break;
+            default:
+                return;
+        }
+        ApplyDateRangeFilter(); // Panggil filter setelah range diset
+        currentPage = 1;
+    }
+
+    // Pagination
+    private List<TransportLog> GetCurrentPageLogs()
+    {
+        return _filteredLogs
+            .Skip((currentPage - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+    }
+
+    private void GoToPage(int page)
+    {
+        if (page >= 1 && page <= TotalPages)
+        {
+            currentPage = page;
+        }
+    }
+
+    private void NextPage()
+    {
+        if (currentPage < TotalPages)
+        {
+            currentPage++;
+        }
+    }
+
+    private void PrevPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+        }
+    }
+    private void ChangePage(int page)
+    {
+        if (page >= 1 && page <= TotalPages)
+        {
+            currentPage = page;
+            StateHasChanged(); // ✅ WAJIB agar UI update
+        }
     }
 }
