@@ -1,13 +1,33 @@
 ﻿@page "/create"
+@using Microsoft.AspNetCore.Components.Routing
 @using Microsoft.AspNetCore.Components.Forms
 @using VehicleMonitoringWebApp.Models
 @using VehicleMonitoringWebApp.Services
 @inject TransportLogService LogService
 @inject NavigationManager Navigation
 
-<h3>Tambah Transport Log</h3>
 
-<EditForm Model="@logEntry" OnValidSubmit="@HandleValidSubmit">
+<div class="wrapper">
+    <!-- NAVBAR -->
+    <nav class="header navbar">
+        <div class="nav-left">
+            <img src="css/img/odg-logo.png" class="logo" alt="Logo" />
+            <NavLink href="/" class="nav-link" activeClass="active">Dashboard</NavLink>
+            <NavLink href="/create" class="nav-link" activeClass="active">Add Log</NavLink>
+            @*<a href="#" class="nav-link">Settings</a>*@
+        </div>
+        <div class="nav-right">
+            <input class="search-input" placeholder="Cari berdasarkan Job/Supir" @bind="searchTerm" @bind:event="oninput" />
+            <img src="css/img/icon-profile.png" class="profile-pic" alt="User" />
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="content-box">
+
+            <h3>Add Log</h3>
+            <EditForm Model="@logEntry" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -61,6 +81,12 @@
 
     <button class="btn btn-primary" type="submit">Simpan</button>
 </EditForm>
+
+            <!-- FOOTER -->
+            
+        </div>
+    </main>
+</div>
 
 @code {
     private TransportLog logEntry = new();
