@@ -48,6 +48,7 @@ project.assets.json
 .idea/
 .vscode/
 *.code-workspace
+.vs/
 
 ## ASP.NET Static Assets
 **/wwwroot/**/*.map
