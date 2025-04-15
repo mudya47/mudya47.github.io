@@ -8,137 +8,130 @@
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
 
-
-<!-- Sidebar (fixed left) -->
-<div style="position: fixed; left: 0; top: 0; bottom: 0; width: 60px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; border-right: 1px solid #ccc;">
-    <img src="your-logo.svg" alt="Logo" style="width: 40px; height: 40px;" />
-</div>
-
-<h3>Transport Log</h3>
-<button class="btn btn-secondary me-2" @onclick="PrintPage">Print</button>
-<button @onclick='() => Navigation.NavigateTo("/create")'>Tambah</button>
-<div class="mb-3">
-    <input class="form-control" placeholder="Cari supir atau job number..." @bind="searchTerm" @bind:event="oninput" />
-</div>
-
-<!--Date Filter block-->
-<div class="mb-3 row">
-    <div class="col">
-        <label for="startDate">Dari:</label>
-        <InputDate @bind-Value="_startDate" TValue="DateTime?" class="form-control" />
-    </div>
-    <div class="col">
-        <label for="endDate">Sampai:</label>
-        <InputDate @bind-Value="_endDate" TValue="DateTime?" class="form-control" />
-    </div>
-    <div class="col d-flex align-items-end">
-        <button class="btn btn-primary" @onclick="ApplyDateFilter">Filter</button>
-    </div>
-</div>
-<!--Date Filter block-->
-
-<!--Quick Date Filter-->
-<div class="mb-3">
-    <label for="quickFilter">Quick Date Filter:</label>
-    <select class="form-control" id="quickFilter" @bind="selectedQuickFilter">
-        <option value="">-- Pilih --</option>
-        <option value="Today">Today</option>
-        <option value="Yesterday">Yesterday</option>
-        <option value="ThisWeek">This Week</option>
-        <option value="LastWeek">Last Week</option>
-        <option value="MonthToDate">Month to Date</option>
-        <option value="LastMonth">Last Month</option>
-        <option value="YearToDate">Year to Date</option>
-    </select>
-</div>
-<!--Quick Date Filter-->
-
-
-<div id="print-area">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th @onclick="@(() => SortBy("Tanggal"))">Tanggal</th>
-                <th>Pengisian Bensin (L)</th>
-                <th>Harga BBM</th>
-                <th>Adometer Buka</th>
-                <th>Adometer Tutup</th>
-                <th>KM</th>
-                <th>Total BBM (Rp)</th>
-                <th>Biaya Toll (Rp)</th>
-                <th>Biaya Parkir (Rp)</th>
-                <th>Grand Total</th>
-                <th>Job Number</th>
-                <th>Supir</th>
-                <th>Efisiensi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (GetCurrentPageLogs() is not null && GetCurrentPageLogs().Count > 0)
-            {
-                int no = 1;
-                @foreach (var log in GetCurrentPageLogs())
-                {
-                    <tr>
-                        <td>@no</td>
-                        <td>@log.Tanggal.ToString("dd/MM/yyyy")</td>
-                        <td>@log.Qty_L</td>
-                        <td>@log.Harga_BBM_Rp</td>
-                        <td>@log.Adometer_Buka</td>
-                        <td>@log.Adometer_Tutup</td>
-                        <td>@log.KM</td>
-                        <td>@log.Total_BBM_Rp.ToString("N0")</td>
-                        <td>@log.Biaya_Toll_Rp</td>
-                        <td>@log.Parkir_Rp</td>
-                        <td>@log.Grand_Total.ToString("N0")</td>
-                        <td>@log.Job_Number</td>
-                        <td>@log.Supir</td>
-                        <td>@log.Efisiensi_BBM</td>
-                        <td class="no-print">
-                            <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(log.ID)">Hapus</button>
-                        </td>
-                        <td class="no-print">
-                            <button class="btn btn-sm btn-warning me-2" @onclick="@(() => Navigation.NavigateTo($"/edit/{log.ID}"))">Edit</button>
-                        </td>
-                    </tr>
-
-                    no++;
-                }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="7">Tidak ada data ditemukan.</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <p>Current Page: @currentPage</p>
-    
-</div>
-<!-- Pagination Controls -->
-@if (TotalPages > 1)
-{
-    <nav>
-        <ul class="pagination">
-            <li class="page-item @(currentPage == 1 ? "disabled" : "")">
-                <button class="page-link" @onclick="() => ChangePage(currentPage - 1)">Previous</button>
-            </li>
-
-            @*@for (int page = 1; page <= TotalPages; page++)
-            {
-                <li class="page-item @(currentPage == page ? "active" : "")">
-                    <button class="page-link" @onclick="() => ChangePage(page)">@(page)</button>
-                </li>
-            }*@ 
-
-            <li class="page-item @(currentPage == TotalPages ? "disabled" : "")">
-                <button class="page-link" @onclick="() => ChangePage(currentPage + 1)">Next</button>
-            </li>
+<div class="layout">
+    <!-- Side Nav -->
+    <!--<div class="sidenav">
+        <div class="logo-placeholder"></div>
+        <ul class="nav-menu">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Data Log</a></li>
+            <li><a href="#">Settings</a></li>
         </ul>
-    </nav>
-}
+            </div>-->
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="top-controls">
+            <input class="form-control search-input" placeholder="Cari berdasarkan Job/Supir" @bind="searchTerm" @bind:event="oninput" />
+
+            <div class="filter-row">
+                <label>Date Range Filter</label>
+                <InputDate @bind-Value="_startDate" TValue="DateTime?" class="form-control filter-date" />
+                <InputDate @bind-Value="_endDate" TValue="DateTime?" class="form-control filter-date" />
+                <button class="btn btn-sm btn-primary" @onclick="ApplyDateFilter">Filter</button>
+                <button class="btn btn-outline-dark" @onclick="ClearFilters">Clear Filter</button>
+            </div>
+
+            <div class="filter-row">
+                <label>Quick Date Filter</label>
+                <select class="form-control filter-dropdown" id="quickFilter" @bind="selectedQuickFilter">
+                    <option value="" disabled>--Pilih--</option>
+                    <option value="AllTime">All Time</option>
+                    <option value="Today">Today</option>
+                    <option value="Yesterday">Yesterday</option>
+                    <option value="ThisWeek">This Week</option>
+                    <option value="LastWeek">Last Week</option>
+                    <option value="MonthToDate">Month to Date</option>
+                    <option value="LastMonth">Last Month</option>
+                    <option value="YearToDate">Year to Date</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div id="print-area">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th @onclick="@(() => SortBy("Tanggal"))">Tanggal</th>
+                        <th>Pengisian Bensin (L)</th>
+                        <th>Harga BBM</th>
+                        <th>Adometer Buka</th>
+                        <th>Adometer Tutup</th>
+                        <th>KM</th>
+                        <th>Total BBM (Rp)</th>
+                        <th>Biaya Toll (Rp)</th>
+                        <th>Biaya Parkir (Rp)</th>
+                        <th>Grand Total</th>
+                        <th>Job Number</th>
+                        <th>Supir</th>
+                        <th>Efisiensi</th>
+                        <th colspan="2">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (GetCurrentPageLogs() is not null && GetCurrentPageLogs().Count > 0)
+                    {
+                        int no = 1;
+                        @foreach (var log in GetCurrentPageLogs())
+                        {
+                            <tr>
+                                <td>@no</td>
+                                <td>@log.Tanggal.ToString("dd/MM/yyyy")</td>
+                                <td>@log.Qty_L</td>
+                                <td>@log.Harga_BBM_Rp</td>
+                                <td>@log.Adometer_Buka</td>
+                                <td>@log.Adometer_Tutup</td>
+                                <td>@log.KM</td>
+                                <td>@log.Total_BBM_Rp.ToString("N0")</td>
+                                <td>@log.Biaya_Toll_Rp</td>
+                                <td>@log.Parkir_Rp</td>
+                                <td>@log.Grand_Total.ToString("N0")</td>
+                                <td>@log.Job_Number</td>
+                                <td>@log.Supir</td>
+                                <td>@log.Efisiensi_BBM</td>
+                                <td class="no-print">
+                                    <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(log.ID)">Hapus</button>
+                                </td>
+                                <td class="no-print">
+                                    <button class="btn btn-sm btn-warning me-2" @onclick="@(() => Navigation.NavigateTo($"/edit/{log.ID}"))">Edit</button>
+                                </td>
+                            </tr>
+                            no++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7">Tidak ada data ditemukan.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <span>Page: @currentPage</span>
+        <!-- Footer: Print & Pagination -->
+        <div class="footer-controls">
+            
+            <button class="btn btn-secondary btn-sm" @onclick="PrintPage">Print</button>
+            <div class="pagination-footer">
+                
+                <ul class="pagination">
+                    <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                        <button class="page-link" @onclick="() => ChangePage(currentPage - 1)">Previous</button>
+                    </li>
+                    <li class="page-item @(currentPage == TotalPages ? "disabled" : "")">
+                        <button class="page-link" @onclick="() => ChangePage(currentPage + 1)">Next</button>
+                    </li>
+                </ul>
+            </div>
+            <button @onclick='() => Navigation.NavigateTo("/create")'>Tambah</button>
+        </div>
+    </div>
+</div>
+
+
 
 
 @code {
@@ -291,6 +284,10 @@
 
         switch (selectedQuickFilter)
         {
+            case "AllTime":
+                _startDate = null;
+                _endDate = null;
+                break;
             case "Today":
                 _startDate = _endDate = today;
                 break;
@@ -370,5 +367,16 @@
             currentPage = page;
             StateHasChanged(); // ✅ WAJIB agar UI update
         }
+    }
+
+    //Code block untuk clear filter
+    private void ClearFilters()
+    {
+        _searchTerm = string.Empty;
+        _startDate = null;
+        _endDate = null;
+        _selectedQuickFilter = "";
+        _filteredLogs = _logs;
+        currentPage = 1;
     }
 }
