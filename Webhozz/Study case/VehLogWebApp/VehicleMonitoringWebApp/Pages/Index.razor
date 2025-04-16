@@ -155,7 +155,8 @@
 
     private async Task ConfirmDelete(int id)
     {
-        bool confirmed = await JS.InvokeAsync<bool>("confirm", $"Yakin ingin menghapus data dengan Log ini {id}?");
+        @*bool confirmed = await JS.InvokeAsync<bool>("confirm", $"Yakin ingin menghapus data dengan Log ini {id}?");*@
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", $"Yakin ingin menghapus data dengan Log ini?");
         if (confirmed)
         {
             await LogService.DeleteAsync(id);
