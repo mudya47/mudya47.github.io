@@ -1,0 +1,95 @@
+﻿@using VehicleMonitoringWebApp.Models
+@using VehicleMonitoringWebApp.Services
+@inject TransportLogService LogService
+
+<div class="modal-backdrop" style="@(IsOpen ? "display: flex;" : "display: none;")">
+    <div class="modal-content">
+        <h5>Tambah Log Baru</h5>
+
+        <EditForm Model="@logEntry" OnValidSubmit="@HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="mb-3">
+                <label class="mr-82">Tanggal</label>
+                <InputDate class="form-control" @bind-Value="logEntry.Tanggal" />
+            </div>
+            <div class="mb-3">
+                <label class="mr-90">Qty (L)</label>
+                <InputNumber class="form-control" @bind-Value="logEntry.Qty_L" />
+            </div>
+            <div class="mb-3">
+                <label class="mr-24">Harga BBM (Rp)</label>
+                <InputNumber class="form-control" @bind-Value="logEntry.Harga_BBM_Rp" />
+            </div>
+            <div class="mb-3">
+                <label class="mr-27">Adometer Buka</label>
+                <InputNumber class="form-control" @bind-Value="logEntry.Adometer_Buka" />
+            </div>
+            <div class="mb-3">
+                <label class="mr-20">Adometer Tutup</label>
+                <InputNumber class="form-control" @bind-Value="logEntry.Adometer_Tutup" />
+            </div>
+            <div class="mb-3">
+                <label class="mr-100">Supir</label>
+                <InputText class="form-control" @bind-Value="logEntry.Supir" />
+            </div>
+            <div class="mb-3">
+                <label class="mr-42">Biaya Tol (Rp)</label>
+                <InputNumber class="form-control" @bind-Value="logEntry.Biaya_Toll_Rp" />
+            </div>
+            <div class="mb-3">
+                <label class="mr-23">Biaya Parkir (Rp)</label>
+                <InputNumber class="form-control" @bind-Value="logEntry.Parkir_Rp" />
+            </div>
+            <div class="mb-3">
+                <label class="mr-50">Job Number</label>
+                <InputText class="form-control" @bind-Value="logEntry.Job_Number" />
+                <ValidationMessage For="@(() => logEntry.Job_Number)" />
+            </div>
+            <div class="mb-3">
+                <label class="mr-44">Efisiensi BBM</label>
+                <InputSelect class="form-control" @bind-Value="logEntry.Efisiensi_BBM">
+                    <option value="">-- Pilih --</option>
+                    @foreach (Efisiensi value in Enum.GetValues(typeof(Efisiensi)))
+                    {
+                        <option value="@value.ToString()">@value</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-secondary me-2" type="button" @onclick="Close">Batal</button>
+                <button class="btn btn-primary" type="submit">Simpan</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private TransportLog logEntry = new();
+
+    [Parameter] public EventCallback OnSaved { get; set; }
+
+    public bool IsOpen { get; set; }
+
+    public void Open()
+    {
+        logEntry = new(); // Reset form
+        IsOpen = true;
+        StateHasChanged();
+    }
+
+    public void Close()
+    {
+        IsOpen = false;
+        StateHasChanged();
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        await LogService.CreateAsync(logEntry);
+        Close();
+        await OnSaved.InvokeAsync();
+    }
+}

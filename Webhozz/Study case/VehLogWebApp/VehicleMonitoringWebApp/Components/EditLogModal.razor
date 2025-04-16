@@ -1,0 +1,105 @@
+﻿@using VehicleMonitoringWebApp.Models
+@using VehicleMonitoringWebApp.Services
+@inject TransportLogService LogService
+
+@if (IsOpen && _logEntry is not null)
+{
+    <div class="modal-backdrop">
+        <div class="modal-content">
+            <h5>Edit Transport Log</h5>
+
+            <EditForm Model="@_logEntry" OnValidSubmit="@HandleValidSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="mb-3">
+                    <label class="mr-82">Tanggal</label>
+                    <InputDate class="form-control" @bind-Value="_logEntry.Tanggal" />
+                </div>
+                <div class="mb-3">
+                    <label class="mr-90">Qty (L)</label>
+                    <InputNumber class="form-control" @bind-Value="_logEntry.Qty_L" />
+                </div>
+                <div class="mb-3">
+                    <label class="mr-24">Harga BBM (Rp)</label>
+                    <InputNumber class="form-control" @bind-Value="_logEntry.Harga_BBM_Rp" />
+                </div>
+                <div class="mb-3">
+                    <label class="mr-27">Adometer Buka</label>
+                    <InputNumber class="form-control" @bind-Value="_logEntry.Adometer_Buka" />
+                </div>
+                <div class="mb-3">
+                    <label class="mr-20">Adometer Tutup</label>
+                    <InputNumber class="form-control" @bind-Value="_logEntry.Adometer_Tutup" />
+                </div>
+                <div class="mb-3">
+                    <label class="mr-100">Supir</label>
+                    <InputText class="form-control" @bind-Value="_logEntry.Supir" />
+                </div>
+                <div class="mb-3">
+                    <label class="mr-42">Biaya Tol (Rp)</label>
+                    <InputNumber class="form-control" @bind-Value="_logEntry.Biaya_Toll_Rp" />
+                </div>
+                <div class="mb-3">
+                    <label class="mr-23">Biaya Parkir (Rp)</label>
+                    <InputNumber class="form-control" @bind-Value="_logEntry.Parkir_Rp" />
+                </div>
+                <div class="mb-3">
+                    <label class="mr-50">Job Number</label>
+                    <InputText class="form-control" @bind-Value="_logEntry.Job_Number" />
+                    <ValidationMessage For="@(() => _logEntry.Job_Number)" />
+                </div>
+                <div class="mb-3">
+                    <label class="mr-44">Efisiensi BBM</label>
+                    <InputSelect class="form-control" @bind-Value="_logEntry.Efisiensi_BBM">
+                        <option value="">-- Pilih Efisiensi --</option>
+                        @foreach (Efisiensi value in Enum.GetValues(typeof(Efisiensi)))
+                        {
+                            <option value="@value">@value</option>
+                        }
+                    </InputSelect>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-secondary me-2" type="button" @onclick="Close">Batal</button>
+                    <button class="btn btn-primary" type="submit">Simpan</button>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+}
+
+@code {
+    private TransportLog? _logEntry;
+
+    [Parameter] public EventCallback OnSaved { get; set; }
+
+    public bool IsOpen { get; set; }
+
+    public async Task OpenAsync(int id)
+    {
+        _logEntry = await LogService.GetByIdAsync(id);
+        IsOpen = true;
+        StateHasChanged();
+    }
+
+    public void Close()
+    {
+        IsOpen = false;
+        StateHasChanged();
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        Console.WriteLine(">>> SUBMIT TRIGGERED");
+
+        if (_logEntry is not null)
+        {
+            Console.WriteLine(">>> LOGENTRY OK");
+            await LogService.UpdateAsync(_logEntry);
+            Console.WriteLine(">>> UPDATED");
+            Close();
+            await OnSaved.InvokeAsync();
+        }
+    }
+}

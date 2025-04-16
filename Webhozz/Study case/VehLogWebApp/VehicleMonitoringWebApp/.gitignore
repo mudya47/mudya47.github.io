@@ -11,7 +11,7 @@
 *.suo
 *.userosscache
 *.sln.docstates
-
+.vs
 
 ## Auto-generated files
 *.GeneratedMSBuildEditorConfig.editorconfig
@@ -48,7 +48,6 @@ project.assets.json
 .idea/
 .vscode/
 *.code-workspace
-.vs/
 
 ## ASP.NET Static Assets
 **/wwwroot/**/*.map

@@ -46,7 +46,7 @@ namespace VehicleMonitoringWebApp.Models
         public string Job_Number { get; set; } = string.Empty;
 
         [Required]
-        public Efisiensi Efisiensi_BBM { get; set; }
+        public Efisiensi? Efisiensi_BBM { get; set; }
 
     }
 }

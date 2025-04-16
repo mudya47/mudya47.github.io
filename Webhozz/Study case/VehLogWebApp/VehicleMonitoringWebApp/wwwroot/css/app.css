@@ -24,6 +24,63 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+/* Reset styles for better baseline */
+
+/* Custom Margin & Padding Utility */
+:root {
+    --spacing-0: 20px;
+    --spacing-1: 23px;
+    --spacing-2: 24px;
+    --spacing-3: 27px;
+    --spacing-4: 42px;
+    --spacing-5: 44px;
+    --spacing-6: 50px;
+    --spacing-7: 82px;
+    --spacing-8: 90px;
+    --spacing-9: 100px;
+}
+
+/* Margin Right */
+.mr-20 {
+    margin-right: var(--spacing-0);
+}
+
+.mr-23 {
+    margin-right: var(--spacing-1);
+}
+
+.mr-24 {
+    margin-right: var(--spacing-2);
+}
+
+.mr-27 {
+    margin-right: var(--spacing-3);
+}
+
+.mr-42 {
+    margin-right: var(--spacing-4);
+}
+
+.mr-44 {
+    margin-right: var(--spacing-5);
+}
+
+.mr-50 {
+    margin-right: var(--spacing-6);
+}
+
+.mr-82 {
+    margin-right: var(--spacing-7);
+}
+
+.mr-90 {
+    margin-right: var(--spacing-8);
+}
+
+.mr-100 {
+    margin-right: var(--spacing-9);
+}
+/* Custom Margin & Padding Utility */
 
 
 .nav-left,
@@ -155,6 +212,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: space-between;
 }
 
     .footer-controls .pagination {
@@ -189,7 +247,6 @@ body {
 
     .footer-controls .print {
         padding: 18px;
-        margin-right: 40%;
         background-image: url(img/ico-print.png);
         background-position: center;
         background-size: 100%;
@@ -228,13 +285,79 @@ body {
     align-items: center;
     z-index: 999;
 }
+.modal-content .mb-3 {
+    margin-bottom: 10px;
+}
 
-.modal-content {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    min-width: 400px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+.modal-content h4 {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #111827;
+}
+
+.modal-content h5{
+    margin-top: 0px;
+}
+
+.modal-content .d-flex.justify-content-end {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style tiap field */
+.modal-content .form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+    .modal-content .form-group label {
+        margin-bottom: 0.4rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #374151;
+    }
+
+.modal-content input,
+.modal-content select {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    transition: border 0.2s ease;
+}
+
+    .modal-content input:focus,
+    .modal-content select:focus {
+        border-color: #3b82f6; /* biru */
+        outline: none;
+    }
+
+/* Button group */
+.modal-content .modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.modal-content button {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-content .btn-primary {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.modal-content .btn-secondary {
+    background-color: #e5e7eb;
+    color: #1f2937;
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -320,6 +443,10 @@ body {
     }
 }
 
+.pt-5{
+    padding-top: 5px;
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -340,16 +467,4 @@ body {
     width: 100%;
     max-width: 600px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-@media (max-width: 767px) {
-    .wrapper .header{
-        width: 100%;
-    }
-    #print-area{
-        overflow-x: auto;
-    }
-
-        #print-area table {
-            width: 100%;
-        }
 }

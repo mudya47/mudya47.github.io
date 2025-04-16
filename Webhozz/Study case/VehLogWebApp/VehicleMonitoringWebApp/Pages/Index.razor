@@ -3,6 +3,7 @@
 @using Microsoft.AspNetCore.Components.Web
 @using VehicleMonitoringWebApp.Services
 @using VehicleMonitoringWebApp.Models
+@using VehicleMonitoringWebApp.Components
 @using Microsoft.JSInterop
 @using Microsoft.AspNetCore.Components.Forms
 @inject TransportLogService LogService
@@ -15,7 +16,6 @@
         <div class="nav-left">
             <img src="css/img/odg-logo.png" class="logo" alt="Logo" />
             <NavLink href="/" class="nav-link" activeClass="active">Dashboard</NavLink>
-            <NavLink href="/create" class="nav-link" activeClass="active">Add Log</NavLink>
             @*<a href="#" class="nav-link">Settings</a>*@
         </div>
         <div class="nav-right">
@@ -51,16 +51,22 @@
                 </div>
                 
             </div>
+            
+           
+
             <div class="footer-controls">
                 <button @onclick="PrintPage" class="print"></button>
                 <div class="pagination">
                     <button @onclick="() => ChangePage(currentPage - 1)" disabled="@(currentPage == 1)">Previous</button>
-                    <span>Page: @currentPage</span>
+                    <span class="pt-5">Page: @currentPage</span>
                     <button @onclick="() => ChangePage(currentPage + 1)" disabled="@(currentPage == TotalPages)">Next</button>
+                    
                 </div>
+                <button class="btn btn-success mb-3" @onclick="() => modalRef.Open()">Tambah Log</button>
+                <CreateLogModal @ref="modalRef" OnSaved="ReloadLogs" />
             </div>
             <!-- TABLE -->
-            <div id="print-area table-container">
+            <div id="print-area" class="table-container">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -78,7 +84,7 @@
                             <th>Job Number</th>
                             <th>Supir</th>
                             <th>Efisiensi</th>
-                            <th colspan="2">Aksi</th>
+                            <th colspan="2" class="no-print">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -106,7 +112,7 @@
                                         <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(log.ID)">Hapus</button>
                                     </td>
                                     <td class="no-print">
-                                        <button class="btn btn-sm btn-warning me-2" @onclick="@(() => Navigation.NavigateTo($"/edit/{log.ID}"))">Edit</button>
+                                        <button class="btn btn-sm btn-warning me-2" @onclick="() => editModalRef?.OpenAsync(log.ID)">Edit</button>
                                     </td>
                                 </tr>
                                 no++;
@@ -120,6 +126,7 @@
                         }
                     </tbody>
                 </table>
+                <EditLogModal @ref="editModalRef" OnSaved="ReloadLogs" />
             </div>
 
             <!-- FOOTER -->
@@ -138,6 +145,7 @@
     private int currentPage = 1;
     private int pageSize = 25;
     private int TotalPages => (int)Math.Ceiling((double)_filteredLogs.Count / pageSize);
+    private EditLogModal? editModalRef;
 
     protected override async Task OnInitializedAsync()
     {
@@ -147,7 +155,7 @@
 
     private async Task ConfirmDelete(int id)
     {
-        bool confirmed = await JS.InvokeAsync<bool>("confirm", $"Yakin ingin menghapus data dengan ID {id}?");
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", $"Yakin ingin menghapus data dengan Log ini {id}?");
         if (confirmed)
         {
             await LogService.DeleteAsync(id);
@@ -316,5 +324,14 @@
         _endDate = null;
         _selectedQuickFilter = "";
         ApplyAllFilters();
+    }
+
+    //PopupModal
+    private CreateLogModal? modalRef;
+
+    private async Task ReloadLogs()
+    {
+        _logs = await LogService.GetAllLogsAsync();
+        ApplyAllFilters(); // update filtered & pagination
     }
 }
