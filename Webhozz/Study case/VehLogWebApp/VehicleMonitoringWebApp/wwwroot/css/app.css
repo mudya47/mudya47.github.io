@@ -386,6 +386,10 @@ body {
     border-color: #929292;
 }
 
+#print-area{
+    overflow-x: auto;
+}
+
 @media print {
     body * {
         visibility: hidden;
@@ -467,4 +471,124 @@ body {
     width: 100%;
     max-width: 600px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.responsive{
+    display: none!important;
+}
+
+
+/*Responsive display*/
+@media (max-width: 1024px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .nav-left, .nav-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .table th, .table td {
+        padding: 6px;
+        font-size: 0.85rem;
+    }
+
+    .footer-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .normal-screen{
+        display: none!important;
+    }
+
+    .pagination.responsive{
+        margin: auto;
+        display: flex!important;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-input,
+    .filter-date,
+    .filter-dropdown {
+        width: 100%;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .modal-content {
+        padding: 1rem;
+        max-width: 90%;
+    }
+
+        .modal-content .form-group {
+            width: 100%;
+        }
+
+        .modal-content button {
+            width: 100%;
+        }
+
+        .modal-content .modal-buttons {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+    .normal-screen {
+        display: none !important;
+    }
+
+    .pagination.responsive {
+        margin: auto;
+        display: flex !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.75rem;
+    }
+
+    .nav-link {
+        font-size: 0.85rem;
+    }
+
+    .table {
+        font-size: 0.8rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .footer-controls .print {
+        margin-right: 0;
+    }
+
+    .modal-content h4 {
+        font-size: 1.1rem;
+    }
+
+    .normal-screen {
+        display: none !important;
+    }
+
+    .pagination.responsive {
+        margin: auto;
+        display: flex !important;
+    }
 }

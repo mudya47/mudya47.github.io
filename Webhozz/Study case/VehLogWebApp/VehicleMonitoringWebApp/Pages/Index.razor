@@ -20,7 +20,6 @@
         </div>
         <div class="nav-right">
             <input class="search-input" placeholder="Cari berdasarkan Job/Supir" @bind="searchTerm" @bind:event="oninput" />
-            <img src="css/img/icon-profile.png" class="profile-pic" alt="User" />
         </div>
     </nav>
 
@@ -56,13 +55,17 @@
 
             <div class="footer-controls">
                 <button @onclick="PrintPage" class="print"></button>
-                <div class="pagination">
+                <div class="pagination normal-screen">
                     <button @onclick="() => ChangePage(currentPage - 1)" disabled="@(currentPage == 1)">Previous</button>
                     <span class="pt-5">Page: @currentPage</span>
                     <button @onclick="() => ChangePage(currentPage + 1)" disabled="@(currentPage == TotalPages)">Next</button>
-                    
                 </div>
                 <button class="btn btn-success mb-3" @onclick="() => modalRef.Open()">Tambah Log</button>
+                <div class="pagination responsive">
+                    <button @onclick="() => ChangePage(currentPage - 1)" disabled="@(currentPage == 1)">Previous</button>
+                    <span class="pt-5">Page: @currentPage</span>
+                    <button @onclick="() => ChangePage(currentPage + 1)" disabled="@(currentPage == TotalPages)">Next</button>
+                </div>
                 <CreateLogModal @ref="modalRef" OnSaved="ReloadLogs" />
             </div>
             <!-- TABLE -->
