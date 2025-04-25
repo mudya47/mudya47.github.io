@@ -562,6 +562,20 @@ td.no-print{
     text-align: center!important;
 }
 
+.footer-controls button:hover{
+    background-color: #fff;
+}
+
+.footer-controls button:disabled,
+button[disabled] {
+    background-color: #f3f4f6;
+    color: #f3f4f6;
+    border: none; /* Hapus border */
+    outline: none; /* Hapus outline focus */
+    box-shadow: none; /* Hapus box shadow */
+    background-color: #f3f4f6; /* Sesuaikan sama background page */
+}
+
 @media (max-width: 768px) {
     .search-input, .filter-date, .filter-dropdown {
         width: 90%;
