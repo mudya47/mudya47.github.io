@@ -558,6 +558,16 @@ body {
     font-size: 1rem;
 }
 
+.modal-content .btn-primary:hover {
+    background-color: #008000;
+}
+
+.modal-content .btn-secondary:hover{
+    background-color: #ff0000;
+    color: #fff;
+    font-weight: bold;
+}
+
 td.no-print{
     text-align: center!important;
 }

@@ -99,15 +99,15 @@
                                 <tr>
                                     <td>@no</td>
                                     <td>@log.Tanggal.ToString("dd/MM/yyyy")</td>
-                                    <td>@log.Qty_L</td>
-                                    <td>@log.Harga_BBM_Rp</td>
+                                    <td>@log.Qty_L.ToString("N2")</td>
+                                    <td><p>Rp @Convert.ToDecimal(log.Harga_BBM_Rp).ToString("N0")</p></td>
                                     <td>@log.Adometer_Buka</td>
                                     <td>@log.Adometer_Tutup</td>
-                                    <td>@log.KM</td>
-                                    <td>@log.Total_BBM_Rp.ToString("N0")</td>
-                                    <td>@log.Biaya_Toll_Rp</td>
-                                    <td>@log.Parkir_Rp</td>
-                                    <td>@log.Grand_Total.ToString("N0")</td>
+                                    <td>@log.KM.ToString("N0")</td>
+                                    <td><p>Rp @log.Total_BBM_Rp.ToString("N0")</p></td>
+                                    <td><p>Rp @Convert.ToDecimal(log.Biaya_Toll_Rp).ToString("N0")</p></td>
+                                    <td><p>Rp @Convert.ToDecimal(log.Parkir_Rp).ToString("N0")</p></td>
+                                    <td><p>Rp @log.Grand_Total.ToString("N0")</p></td>
                                     <td>@log.Job_Number</td>
                                     <td>@log.Supir</td>
                                     <td>@log.Efisiensi_BBM</td>
