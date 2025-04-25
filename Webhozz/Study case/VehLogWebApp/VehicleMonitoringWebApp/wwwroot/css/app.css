@@ -37,7 +37,7 @@ body {
     --spacing-6: 50px;
     --spacing-7: 82px;
     --spacing-8: 90px;
-    --spacing-9: 100px;
+    --spacing-9: 94px;
 }
 
 /* Margin Right */
@@ -390,6 +390,7 @@ body {
     overflow-x: auto;
 }
 
+
 @media print {
     body * {
         visibility: hidden;
@@ -517,11 +518,53 @@ body {
     }
 }
 
+/* General button base */
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.4rem 0.9rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Edit button */
+.btn-edit {
+    background-color: #2563eb; /* biru-600 */
+}
+
+    .btn-edit:hover {
+        background-color: #1d4ed8; /* biru-700 */
+        transform: scale(1.05);
+    }
+
+/* Delete button */
+.btn-delete {
+    background-color: #dc2626; /* merah-600 */
+}
+
+    .btn-delete:hover {
+        background-color: #b91c1c; /* merah-700 */
+        transform: scale(1.05);
+    }
+
+/* Optional: icon inside button */
+.btn-action i {
+    font-size: 1rem;
+}
+
+td.no-print{
+    text-align: center!important;
+}
+
 @media (max-width: 768px) {
-    .search-input,
-    .filter-date,
-    .filter-dropdown {
-        width: 100%;
+    .search-input, .filter-date, .filter-dropdown {
+        width: 90%;
     }
 
     .filter-controls {

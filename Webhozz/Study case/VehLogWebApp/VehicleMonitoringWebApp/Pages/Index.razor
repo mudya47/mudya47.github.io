@@ -19,7 +19,7 @@
             @*<a href="#" class="nav-link">Settings</a>*@
         </div>
         <div class="nav-right">
-            <input class="search-input" placeholder="Cari berdasarkan Job/Supir" @bind="searchTerm" @bind:event="oninput" />
+            <input class="search-input" placeholder="Cari berdasarkan Job/Driver" @bind="searchTerm" @bind:event="oninput" />
         </div>
     </nav>
 
@@ -112,10 +112,10 @@
                                     <td>@log.Supir</td>
                                     <td>@log.Efisiensi_BBM</td>
                                     <td class="no-print">
-                                        <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(log.ID)">Hapus</button>
+                                        <button class="btn-action btn-edit" @onclick="() => editModalRef?.OpenAsync(log.ID)"><i class="fas fa-edit"></i>Edit</button>
                                     </td>
                                     <td class="no-print">
-                                        <button class="btn btn-sm btn-warning me-2" @onclick="() => editModalRef?.OpenAsync(log.ID)">Edit</button>
+                                        <button class="btn-action btn-delete" @onclick="() => ConfirmDelete(log.ID)"><i class="fas fa-trash"></i>Hapus</button>
                                     </td>
                                 </tr>
                                 no++;
