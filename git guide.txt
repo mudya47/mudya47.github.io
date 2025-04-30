@@ -1,0 +1,18 @@
+di repositorynya (github/gitlab), create projectnya dulu
+
+git init (di folder local nya ada hidden .git folder)
+git remote add origin-gitlab https://gitlab.com/test18495713/transport-log.git
+git remote add origin-github https://gitlab.com/test18495713/transport-log.git 
+git add . (semua file yang ada perubahan code dibungkus untuk dicommit)
+git commit -m "first commit"
+git commit -m "feat: implementasi page kendaraan"
+git commit -m "refactor: code in page form transport log"
+git commit -m "style: style label in page transport log"
+git commit -m "bug: fix bug in page add dialog transport log"
+git push origin-gitlab master
+git push origin-github master
+git pull origin master //narik file dari existing repository 
+
+git checkout -b feature/implementasi-design-page-kendaraan (-b artinya create branch baru)
+git checkout -b feature/implementasi-api-page-kendaraan
+git checkout master (tanpa -b karena ingin pindah branch ke MASTER)
