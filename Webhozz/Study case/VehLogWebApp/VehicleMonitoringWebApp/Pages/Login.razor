@@ -1,0 +1,56 @@
+﻿@page "/login"
+@using VehicleMonitoringWebApp.Models
+@using VehicleMonitoringWebApp.Services
+@using Microsoft.AspNetCore.Components.Forms
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+@inject CustomAuthenticationStateProvider AuthProvider
+
+<h3>Login</h3>
+
+<EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label>Username</label>
+        <InputText class="form-control" @bind-Value="loginModel.Username" />
+    </div>
+    <div class="mb-3">
+        <label>Password</label>
+        <InputText type="password" class="form-control" @bind-Value="loginModel.Password" />
+    </div>
+    <button class="btn btn-primary" type="submit">Login</button>
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger mt-2">@errorMessage</div>
+    }
+</EditForm>
+
+@code {
+    private LoginModel loginModel = new();
+    private string errorMessage = "";
+
+    private async Task HandleLogin()
+    {
+        var user = await AuthService.AuthenticateAsync(loginModel.Username, loginModel.Password);
+
+        if (user != null)
+        {
+            await AuthProvider.MarkUserAsAuthenticated(user.Username);
+            Navigation.NavigateTo("/");
+            Console.WriteLine($"Login sukses sebagai: {user.Username}");
+        }
+        else
+        {
+            errorMessage = "Username atau password salah.";
+        }
+    }
+
+    public class LoginModel
+    {
+        public string Username { get; set; } = "";
+        public string Password { get; set; } = "";
+    }
+}

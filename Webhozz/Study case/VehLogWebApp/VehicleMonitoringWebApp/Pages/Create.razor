@@ -1,4 +1,6 @@
-﻿@page "/create"
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@page "/create"
 @using Microsoft.AspNetCore.Components.Routing
 @using Microsoft.AspNetCore.Components.Forms
 @using VehicleMonitoringWebApp.Models

@@ -1,4 +1,7 @@
-﻿@page "/"
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@attribute [Authorize]
+@page "/"
 @using Microsoft.AspNetCore.Components.Routing
 @using Microsoft.AspNetCore.Components.Web
 @using VehicleMonitoringWebApp.Services
@@ -9,134 +12,133 @@
 @inject TransportLogService LogService
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
+@inject CustomAuthenticationStateProvider AuthProvider
 
-<div class="wrapper">
-    <!-- NAVBAR -->
-    <nav class="header navbar">
-        <div class="nav-left">
-            <img src="css/img/odg-logo.png" class="logo" alt="Logo" />
-            <NavLink href="/" class="nav-link" activeClass="active">Dashboard</NavLink>
-            @*<a href="#" class="nav-link">Settings</a>*@
-        </div>
-        <div class="nav-right">
-            <input class="search-input" placeholder="Cari berdasarkan Job/Driver" @bind="searchTerm" @bind:event="oninput" />
-        </div>
-    </nav>
-
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-        <div class="content-box">
-            <div class="navbar filter-controls">
-                <div class="nav-left">
-                    <label>Date Range Filter</label>
-                    <InputDate @bind-Value="_startDate" TValue="DateTime?" class="filter-date" />
-                    <InputDate @bind-Value="_endDate" TValue="DateTime?" class="filter-date" />
-                    <button @onclick="ApplyAllFilters">Filter</button>
-                    <button @onclick="ClearFilters">Clear</button>
-                </div>
-                <div class="nav-right">
-                    <label>Quick Filter</label>
-                    <select class="filter-dropdown" @bind="selectedQuickFilter">
-                        <option value="" disabled>--Pilih--</option>
-                        <option value="AllTime">All Time</option>
-                        <option value="Today">Today</option>
-                        <option value="Yesterday">Yesterday</option>
-                        <option value="ThisWeek">This Week</option>
-                        <option value="LastWeek">Last Week</option>
-                        <option value="MonthToDate">Month to Date</option>
-                        <option value="LastMonth">Last Month</option>
-                        <option value="YearToDate">Year to Date</option>
-                    </select>
-                </div>
-                
+<AuthorizeView Context="auth">
+    <div class="wrapper">
+        <!-- NAVBAR -->
+        <nav class="header navbar">
+            <div class="nav-left">
+                <img src="css/img/odg-logo.png" class="logo" alt="Logo" />
+                <NavLink href="/" class="nav-link" activeClass="active">Dashboard</NavLink>
             </div>
-            
-           
-
-            <div class="footer-controls">
-                <button @onclick="PrintPage" class="print"></button>
-                <div class="pagination normal-screen">
-                    <button @onclick="() => ChangePage(currentPage - 1)" disabled="@(currentPage == 1)">Previous</button>
-                    <span class="pt-5">Page: @currentPage</span>
-                    <button @onclick="() => ChangePage(currentPage + 1)" disabled="@(currentPage == TotalPages)">Next</button>
-                </div>
-                <button class="btn btn-success mb-3" @onclick="() => modalRef.Open()">Tambah Log</button>
-                <div class="pagination responsive">
-                    <button @onclick="() => ChangePage(currentPage - 1)" disabled="@(currentPage == 1)">Previous</button>
-                    <span class="pt-5">Page: @currentPage</span>
-                    <button @onclick="() => ChangePage(currentPage + 1)" disabled="@(currentPage == TotalPages)">Next</button>
-                </div>
-                <CreateLogModal @ref="modalRef" OnSaved="ReloadLogs" />
+            <div class="nav-right">
+                <span class="me-3">👤 @auth?.User?.Identity?.Name</span>
+                <button class="btn btn-sm btn-outline-danger" @onclick="Logout">Logout</button>
+                <input class="search-input ms-3" placeholder="Cari berdasarkan Job/Driver" @bind="searchTerm" @bind:event="oninput" />
             </div>
-            <!-- TABLE -->
-            <div id="print-area" class="table-container">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th @onclick="@(() => SortBy("Tanggal"))">Tanggal</th>
-                            <th>Pengisian Bensin (L)</th>
-                            <th>Harga BBM</th>
-                            <th>Adometer Buka</th>
-                            <th>Adometer Tutup</th>
-                            <th>KM</th>
-                            <th>Total BBM (Rp)</th>
-                            <th>Biaya Toll (Rp)</th>
-                            <th>Biaya Parkir (Rp)</th>
-                            <th>Grand Total</th>
-                            <th>Job Number</th>
-                            <th>Driver</th>
-                            <th>Efisiensi</th>
-                            <th colspan="2" class="no-print">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (GetCurrentPageLogs() is not null && GetCurrentPageLogs().Count > 0)
-                        {
-                            int no = ((currentPage - 1) * pageSize) + 1;
-                            @foreach (var log in GetCurrentPageLogs())
+        </nav>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <div class="content-box">
+                <div class="navbar filter-controls">
+                    <div class="nav-left">
+                        <label>Date Range Filter</label>
+                        <InputDate @bind-Value="_startDate" TValue="DateTime?" class="filter-date" />
+                        <InputDate @bind-Value="_endDate" TValue="DateTime?" class="filter-date" />
+                        <button @onclick="ApplyAllFilters">Filter</button>
+                        <button @onclick="ClearFilters">Clear</button>
+                    </div>
+                    <div class="nav-right">
+                        <label>Quick Filter</label>
+                        <select class="filter-dropdown" @bind="selectedQuickFilter">
+                            <option value="" disabled>--Pilih--</option>
+                            <option value="AllTime">All Time</option>
+                            <option value="Today">Today</option>
+                            <option value="Yesterday">Yesterday</option>
+                            <option value="ThisWeek">This Week</option>
+                            <option value="LastWeek">Last Week</option>
+                            <option value="MonthToDate">Month to Date</option>
+                            <option value="LastMonth">Last Month</option>
+                            <option value="YearToDate">Year to Date</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="footer-controls">
+                    <button @onclick="PrintPage" class="print"></button>
+                    <div class="pagination normal-screen">
+                        <button @onclick="() => ChangePage(currentPage - 1)" disabled="@(currentPage == 1)">Previous</button>
+                        <span class="pt-5">Page: @currentPage</span>
+                        <button @onclick="() => ChangePage(currentPage + 1)" disabled="@(currentPage == TotalPages)">Next</button>
+                    </div>
+                    <button class="btn btn-success mb-3" @onclick="() => modalRef.Open()">Tambah Log</button>
+                    <div class="pagination responsive">
+                        <button @onclick="() => ChangePage(currentPage - 1)" disabled="@(currentPage == 1)">Previous</button>
+                        <span class="pt-5">Page: @currentPage</span>
+                        <button @onclick="() => ChangePage(currentPage + 1)" disabled="@(currentPage == TotalPages)">Next</button>
+                    </div>
+                    <CreateLogModal @ref="modalRef" OnSaved="ReloadLogs" />
+                </div>
+
+                <!-- TABLE -->
+                <div id="print-area" class="table-container">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th @onclick="@(() => SortBy("Tanggal"))">Tanggal</th>
+                                <th>Pengisian Bensin (L)</th>
+                                <th>Harga BBM</th>
+                                <th>Adometer Buka</th>
+                                <th>Adometer Tutup</th>
+                                <th>KM</th>
+                                <th>Total BBM (Rp)</th>
+                                <th>Biaya Toll (Rp)</th>
+                                <th>Biaya Parkir (Rp)</th>
+                                <th>Grand Total</th>
+                                <th>Job Number</th>
+                                <th>Driver</th>
+                                <th>Efisiensi</th>
+                                <th colspan="2" class="no-print">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (GetCurrentPageLogs() is not null && GetCurrentPageLogs().Count > 0)
+                            {
+                                int no = ((currentPage - 1) * pageSize) + 1;
+                                @foreach (var log in GetCurrentPageLogs())
+                                {
+                                    <tr>
+                                        <td>@no</td>
+                                        <td>@log.Tanggal.ToString("dd/MM/yyyy")</td>
+                                        <td>@log.Qty_L.ToString("N2")</td>
+                                        <td><p>Rp @Convert.ToDecimal(log.Harga_BBM_Rp).ToString("N0")</p></td>
+                                        <td>@log.Adometer_Buka</td>
+                                        <td>@log.Adometer_Tutup</td>
+                                        <td>@log.KM.ToString("N0")</td>
+                                        <td><p>Rp @log.Total_BBM_Rp.ToString("N0")</p></td>
+                                        <td><p>Rp @Convert.ToDecimal(log.Biaya_Toll_Rp).ToString("N0")</p></td>
+                                        <td><p>Rp @Convert.ToDecimal(log.Parkir_Rp).ToString("N0")</p></td>
+                                        <td><p>Rp @log.Grand_Total.ToString("N0")</p></td>
+                                        <td>@log.Job_Number</td>
+                                        <td>@log.Supir</td>
+                                        <td>@log.Efisiensi_BBM</td>
+                                        <td class="no-print">
+                                            <button class="btn-action btn-edit" @onclick="() => editModalRef?.OpenAsync(log.ID)"><i class="fas fa-edit"></i>Edit</button>
+                                        </td>
+                                        <td class="no-print">
+                                            <button class="btn-action btn-delete" @onclick="() => ConfirmDelete(log.ID)"><i class="fas fa-trash"></i>Hapus</button>
+                                        </td>
+                                    </tr>
+                                    no++;
+                                }
+                            }
+                            else
                             {
                                 <tr>
-                                    <td>@no</td>
-                                    <td>@log.Tanggal.ToString("dd/MM/yyyy")</td>
-                                    <td>@log.Qty_L.ToString("N2")</td>
-                                    <td><p>Rp @Convert.ToDecimal(log.Harga_BBM_Rp).ToString("N0")</p></td>
-                                    <td>@log.Adometer_Buka</td>
-                                    <td>@log.Adometer_Tutup</td>
-                                    <td>@log.KM.ToString("N0")</td>
-                                    <td><p>Rp @log.Total_BBM_Rp.ToString("N0")</p></td>
-                                    <td><p>Rp @Convert.ToDecimal(log.Biaya_Toll_Rp).ToString("N0")</p></td>
-                                    <td><p>Rp @Convert.ToDecimal(log.Parkir_Rp).ToString("N0")</p></td>
-                                    <td><p>Rp @log.Grand_Total.ToString("N0")</p></td>
-                                    <td>@log.Job_Number</td>
-                                    <td>@log.Supir</td>
-                                    <td>@log.Efisiensi_BBM</td>
-                                    <td class="no-print">
-                                        <button class="btn-action btn-edit" @onclick="() => editModalRef?.OpenAsync(log.ID)"><i class="fas fa-edit"></i>Edit</button>
-                                    </td>
-                                    <td class="no-print">
-                                        <button class="btn-action btn-delete" @onclick="() => ConfirmDelete(log.ID)"><i class="fas fa-trash"></i>Hapus</button>
-                                    </td>
+                                    <td colspan="7">Tidak ada data ditemukan.</td>
                                 </tr>
-                                no++;
                             }
-                        }
-                        else
-                        {
-                            <tr>
-                                <td colspan="7">Tidak ada data ditemukan.</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-                <EditLogModal @ref="editModalRef" OnSaved="ReloadLogs" />
+                        </tbody>
+                    </table>
+                    <EditLogModal @ref="editModalRef" OnSaved="ReloadLogs" />
+                </div>
             </div>
-
-            <!-- FOOTER -->
-            
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
+</AuthorizeView>
 
 
 @code {
@@ -152,8 +154,14 @@
 
     protected override async Task OnInitializedAsync()
     {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
         _logs = await LogService.GetAllLogsAsync();
         _filteredLogs = _logs;
+
+        Console.WriteLine("User identity: " + user.Identity?.Name);
+        Console.WriteLine("Is authenticated: " + user.Identity?.IsAuthenticated);
     }
 
     private async Task ConfirmDelete(int id)
@@ -180,6 +188,7 @@
             }
         }
     }
+
 
     private void ApplyAllFilters()
     {
@@ -338,4 +347,11 @@
         _logs = await LogService.GetAllLogsAsync();
         ApplyAllFilters(); // update filtered & pagination
     }
+
+    private async Task Logout()
+    {
+        await ((CustomAuthenticationStateProvider)AuthProvider).MarkUserAsLoggedOut();
+        Navigation.NavigateTo("/login", forceLoad: true); // ⬅️ penting: force full page reload
+    }
+}
 }

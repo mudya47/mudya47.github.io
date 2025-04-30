@@ -1,4 +1,6 @@
-﻿@page "/edit/{id:int}"
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@page "/edit/{id:int}"
 @using Microsoft.AspNetCore.Components.Forms
 @using VehicleMonitoringWebApp.Models
 @using VehicleMonitoringWebApp.Services

@@ -1,0 +1,13 @@
+﻿@inject NavigationManager Navigation
+
+<p>Mengarahkan ke halaman login...</p>
+
+@code {
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Navigation.NavigateTo("/login", forceLoad: true);
+        }
+    }
+}
