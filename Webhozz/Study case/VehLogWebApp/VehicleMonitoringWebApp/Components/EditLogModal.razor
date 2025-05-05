@@ -17,19 +17,19 @@
                     <InputDate class="form-control" @bind-Value="_logEntry.Tanggal" />
                 </div>
                 <div class="mb-3">
-                    <label class="mr-90">Qty (L)</label>
+                    <label class="mr-90">Fuel Filling (L)</label>
                     <InputNumber class="form-control" @bind-Value="_logEntry.Qty_L" />
                 </div>
                 <div class="mb-3">
-                    <label class="mr-24">Harga BBM (Rp)</label>
+                    <label class="mr-24">Fuel Price (Rp)</label>
                     <InputNumber class="form-control" @bind-Value="_logEntry.Harga_BBM_Rp" />
                 </div>
                 <div class="mb-3">
-                    <label class="mr-27">Adometer Buka</label>
+                    <label class="mr-27">Odometer Start</label>
                     <InputNumber class="form-control" @bind-Value="_logEntry.Adometer_Buka" />
                 </div>
                 <div class="mb-3">
-                    <label class="mr-20">Adometer Tutup</label>
+                    <label class="mr-20">Odometer End</label>
                     <InputNumber class="form-control" @bind-Value="_logEntry.Adometer_Tutup" />
                 </div>
                 <div class="mb-3">
@@ -37,11 +37,15 @@
                     <InputText class="form-control" @bind-Value="_logEntry.Supir" />
                 </div>
                 <div class="mb-3">
-                    <label class="mr-42">Biaya Tol (Rp)</label>
+                    <label class="mr-100">License Plate</label>
+                    <InputText class="form-control" @bind-Value="_logEntry.Nopol" />
+                </div>
+                <div class="mb-3">
+                    <label class="mr-42">Toll Fee (Rp)</label>
                     <InputNumber class="form-control" @bind-Value="_logEntry.Biaya_Toll_Rp" />
                 </div>
                 <div class="mb-3">
-                    <label class="mr-23">Biaya Parkir (Rp)</label>
+                    <label class="mr-23">Parking Fee (Rp)</label>
                     <InputNumber class="form-control" @bind-Value="_logEntry.Parkir_Rp" />
                 </div>
                 <div class="mb-3">
@@ -49,16 +53,7 @@
                     <InputText class="form-control" @bind-Value="_logEntry.Job_Number" />
                     <ValidationMessage For="@(() => _logEntry.Job_Number)" />
                 </div>
-                <div class="mb-3">
-                    <label class="mr-44">Efisiensi BBM</label>
-                    <InputSelect class="form-control" @bind-Value="_logEntry.Efisiensi_BBM">
-                        <option value="">-- Pilih Efisiensi --</option>
-                        @foreach (Efisiensi value in Enum.GetValues(typeof(Efisiensi)))
-                        {
-                            <option value="@value">@value</option>
-                        }
-                    </InputSelect>
-                </div>
+                
 
                 <div class="d-flex justify-content-end">
                     <button class="btn btn-secondary me-2" type="button" @onclick="Close">Batal</button>

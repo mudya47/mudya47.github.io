@@ -25,7 +25,7 @@
             <div class="nav-right">
                 <span class="me-3">👤 @auth?.User?.Identity?.Name</span>
                 <button class="btn btn-sm btn-outline-danger" @onclick="Logout">Logout</button>
-                <input class="search-input ms-3" placeholder="Cari berdasarkan Job/Driver" @bind="searchTerm" @bind:event="oninput" />
+                <input class="search-input ms-3" placeholder="Find Driver/License/Job" @bind="searchTerm" @bind:event="oninput" />
             </div>
         </nav>
 
@@ -51,7 +51,7 @@
                             <option value="LastWeek">Last Week</option>
                             <option value="MonthToDate">Month to Date</option>
                             <option value="LastMonth">Last Month</option>
-                            <option value="YearToDate">Year to Datee</option>
+                            <option value="YearToDate">Year to Date</option>
                         </select>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         <span class="pt-5">Page: @currentPage</span>
                         <button @onclick="() => ChangePage(currentPage + 1)" disabled="@(currentPage == TotalPages)">Next</button>
                     </div>
-                    <button class="btn btn-success mb-3" @onclick="() => modalRef.Open()">Tambah Log</button>
+                    <button class="btn btn-success mb-3" @onclick="() => modalRef.Open()">Add Log</button>
                     <div class="pagination responsive">
                         <button @onclick="() => ChangePage(currentPage - 1)" disabled="@(currentPage == 1)">Previous</button>
                         <span class="pt-5">Page: @currentPage</span>
@@ -78,20 +78,21 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th @onclick="@(() => SortBy("Tanggal"))">Tanggal</th>
-                                <th>Pengisian Bensin (L)</th>
-                                <th>Harga BBM</th>
-                                <th>Adometer Buka</th>
-                                <th>Adometer Tutup</th>
+                                <th @onclick="@(() => SortBy("Tanggal"))">Date</th>
+                                <th>Fuel Filling (L)</th>
+                                <th>Fuel Price</th>
+                                <th>Odometer Start</th>
+                                <th>Odometer End</th>
                                 <th>KM</th>
-                                <th>Total BBM (Rp)</th>
-                                <th>Biaya Toll (Rp)</th>
-                                <th>Biaya Parkir (Rp)</th>
+                                <th>Total Fuel (Rp)</th>
+                                <th>Toll Fee (Rp)</th>
+                                <th>Parking Fee (Rp)</th>
                                 <th>Grand Total</th>
                                 <th>Job Number</th>
                                 <th>Driver</th>
-                                <th>Efisiensi</th>
-                                <th colspan="2" class="no-print">Aksi</th>
+                                <th>License Plate</th>
+                                <th>Efficiency</th>
+                                <th colspan="2" class="no-print">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -114,12 +115,13 @@
                                         <td><p>Rp @log.Grand_Total.ToString("N0")</p></td>
                                         <td>@log.Job_Number</td>
                                         <td>@log.Supir</td>
-                                        <td>@log.Efisiensi_BBM</td>
+                                        <td>@log.Nopol</td>
+                                        <td>@log.Efisiensi_BBM?.ToString()</td>
                                         <td class="no-print">
                                             <button class="btn-action btn-edit" @onclick="() => editModalRef?.OpenAsync(log.ID)"><i class="fas fa-edit"></i>Edit</button>
                                         </td>
                                         <td class="no-print">
-                                            <button class="btn-action btn-delete" @onclick="() => ConfirmDelete(log.ID)"><i class="fas fa-trash"></i>Hapus</button>
+                                            <button class="btn-action btn-delete" @onclick="() => ConfirmDelete(log.ID)"><i class="fas fa-trash"></i>Delete</button>
                                         </td>
                                     </tr>
                                     no++;
@@ -128,7 +130,7 @@
                             else
                             {
                                 <tr>
-                                    <td colspan="7">Tidak ada data ditemukan.</td>
+                                    <td colspan="16">Empty Log.</td>
                                 </tr>
                             }
                         </tbody>
@@ -148,7 +150,7 @@
     private bool sortAscending = true;
     private string currentSortField = string.Empty;
     private int currentPage = 1;
-    private int pageSize = 25;
+    private int pageSize = 100;
     private int TotalPages => (int)Math.Ceiling((double)_filteredLogs.Count / pageSize);
     private EditLogModal? editModalRef;
 
@@ -156,6 +158,12 @@
     {
         var authState = await AuthProvider.GetAuthenticationStateAsync();
         var user = authState.User;
+
+        if (!user.Identity?.IsAuthenticated ?? true)
+        {
+            Navigation.NavigateTo("/login", true);
+            return;
+        }
 
         _logs = await LogService.GetAllLogsAsync();
         _filteredLogs = _logs;
@@ -198,7 +206,9 @@
         {
             filtered = filtered.Where(log =>
                 (!string.IsNullOrEmpty(log.Supir) && log.Supir.Contains(_searchTerm, StringComparison.OrdinalIgnoreCase)) ||
-                (!string.IsNullOrEmpty(log.Job_Number) && log.Job_Number.Contains(_searchTerm, StringComparison.OrdinalIgnoreCase)));
+                (!string.IsNullOrEmpty(log.Job_Number) && log.Job_Number.Contains(_searchTerm, StringComparison.OrdinalIgnoreCase)) ||
+                (!string.IsNullOrEmpty(log.Nopol) && log.Nopol.Contains(_searchTerm, StringComparison.OrdinalIgnoreCase))
+            );
         }
 
         if (_startDate.HasValue && _endDate.HasValue)

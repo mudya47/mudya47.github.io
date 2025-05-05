@@ -24,6 +24,8 @@ builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<CustomAuthenticationStateProvider>();
 builder.Services.AddScoped<AuthenticationStateProvider>(provider => provider.GetRequiredService<CustomAuthenticationStateProvider>());
+builder.Services.AddScoped<UserSession>();
+
 
 // ✅ Bikin dan jalankan WebApp
 var app = builder.Build();

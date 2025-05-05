@@ -4,9 +4,8 @@ namespace VehicleMonitoringWebApp.Models
 {
     public enum Efisiensi
     {
-        Good,
         Fair,
-        Bad
+        Unfair
     }
 
     public class TransportLog
@@ -45,8 +44,10 @@ namespace VehicleMonitoringWebApp.Models
         [Required]
         public string Job_Number { get; set; } = string.Empty;
 
-        [Required]
         public Efisiensi? Efisiensi_BBM { get; set; }
+
+        [Required]
+        public string? Nopol { get; set; }
 
     }
 }

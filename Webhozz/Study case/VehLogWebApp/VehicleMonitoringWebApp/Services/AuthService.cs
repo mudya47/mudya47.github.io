@@ -24,7 +24,7 @@ namespace VehicleMonitoringWebApp.Services
 
             var command = new SqlCommand("SELECT * FROM Users WHERE Username = @username AND PasswordHash = @password", conn);
             command.Parameters.AddWithValue("@username", username);
-            command.Parameters.AddWithValue("@password", hashedPassword);
+            command.Parameters.Add("@password", System.Data.SqlDbType.NVarChar, 255).Value = hashedPassword;
 
             using var reader = await command.ExecuteReaderAsync();
             if (reader.Read())

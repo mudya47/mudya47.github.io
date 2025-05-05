@@ -21,7 +21,7 @@ namespace VehicleMonitoringWebApp.Services
             // Ganti dengan fallback simple
             try
             {
-                var username = await _jsRuntime.InvokeAsync<string>("localStorage.getItem", "username");
+                var username = await _jsRuntime.InvokeAsync<string>("sessionStorage.getItem", "username");
 
                 if (string.IsNullOrWhiteSpace(username))
                     return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
@@ -42,7 +42,7 @@ namespace VehicleMonitoringWebApp.Services
 
         public async Task MarkUserAsAuthenticated(string username)
         {
-            await _jsRuntime.InvokeVoidAsync("localStorage.setItem", "username", username);
+            await _jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "username", username);
 
             var identity = new ClaimsIdentity(new[]
             {
@@ -56,7 +56,7 @@ namespace VehicleMonitoringWebApp.Services
 
         public async Task MarkUserAsLoggedOut()
         {
-            await _jsRuntime.InvokeVoidAsync("localStorage.removeItem", "username");
+            await _jsRuntime.InvokeVoidAsync("sessionStorage.removeItem", "username");
 
             var anonymousUser = new ClaimsPrincipal(new ClaimsIdentity());
             NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(anonymousUser)));
