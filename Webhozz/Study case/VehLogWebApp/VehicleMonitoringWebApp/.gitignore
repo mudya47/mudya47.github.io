@@ -59,6 +59,7 @@ project.assets.json
 ## Local configuration
 appsettings.Development.json
 launchSettings.json
+appsettings.json
 
 ## Web build bundles
 *.zip
