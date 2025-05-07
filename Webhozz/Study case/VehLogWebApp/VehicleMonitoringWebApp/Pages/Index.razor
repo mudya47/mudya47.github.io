@@ -20,7 +20,7 @@
         <nav class="header navbar">
             <div class="nav-left">
                 <img src="css/img/odg-logo.png" class="logo" alt="Logo" />
-                <NavLink href="/" class="nav-link" activeClass="active">Dashboard</NavLink>
+                <NavLink href="/" class="nav-link sp-mode" activeClass="active">Dashboard</NavLink>
             </div>
             <div class="nav-right">
                 <span class="me-3">👤 @auth?.User?.Identity?.Name</span>
@@ -363,5 +363,4 @@
         await ((CustomAuthenticationStateProvider)AuthProvider).MarkUserAsLoggedOut();
         Navigation.NavigateTo("/login", forceLoad: true); // ⬅️ penting: force full page reload
     }
-}
 }

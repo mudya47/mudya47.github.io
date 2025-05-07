@@ -6,26 +6,25 @@
 @inject NavigationManager Navigation
 @inject CustomAuthenticationStateProvider AuthProvider
 
-<h3>Login</h3>
 
 <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
     <DataAnnotationsValidator />
     <ValidationSummary />
+    <div id="login-form">
+        <h3>Login</h3>
+        <div class="mb-15">
+            <InputText class="form-control" placeholder="Username" @bind-Value="loginModel.Username" />
+        </div>
+        <div class="mb-15">
+            <InputText type="password" placeholder="Password" class="form-control" @bind-Value="loginModel.Password" />
+        </div>
+        <button class="btn btn-primary" type="submit">Login</button>
 
-    <div class="mb-3">
-        <label>Username</label>
-        <InputText class="form-control" @bind-Value="loginModel.Username" />
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger mt-2">@errorMessage</div>
+        }
     </div>
-    <div class="mb-3">
-        <label>Password</label>
-        <InputText type="password" class="form-control" @bind-Value="loginModel.Password" />
-    </div>
-    <button class="btn btn-primary" type="submit">Login</button>
-
-    @if (!string.IsNullOrEmpty(errorMessage))
-    {
-        <div class="alert alert-danger mt-2">@errorMessage</div>
-    }
 </EditForm>
 
 @code {

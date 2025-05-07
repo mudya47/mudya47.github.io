@@ -305,6 +305,69 @@ body {
     justify-content: space-between;
 }
 
+/*Login CSS*/
+#login-form {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+    #login-form input {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+        #login-form input[type="password"] {
+            margin-bottom: 20px;
+        }
+    #login-form .btn:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+    #login-form .btn-primary {
+        display: block;
+        width: 100%;
+        padding: .5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: .3rem;
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    #login-form .btn:focus, .btn:hover {
+        text-decoration: none;
+    }
+
+    #login-form .btn-primary:hover {
+        color: #fff;
+        background-color: #0069d9;
+        border-color: #0062cc;
+    }
+
+    #login-form .btn {
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+/*Login CSS*/
+
 /* Style tiap field */
 .modal-content .form-group {
     margin-bottom: 1rem;
@@ -333,6 +396,27 @@ body {
         border-color: #3b82f6; /* biru */
         outline: none;
     }
+
+.form-layout {
+    display: grid;
+    grid-template-columns: 180px 1fr; /* label width | input width */
+    gap: 0.5rem 1rem; /* vertical | horizontal gap */
+    align-items: center;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-layout label {
+    font-weight: 500;
+    text-align: right;
+}
 
 /* Button group */
 .modal-content .modal-buttons {
@@ -478,46 +562,6 @@ body {
 }
 
 
-/*Responsive display*/
-@media (max-width: 1024px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        padding: 1rem;
-    }
-
-    .nav-left, .nav-right {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-
-    .main-content {
-        padding: 1rem;
-    }
-
-    .table th, .table td {
-        padding: 6px;
-        font-size: 0.85rem;
-    }
-
-    .footer-controls {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-    
-    .normal-screen{
-        display: none!important;
-    }
-
-    .pagination.responsive{
-        margin: auto;
-        display: flex!important;
-    }
-}
-
 /* General button base */
 .btn-action {
     display: inline-flex;
@@ -562,17 +606,17 @@ body {
     background-color: #008000;
 }
 
-.modal-content .btn-secondary:hover{
+.modal-content .btn-secondary:hover {
     background-color: #ff0000;
     color: #fff;
     font-weight: bold;
 }
 
-td.no-print{
-    text-align: center!important;
+td.no-print {
+    text-align: center !important;
 }
 
-.footer-controls button:hover{
+.footer-controls button:hover {
     background-color: #fff;
 }
 
@@ -586,11 +630,57 @@ button[disabled] {
     background-color: #f3f4f6; /* Sesuaikan sama background page */
 }
 
+
+/*Responsive display*/
+@media (max-width: 1024px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .nav-left, .nav-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .table th, .table td {
+        padding: 6px;
+        font-size: 0.85rem;
+    }
+
+    .footer-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .normal-screen{
+        display: none!important;
+    }
+
+    .pagination.responsive{
+        margin: auto;
+        display: flex!important;
+    }
+    .sp-mode{
+        display:none;
+    }
+}
+
 @media (max-width: 768px) {
     .search-input, .filter-date, .filter-dropdown {
         width: 90%;
     }
-
+    .sp-mode {
+        display: none;
+    }
     .filter-controls {
         flex-direction: column;
         align-items: stretch;
@@ -629,7 +719,9 @@ button[disabled] {
     .navbar {
         padding: 0.75rem;
     }
-
+    .sp-mode {
+        display: none;
+    }
     .nav-link {
         font-size: 0.85rem;
     }
