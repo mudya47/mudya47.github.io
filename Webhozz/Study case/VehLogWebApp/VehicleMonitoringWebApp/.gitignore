@@ -58,6 +58,7 @@ project.assets.json
 
 ## Local configuration
 appsettings.Development.json
+appsettings.Production.json
 launchSettings.json
 appsettings.json
 
