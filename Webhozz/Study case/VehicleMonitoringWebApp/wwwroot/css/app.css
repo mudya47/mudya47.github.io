@@ -1,4 +1,21 @@
 /* Reset styles for better baseline */
+.container {
+    min-height: 100vh;
+    background-image: url(img/odg.png);
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-size: 70%;
+
+}
+
+    .container #login-form {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
