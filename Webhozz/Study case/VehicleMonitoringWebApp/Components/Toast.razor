@@ -1,0 +1,51 @@
+﻿@inject ToastService ToastService
+@using VehicleMonitoringWebApp.Services
+@implements IDisposable
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <div class="toast-container">
+        <div class="toast-message @(isError ? "toast-error" : "")">
+            <pre>@message</pre>
+        </div>
+    </div>
+}
+
+@code {
+    private string? message;
+    private bool isError = false;
+    private System.Timers.Timer? timer;
+
+    protected override void OnInitialized()
+    {
+        ToastService.OnShow += ShowToast;
+    }
+
+    public void Dispose()
+    {
+        ToastService.OnShow -= ShowToast;
+    }
+
+    private Task ShowToast(string msg, bool isError = false, int duration = 3000)
+    {
+        this.isError = isError;
+        message = msg;
+        StateHasChanged();
+
+        timer?.Stop();
+        timer?.Dispose();
+        timer = new System.Timers.Timer(duration);
+        timer.Elapsed += (s, e) =>
+        {
+            timer?.Stop();
+            timer?.Dispose();
+            timer = null;
+
+            message = null;
+            InvokeAsync(StateHasChanged);
+        };
+        timer.Start();
+
+        return Task.CompletedTask;
+    }
+}

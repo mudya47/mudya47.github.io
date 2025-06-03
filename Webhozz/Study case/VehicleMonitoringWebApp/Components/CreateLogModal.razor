@@ -1,12 +1,15 @@
 ﻿@using VehicleMonitoringWebApp.Models
 @using VehicleMonitoringWebApp.Services
 @inject TransportLogService LogService
+@inject ToastService ToastService
+@using VehicleMonitoringWebApp.Components.Layout
+@inherits LayoutComponentBase
 
 <div class="modal-backdrop" style="@(IsOpen ? "display: flex;" : "display: none;")">
     <div class="modal-content">
         <h5>Tambah Log Baru</h5>
 
-        <EditForm Model="@logEntry" OnValidSubmit="@HandleValidSubmit">
+        <EditForm Model="@logEntry" OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
             <DataAnnotationsValidator />
             <ValidationSummary />
             <div class="form-layout">
@@ -49,7 +52,6 @@
                 <div class="mb-3">
                     <label>Job Number</label>
                     <InputText class="form-control" @bind-Value="logEntry.Job_Number" />
-                    <ValidationMessage For="@(() => logEntry.Job_Number)" />
                 </div>
             </div>
             <div class="d-flex justify-content-end">
@@ -61,6 +63,8 @@
 </div>
 
 @code {
+    [CascadingParameter] private MainLayout? Layout { get; set; }
+
     private TransportLog logEntry = new();
 
     [Parameter] public EventCallback OnSaved { get; set; }
@@ -79,11 +83,55 @@
         IsOpen = false;
         StateHasChanged();
     }
+    
+    private EditContext? editContext;
+    
+    protected override void OnInitialized()
+    {
+        logEntry = new TransportLog();
+        editContext = new EditContext(logEntry);
+    }
 
     private async Task HandleValidSubmit()
     {
-        await LogService.CreateAsync(logEntry);
-        Close();
-        await OnSaved.InvokeAsync();
+        try
+        {
+            if (string.IsNullOrWhiteSpace(logEntry.Supir))
+            {
+                await Layout?.ShowGlobalToast("Supir wajib diisi!");
+                return;
+            }
+            await LogService.CreateAsync(logEntry);
+            await OnSaved.InvokeAsync(); // trigger refresh
+            Close();
+        }
+        catch (Exception ex)
+        {
+            await Layout?.ShowGlobalToast("Gagal menyimpan log.");
+            Console.WriteLine($"❌ Error: {ex.Message}");
+        }
+    }
+
+    private async Task HandleInvalidSubmit(EditContext context)
+    {
+        var validationMessages = new ValidationMessageStore(context);
+        var messages = new List<string>();
+
+        if (string.IsNullOrWhiteSpace(logEntry.Supir))
+            messages.Add("- The Supir field is required.");
+        if (string.IsNullOrWhiteSpace(logEntry.Job_Number))
+            messages.Add("- The Job_Number field is required.");
+        if (string.IsNullOrWhiteSpace(logEntry.Nopol))
+            messages.Add("- The Nopol field is required.");
+        if (logEntry.Parkir_Rp == 0)
+            messages.Add("- The Parkir_Rp field is required.");
+        if (logEntry.Biaya_Toll_Rp == 0)
+            messages.Add("- The Biaya_Toll_Rp field is required.");
+        if (messages.Any())
+        {
+            var fullMessage = "⚠️ Red boxes are required to be filled.";
+            await Layout?.ShowGlobalToast(fullMessage, isError: true, duration: 3000);
+            return;
+        }
     }
 }

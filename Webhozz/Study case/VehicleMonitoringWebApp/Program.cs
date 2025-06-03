@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
 using VehicleMonitoringWebApp.Data;
@@ -9,7 +10,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // ✅ Register Razor Pages & Blazor Server
 builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
+builder.Services.AddServerSideBlazor()
+    .AddCircuitOptions(options => { options.DetailedErrors = true; });
+
+// ✅ Opsional: Tambahan untuk ketahanan circuit & interop
+builder.Services.Configure<CircuitOptions>(options =>
+{
+    options.DisconnectedCircuitRetentionPeriod = TimeSpan.FromMinutes(3);
+    options.JSInteropDefaultCallTimeout = TimeSpan.FromSeconds(30);
+});
 
 // ✅ Tambahkan DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -26,6 +35,8 @@ builder.Services.AddScoped<CustomAuthenticationStateProvider>();
 builder.Services.AddScoped<AuthenticationStateProvider>(provider => provider.GetRequiredService<CustomAuthenticationStateProvider>());
 builder.Services.AddScoped<UserSession>();
 
+//Toast
+builder.Services.AddScoped<ToastService>();
 
 // ✅ Bikin dan jalankan WebApp
 var app = builder.Build();

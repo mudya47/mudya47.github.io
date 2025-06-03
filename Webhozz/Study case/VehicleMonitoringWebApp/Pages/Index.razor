@@ -1,23 +1,24 @@
 ﻿@using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
-@attribute [Authorize]
-@page "/"
 @using Microsoft.AspNetCore.Components.Routing
 @using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Forms
+@attribute [Authorize]
+@page "/"
 @using VehicleMonitoringWebApp.Services
 @using VehicleMonitoringWebApp.Models
 @using VehicleMonitoringWebApp.Components
 @using Microsoft.JSInterop
-@using Microsoft.AspNetCore.Components.Forms
 @inject TransportLogService LogService
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
 @inject CustomAuthenticationStateProvider AuthProvider
+@inject ToastService ToastService
 
 <AuthorizeView Context="auth">
     <div class="wrapper">
         <!-- NAVBAR -->
-        <nav class="header navbar">
+        <nav class="header navbar" id="app-header">
             <div class="nav-left">
                 <img src="css/img/odg-logo.png" class="logo" alt="Logo" />
                 <NavLink href="/" class="nav-link sp-mode" activeClass="active">Dashboard</NavLink>
@@ -356,6 +357,7 @@
     {
         _logs = await LogService.GetAllLogsAsync();
         ApplyAllFilters(); // update filtered & pagination
+        await JS.InvokeVoidAsync("toggleScrollTopButton");
     }
 
     private async Task Logout()
