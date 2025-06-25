@@ -1,11 +1,6 @@
 /* Reset styles for better baseline */
 .main-layout .page-content {
-    min-height: 100vh;
-    background-image: url(img/odg.png);
-    background-repeat: no-repeat;
-    background-position-x: 50%;
-    background-position-y: 50%;
-    background-size: 70%;
+
 }
 
     .main-layout .page-content #login-form {
@@ -665,7 +660,17 @@ button[disabled] {
     display: none;
 }
 
-
+.container{
+    display:flex;
+}
+.container .logo-img{
+    margin: 10px auto 0 auto;
+}
+.warning-text {
+    margin: 0 0 10px 0;
+    color: #dc2626;
+    font-weight: bold;
+}
 /*Responsive display*/
 @media (max-width: 1024px) {
     .navbar {

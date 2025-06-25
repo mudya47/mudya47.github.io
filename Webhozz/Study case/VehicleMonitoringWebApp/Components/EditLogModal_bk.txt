@@ -1,9 +1,6 @@
-﻿@using VehicleMonitoringWebApp.Models
+@using VehicleMonitoringWebApp.Models
 @using VehicleMonitoringWebApp.Services
 @inject TransportLogService LogService
-@inject ToastService ToastService
-@using VehicleMonitoringWebApp.Components.Layout
-@inherits LayoutComponentBase
 
 @if (IsOpen && _logEntry is not null)
 {
@@ -16,50 +13,50 @@
                 <ValidationSummary />
                 <div class="form-layout">
                     <div>
-                        <label>Tanggal*</label>
+                        <label>Tanggal</label>
                         <InputDate class="form-control" @bind-Value="_logEntry.Tanggal" />
                     </div>
                     <div>
-                        <label>Fuel Filling (L)*</label>
+                        <label>Fuel Filling (L)</label>
                         <InputNumber class="form-control" @bind-Value="_logEntry.Qty_L" />
                     </div>
                     <div>
-                        <label>Fuel Price (Rp)*</label>
+                        <label>Fuel Price (Rp)</label>
                         <InputNumber class="form-control" @bind-Value="_logEntry.Harga_BBM_Rp" />
                     </div>
                     <div>
-                        <label>Odometer Start*</label>
+                        <label>Odometer Start</label>
                         <InputNumber class="form-control" @bind-Value="_logEntry.Adometer_Buka" />
                     </div>
                     <div>
-                        <label>Odometer End*</label>
+                        <label>Odometer End</label>
                         <InputNumber class="form-control" @bind-Value="_logEntry.Adometer_Tutup" />
                     </div>
                     <div>
-                        <label>Driver*</label>
+                        <label>Driver</label>
                         <InputText class="form-control" @bind-Value="_logEntry.Supir" />
                     </div>
                     <div>
-                        <label>Plate*</label>
+                        <label>Plate</label>
                         <InputText class="form-control" @bind-Value="_logEntry.Nopol" />
                     </div>
                     <div>
-                        <label>Toll Fee (Rp)*</label>
+                        <label>Toll Fee (Rp)</label>
                         <InputNumber class="form-control" @bind-Value="_logEntry.Biaya_Toll_Rp" />
                     </div>
                     <div class="mb-3">
-                        <label>Parking Fee (Rp)*</label>
+                        <label>Parking Fee (Rp)</label>
                         <InputNumber class="form-control" @bind-Value="_logEntry.Parkir_Rp" />
                     </div>
                     <div class="mb-3">
-                        <label>Job Number*</label>
+                        <label>Job Number</label>
                         <InputText class="form-control" @bind-Value="_logEntry.Job_Number" />
                     </div>
                 </div>
-                <p class="warning-text">*Semua field wajib diisi</p>
+
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-secondary me-2" type="button" @onclick="Close">Close</button>
-                    <button class="btn btn-primary" type="submit">Save</button>
+                    <button class="btn btn-secondary me-2" type="button" @onclick="Close">Batal</button>
+                    <button class="btn btn-primary" type="submit">Simpan</button>
                 </div>
             </EditForm>
         </div>
@@ -88,12 +85,15 @@
 
     private async Task HandleValidSubmit()
     {
+        Console.WriteLine(">>> SUBMIT TRIGGERED");
+
         if (_logEntry is not null)
         {
+            Console.WriteLine(">>> LOGENTRY OK");
             await LogService.UpdateAsync(_logEntry);
+            Console.WriteLine(">>> UPDATED");
             Close();
             await OnSaved.InvokeAsync();
         }
-
     }
 }

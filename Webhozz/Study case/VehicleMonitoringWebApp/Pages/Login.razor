@@ -10,20 +10,23 @@
 <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
     <DataAnnotationsValidator />
     <ValidationSummary />
-    <div id="login-form">
-        <h3>Login</h3>
-        <div class="mb-15">
-            <InputText class="form-control" placeholder="Username" @bind-Value="loginModel.Username" />
-        </div>
-        <div class="mb-15">
-            <InputText type="password" placeholder="Password" class="form-control" @bind-Value="loginModel.Password" />
-        </div>
-        <button class="btn btn-primary" type="submit">Login</button>
+    <div class="container">
+        <img src="/css/img/odg.png" width="487" height="320" alt="Logo" class="logo-img" />
+        <div id="login-form">
+            <h3>Login</h3>
+            <div class="mb-15">
+                <InputText class="form-control" placeholder="Username" @bind-Value="loginModel.Username" />
+            </div>
+            <div class="mb-15">
+                <InputText type="password" placeholder="Password" class="form-control" @bind-Value="loginModel.Password" />
+            </div>
+            <button class="btn btn-primary" type="submit">Login</button>
 
-        @if (!string.IsNullOrEmpty(errorMessage))
-        {
-            <div class="alert alert-danger mt-2">@errorMessage</div>
-        }
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <div class="alert alert-danger mt-2">@errorMessage</div>
+            }
+        </div>
     </div>
 </EditForm>
 

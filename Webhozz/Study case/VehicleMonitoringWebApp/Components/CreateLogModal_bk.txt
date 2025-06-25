@@ -1,4 +1,4 @@
-﻿@using VehicleMonitoringWebApp.Models
+@using VehicleMonitoringWebApp.Models
 @using VehicleMonitoringWebApp.Services
 @inject TransportLogService LogService
 @inject ToastService ToastService
@@ -14,50 +14,49 @@
             <ValidationSummary />
             <div class="form-layout">
                 <div>
-                    <label>Date*</label>
+                    <label>Date</label>
                     <InputDate class="form-control" @bind-Value="logEntry.Tanggal" />
                 </div>
                 <div>
-                    <label>Fuel Filling (L)*</label>
+                    <label>Fuel Filling (L)</label>
                     <InputNumber class="form-control" @bind-Value="logEntry.Qty_L" />
                 </div>
                 <div>
-                    <label>Fuel Price*</label>
+                    <label>Fuel Price</label>
                     <InputNumber class="form-control" @bind-Value="logEntry.Harga_BBM_Rp" />
                 </div>
                 <div>
-                    <label>Odometer Start*</label>
+                    <label>Odometer Start</label>
                     <InputNumber class="form-control" @bind-Value="logEntry.Adometer_Buka" />
                 </div>
                 <div>
-                    <label>Odometer End*</label>
+                    <label>Odometer End</label>
                     <InputNumber class="form-control" @bind-Value="logEntry.Adometer_Tutup" />
                 </div>
                 <div>
-                    <label>Driver*</label>
+                    <label>Driver</label>
                     <InputText class="form-control" @bind-Value="logEntry.Supir" />
                 </div>
                 <div>
-                    <label>Plate*</label>
+                    <label>Plate</label>
                     <InputText class="form-control" @bind-Value="logEntry.Nopol" />
                 </div>
                 <div>
-                    <label>Toll Fee (Rp)*</label>
+                    <label>Toll Fee (Rp)</label>
                     <InputNumber class="form-control" @bind-Value="logEntry.Biaya_Toll_Rp" />
                 </div>
                 <div class="mb-3">
-                    <label>Parking Fee (Rp)*</label>
+                    <label>Parking Fee (Rp)</label>
                     <InputNumber class="form-control" @bind-Value="logEntry.Parkir_Rp" />
                 </div>
                 <div class="mb-3">
-                    <label>Job Number*</label>
+                    <label>Job Number</label>
                     <InputText class="form-control" @bind-Value="logEntry.Job_Number" />
                 </div>
             </div>
-            <p class="warning-text">*Semua field wajib diisi</p>
             <div class="d-flex justify-content-end">
-                <button class="btn btn-secondary me-2" type="button" @onclick="Close">Close</button>
-                <button class="btn btn-primary" type="submit">Save & Continue</button>
+                <button class="btn btn-secondary me-2" type="button" @onclick="Close">Batal</button>
+                <button class="btn btn-primary" type="submit">Simpan</button>
             </div>
         </EditForm>
     </div>
@@ -104,10 +103,7 @@
             }
             await LogService.CreateAsync(logEntry);
             await OnSaved.InvokeAsync(); // trigger refresh
-            logEntry = new();                      // ✅ Reset data
-            editContext = new EditContext(logEntry); // ✅ Reset validasi
-            StateHasChanged(); // ⬅️ Refresh UI
-
+            Close();
         }
         catch (Exception ex)
         {
@@ -133,7 +129,7 @@
             messages.Add("- The Biaya_Toll_Rp field is required.");
         if (messages.Any())
         {
-            var fullMessage = "⚠️ You need to fill the red box(es).";
+            var fullMessage = "⚠️ Red boxes are required to be filled.";
             await Layout?.ShowGlobalToast(fullMessage, isError: true, duration: 3000);
             return;
         }
