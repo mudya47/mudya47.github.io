@@ -3,13 +3,13 @@
 @using Microsoft.AspNetCore.Components.Routing
 @using Microsoft.AspNetCore.Components.Web
 @using Microsoft.AspNetCore.Components.Forms
-@attribute [Authorize(Policy = "DriverOnly")]
-@page "/"
+@attribute [Authorize(Policy = "EmployeeOnly")]
+@page "/employee"
 @using VehicleMonitoringWebApp.Services
 @using VehicleMonitoringWebApp.Models
 @using VehicleMonitoringWebApp.Components
 @using Microsoft.JSInterop
-@inject TransportLogService LogService
+@inject EmployeeLogService LogService
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
 @inject CustomAuthenticationStateProvider AuthProvider
@@ -60,11 +60,11 @@
                         <span class="pt-5">Page: @currentPage</span>
                         <button @onclick="() => ChangePage(currentPage + 1)" disabled="@(currentPage == TotalPages)">Next</button>
                     </div>
-                    <CreateLogModal @ref="modalRef" OnSaved="ReloadLogs" />
+                    <CreateEmployeeLogModal @ref="modalRef" OnSaved="ReloadLogs" />
                 </div>
 
                 <!-- TABLE -->
-                <div id="print-area" class="table-container">
+                <div id="print-area" class="table-container employee">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -83,6 +83,8 @@
                                 <th>Driver</th>
                                 <th>License Plate</th>
                                 <th>Efficiency</th>
+                                <th>From</th>
+                                <th>Destination</th>
                                 <th colspan="2" class="no-print">Action</th>
                             </tr>
                         </thead>
@@ -108,8 +110,12 @@
                                         <td>@log.Supir</td>
                                         <td>@log.Nopol</td>
                                         <td>@log.Efisiensi_BBM?.ToString()</td>
+                                        <td>@log.Dari</td>
+                                        <td>@log.Tujuan</td>
                                         <td class="no-print">
-                                            <button class="btn-action btn-edit" @onclick="() => editModalRef?.OpenAsync(log.ID)"><i class="fas fa-edit"></i>Edit</button>
+                                            <button class="btn-action btn-edit" @onclick="() => OpenEditAsync(log.ID)">
+                                                <i class="fas fa-edit"></i>Edit
+                                            </button>
                                         </td>
                                         <td class="no-print">
                                             <button class="btn-action btn-delete" @onclick="() => ConfirmDelete(log.ID)"><i class="fas fa-trash"></i>Delete</button>
@@ -121,12 +127,12 @@
                             else
                             {
                                 <tr>
-                                    <td colspan="16">Empty Log.</td>
+                                    <td colspan="17">Empty Log.</td>
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    <EditLogModal @ref="editModalRef" OnSaved="ReloadLogs" />
+                    <EditEmployeeLogModal @ref="editModalRef" OnSaved="ReloadLogs" />
                 </div>
             </div>
         </main>
@@ -135,15 +141,21 @@
 
 
 @code {
-    private List<TransportLog> _logs = new();
-    private List<TransportLog> _filteredLogs = new();
+    private List<EmployeeLog> _logs = new();
+    private List<EmployeeLog> _filteredLogs = new();
     private string _searchTerm = string.Empty;
     private bool sortAscending = true;
     private string currentSortField = string.Empty;
     private int currentPage = 1;
     private int pageSize = 100;
     private int TotalPages => (int)Math.Ceiling((double)_filteredLogs.Count / pageSize);
-    private EditLogModal? editModalRef;
+    private EditEmployeeLogModal? editModalRef;
+
+    private async Task OpenEditAsync(int id)
+    {
+        if (editModalRef is not null)
+            await editModalRef.OpenAsync(id);
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -188,10 +200,9 @@
         }
     }
 
-
     private void ApplyAllFilters()
     {
-        IEnumerable<TransportLog> filtered = _logs;
+        IEnumerable<EmployeeLog> filtered = _logs;
 
         if (!string.IsNullOrWhiteSpace(_searchTerm))
         {
@@ -228,7 +239,7 @@
             : _filteredLogs.OrderByDescending(log => GetSortValue(log, field)).ToList();
     }
 
-    private object? GetSortValue(TransportLog log, string field) => field switch
+    private object? GetSortValue(EmployeeLog log, string field) => field switch
     {
         "Tanggal" => log.Tanggal,
         "Supir" => log.Supir,
@@ -306,7 +317,7 @@
         ApplyAllFilters();
     }
 
-    private List<TransportLog> GetCurrentPageLogs() => _filteredLogs
+    private List<EmployeeLog> GetCurrentPageLogs() => _filteredLogs
         .Skip((currentPage - 1) * pageSize)
         .Take(pageSize)
         .ToList();
@@ -341,7 +352,7 @@
     }
 
     //PopupModal
-    private CreateLogModal? modalRef;
+    private CreateEmployeeLogModal? modalRef;
 
     private async Task ReloadLogs()
     {

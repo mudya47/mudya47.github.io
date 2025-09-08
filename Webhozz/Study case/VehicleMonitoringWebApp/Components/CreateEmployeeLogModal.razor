@@ -1,0 +1,143 @@
+﻿@using VehicleMonitoringWebApp.Models
+@using VehicleMonitoringWebApp.Services
+@using VehicleMonitoringWebApp.Components.Layout
+@inject EmployeeLogService LogService
+@inject ToastService ToastService
+@inherits LayoutComponentBase
+
+<div class="modal-backdrop" style="@(IsOpen ? "display: flex;" : "display: none;")">
+    <div class="modal-content">
+        <h5>Tambah Log Employee</h5>
+
+        <EditForm Model="@logEntry" OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="form-layout">
+                <div>
+                    <label>Date*</label>
+                    <InputDate class="form-control" @bind-Value="logEntry.Tanggal" />
+                </div>
+                <div>
+                    <label>Fuel Filling (L)*</label>
+                    <InputNumber class="form-control" @bind-Value="logEntry.Qty_L" />
+                </div>
+                <div>
+                    <label>Fuel Price*</label>
+                    <InputNumber class="form-control" @bind-Value="logEntry.Harga_BBM_Rp" />
+                </div>
+                <div>
+                    <label>Odometer Start*</label>
+                    <InputNumber class="form-control" @bind-Value="logEntry.Adometer_Buka" />
+                </div>
+                <div>
+                    <label>Odometer End*</label>
+                    <InputNumber class="form-control" @bind-Value="logEntry.Adometer_Tutup" />
+                </div>
+                <div>
+                    <label>Employee*</label>
+                    <InputText class="form-control" @bind-Value="logEntry.Supir" />
+                </div>
+                <div>
+                    <label>Plate*</label>
+                    <InputText class="form-control" @bind-Value="logEntry.Nopol" />
+                </div>
+                <div>
+                    <label>Toll Fee (Rp)*</label>
+                    <InputNumber class="form-control" @bind-Value="logEntry.Biaya_Toll_Rp" />
+                </div>
+                <div class="mb-3">
+                    <label>Parking Fee (Rp)*</label>
+                    <InputNumber class="form-control" @bind-Value="logEntry.Parkir_Rp" />
+                </div>
+                <div class="mb-3">
+                    <label>Job Number*</label>
+                    <InputText class="form-control" @bind-Value="logEntry.Job_Number" />
+                </div>
+                <div class="mb-3">
+                    <label>From*</label>
+                    <InputText class="form-control" @bind-Value="logEntry.Dari" />
+                </div>
+                <div class="mb-3">
+                    <label>Destination*</label>
+                    <InputText class="form-control" @bind-Value="logEntry.Tujuan" />
+                </div>
+            </div>
+
+            <p class="warning-text">*Semua field wajib diisi</p>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-secondary me-2" type="button" @onclick="Close">Close</button>
+                <button class="btn btn-primary" type="submit">Save & Continue</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] private MainLayout? Layout { get; set; }
+    private EmployeeLog logEntry = new();
+    [Parameter] public EventCallback OnSaved { get; set; }
+    public bool IsOpen { get; set; }
+    public void Open()
+    {
+        logEntry = new(); // Reset form
+        IsOpen = true;
+        StateHasChanged();
+    }
+
+    public void Close()
+    {
+        IsOpen = false;
+        StateHasChanged();
+    }
+
+    private EditContext? editContext;
+    protected override void OnInitialized()
+    {
+        logEntry = new EmployeeLog();
+        editContext = new EditContext(logEntry);
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(logEntry.Supir))
+            {
+                await Layout?.ShowGlobalToast("Supir wajib diisi!");
+                return;
+            }
+            await LogService.CreateAsync(logEntry);
+            await OnSaved.InvokeAsync(); // trigger refresh
+            logEntry = new();                      // ✅ Reset data
+            editContext = new EditContext(logEntry); // ✅ Reset validasi
+            StateHasChanged(); // ⬅️ Refresh UI
+        }
+        catch (Exception ex)
+        {
+            await Layout?.ShowGlobalToast("Gagal menyimpan log.");
+            Console.WriteLine($"❌ Error: {ex.Message}");
+        }
+    }
+
+    private async Task HandleInvalidSubmit(EditContext context)
+    {
+        var validationMessages = new ValidationMessageStore(context);
+        var messages = new List<string>();
+        if (string.IsNullOrWhiteSpace(logEntry.Supir))
+            messages.Add("- The Supir field is required.");
+        if (string.IsNullOrWhiteSpace(logEntry.Job_Number))
+            messages.Add("- The Job_Number field is required.");
+        if (string.IsNullOrWhiteSpace(logEntry.Nopol))
+            messages.Add("- The Nopol field is required.");
+        if (logEntry.Parkir_Rp == 0)
+            messages.Add("- The Parkir_Rp field is required.");
+        if (logEntry.Biaya_Toll_Rp == 0)
+            messages.Add("- The Biaya_Toll_Rp field is required.");
+        if (messages.Any())
+        {
+            var fullMessage = "⚠️ You need to fill the red box(es).";
+            await Layout?.ShowGlobalToast(fullMessage, isError: true, duration: 3000);
+            return;
+        }
+    }
+}

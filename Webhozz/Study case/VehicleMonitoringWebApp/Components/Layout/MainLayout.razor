@@ -4,36 +4,19 @@
 @inject ToastService ToastService
 
 <div class="main-layout" id="to-top">
-    <div class="page-content">
+    <header>
+        <NavMenu />   <!-- navbar baru -->
+    </header>
+
+    <div class="page-content container-fluid mt-3">
         <CascadingValue Value="this">
             <Toast @ref="toastRef" />
             @Body
         </CascadingValue>
     </div>
-
-    <!-- Scroll to Top Button -->
-    <div id="footer-pagetop">
-         <!--<button id="scrollTopBtn" @onclick="() => ScrollToTop()">
-             <img src="css/img/btn_pagetop.webp" />
-        </button>--> 
-        <a href="#to-top"></a>
-    </div>
 </div>
 
 @code {
-    private async Task ScrollToTop()
-    {
-        await JS.InvokeVoidAsync("scrollToElement", "app-header");
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JS.InvokeVoidAsync("toggleScrollTopButton");
-        }
-    }
-
     private Toast? toastRef;
 
     public async Task ShowGlobalToast(string message, bool isError = false, int duration = 3000)

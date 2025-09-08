@@ -1,9 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VehicleMonitoringWebApp.Models
 {
-    public class TransportLog
+    [Table("EmployeeLog")]
+    public class EmployeeLog
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
         [Required]
@@ -44,6 +48,9 @@ namespace VehicleMonitoringWebApp.Models
 
         [Required]
         public string? Nopol { get; set; }
-
+        [Required]
+        public string Dari { get; set; } = string.Empty;
+        [Required]
+        public string Tujuan { get; set; } = string.Empty;
     }
 }

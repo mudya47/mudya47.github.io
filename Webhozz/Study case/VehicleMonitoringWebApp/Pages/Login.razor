@@ -2,10 +2,10 @@
 @using VehicleMonitoringWebApp.Models
 @using VehicleMonitoringWebApp.Services
 @using Microsoft.AspNetCore.Components.Forms
+
 @inject AuthService AuthService
 @inject NavigationManager Navigation
 @inject CustomAuthenticationStateProvider AuthProvider
-
 
 <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
     <DataAnnotationsValidator />
@@ -23,6 +23,7 @@
             <button class="btn btn-primary" type="submit">Login</button>
 
             @if (!string.IsNullOrEmpty(errorMessage))
+
             {
                 <div class="alert alert-danger mt-2">@errorMessage</div>
             }
@@ -36,18 +37,26 @@
 
     private async Task HandleLogin()
     {
+        errorMessage = "";
+        // 1) verifikasi user via service (harus mengembalikan Username + Role)
         var user = await AuthService.AuthenticateAsync(loginModel.Username, loginModel.Password);
-
-        if (user != null)
-        {
-            await AuthProvider.MarkUserAsAuthenticated(user.Username);
-            Navigation.NavigateTo("/");
-            Console.WriteLine($"Login sukses sebagai: {user.Username}");
-        }
-        else
+        if (user is null)
         {
             errorMessage = "Username atau password salah.";
+            return;
         }
+        // 2) masukkan ke Claims (Name + Role)
+        //    Role harus "Employee" atau "Driver" seperti yang kita pakai di policy
+        await AuthProvider.SignInAsync(user.Username, user.Role);
+        // 3) redirect sesuai role
+        if (string.Equals(user.Role, "Employee", StringComparison.OrdinalIgnoreCase))
+            Navigation.NavigateTo("/employee");
+        else if (string.Equals(user.Role, "Driver", StringComparison.OrdinalIgnoreCase))
+            Navigation.NavigateTo("/");
+        else if (string.Equals(user.Role, "Admin", StringComparison.OrdinalIgnoreCase))
+            Navigation.NavigateTo("/");
+        else
+            Navigation.NavigateTo("/access-denied", true);
     }
 
     public class LoginModel

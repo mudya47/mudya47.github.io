@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Forms
+@using VehicleMonitoringWebApp.Services
+@using VehicleMonitoringWebApp.Models
+@using VehicleMonitoringWebApp.Components
+@using Microsoft.JSInterop
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+@inject CustomAuthenticationStateProvider AuthProvider
+
+<AuthorizeView Context="auth">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <img src="css/img/odg-logo.png" class="logo" alt="Logo" />
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <AuthorizeView Roles="Driver, Admin">
+                        <li class="nav-item">
+                            <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
+                                Driver
+                            </NavLink>
+                        </li>
+                    </AuthorizeView>
+                    <AuthorizeView Roles="Employee, Admin">
+                        <li class="nav-item">
+                            <NavLink class="nav-link" href="/employee">
+                                Employee
+                            </NavLink>
+                        </li>
+                    </AuthorizeView>
+                    <li class="nav-item">
+                        <span class="me-3">👤 @auth?.User?.Identity?.Name</span>
+                        <button class="btn btn-sm btn-outline-danger" @onclick="Logout">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</AuthorizeView>
+
+@code {
+    private async Task Logout()
+    {
+        await ((CustomAuthenticationStateProvider)AuthProvider).MarkUserAsLoggedOut();
+        Navigation.NavigateTo("/login", forceLoad: true); // ⬅️ penting: force full page reload
+    }
+}

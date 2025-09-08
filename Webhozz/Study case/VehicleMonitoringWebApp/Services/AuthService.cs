@@ -19,20 +19,27 @@ namespace VehicleMonitoringWebApp.Services
         {
             var hashedPassword = HashPassword(password);
 
-            using SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            using var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
             await conn.OpenAsync();
 
-            var command = new SqlCommand("SELECT * FROM Users WHERE Username = @username AND PasswordHash = @password", conn);
-            command.Parameters.AddWithValue("@username", username);
-            command.Parameters.Add("@password", System.Data.SqlDbType.NVarChar, 255).Value = hashedPassword;
+            using var cmd = new SqlCommand(@"
+                SELECT TOP 1 ID, Username, PasswordHash, [Role]
+                FROM dbo.Users
+                WHERE Username = @username AND PasswordHash = @password;", conn);
 
-            using var reader = await command.ExecuteReaderAsync();
-            if (reader.Read())
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.Add("@password", System.Data.SqlDbType.NVarChar, 255).Value = hashedPassword;
+
+            using var reader = await cmd.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
             {
                 return new User
                 {
-                    ID = (int)reader["ID"],
-                    Username = (string)reader["Username"]
+                    ID = reader.GetInt32(reader.GetOrdinal("ID")),
+                    Username = reader.GetString(reader.GetOrdinal("Username")),
+                    // PasswordHash optional kalau mau diisi:
+                    // PasswordHash = reader.GetString(reader.GetOrdinal("PasswordHash")),
+                    Role = reader.GetString(reader.GetOrdinal("Role")) // <-- penting
                 };
             }
 
@@ -42,8 +49,8 @@ namespace VehicleMonitoringWebApp.Services
         public static string HashPassword(string password)
         {
             using var sha256 = SHA256.Create();
-            byte[] bytes = Encoding.UTF8.GetBytes(password);
-            byte[] hash = sha256.ComputeHash(bytes);
+            var bytes = Encoding.UTF8.GetBytes(password);
+            var hash = sha256.ComputeHash(bytes);
             return Convert.ToBase64String(hash);
         }
     }

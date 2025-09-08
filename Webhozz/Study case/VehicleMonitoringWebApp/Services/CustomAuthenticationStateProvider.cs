@@ -7,59 +7,79 @@ namespace VehicleMonitoringWebApp.Services
 {
     public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     {
-        private readonly IJSRuntime _jsRuntime;
-        private ClaimsPrincipal _cachedUser = new ClaimsPrincipal(new ClaimsIdentity());
+        private readonly IJSRuntime _js;
+        private ClaimsPrincipal _cachedUser = new(new ClaimsIdentity());
 
-        public CustomAuthenticationStateProvider(IJSRuntime jsRuntime)
+        private const string UsernameKey = "username";
+        private const string RoleKey = "role"; // <-- simpan role di sessionStorage
+
+        public CustomAuthenticationStateProvider(IJSRuntime js)
         {
-            _jsRuntime = jsRuntime;
+            _js = js;
         }
 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
-            // JANGAN PAKAI localStorage DI SINI!
-            // Ganti dengan fallback simple
+            // if we already have a signed-in user in memory, use it
+            if (_cachedUser?.Identity?.IsAuthenticated == true)
+                return new AuthenticationState(_cachedUser);
+
             try
             {
-                var username = await _jsRuntime.InvokeAsync<string>("sessionStorage.getItem", "username");
+                var username = await _js.InvokeAsync<string>("sessionStorage.getItem", "username");
+                var role = await _js.InvokeAsync<string>("sessionStorage.getItem", "role");
 
                 if (string.IsNullOrWhiteSpace(username))
                     return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
 
-                var identity = new ClaimsIdentity(new[]
-                {
-            new Claim(ClaimTypes.Name, username)
-        }, "CustomAuth");
+                var claims = new List<Claim> { new(ClaimTypes.Name, username) };
+                if (!string.IsNullOrWhiteSpace(role))
+                    claims.Add(new Claim(ClaimTypes.Role, role));
 
-                return new AuthenticationState(new ClaimsPrincipal(identity));
+                var identity = new ClaimsIdentity(claims, "CustomAuth");
+                _cachedUser = new ClaimsPrincipal(identity);    // cache it
+                return new AuthenticationState(_cachedUser);
             }
             catch
             {
-                // Kalau gagal karena prerender, fallback ke anonymous
+                // prerender: JS interop not available → stay anonymous (but we’ll have _cachedUser next render)
                 return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
             }
         }
 
-        public async Task MarkUserAsAuthenticated(string username)
+        /// <summary>
+        /// Panggil ini saat login sukses. Role = "Employee" atau "Driver".
+        /// </summary>
+        public async Task SignInAsync(string username, string role)
         {
-            await _jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "username", username);
+            await _js.InvokeVoidAsync("sessionStorage.setItem", "username", username);
+            await _js.InvokeVoidAsync("sessionStorage.setItem", "role", role);
 
-            var identity = new ClaimsIdentity(new[]
+            var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, username)
-            }, "CustomAuth");
+                new(ClaimTypes.Name, username),
+                new(ClaimTypes.Role, role)
+            };
 
-            var user = new ClaimsPrincipal(identity);
-
-            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(user)));
+            var identity = new ClaimsIdentity(claims, "CustomAuth");
+            _cachedUser = new ClaimsPrincipal(identity);        // cache for prerender
+            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(_cachedUser)));
         }
+
+        /// <summary>
+        /// (Back-compat) kalau masih ada kode lama yang manggil ini.
+        /// Default-kan ke role Driver supaya tidak null.
+        /// </summary>
+        public Task MarkUserAsAuthenticated(string username)
+            => SignInAsync(username, "Driver");
 
         public async Task MarkUserAsLoggedOut()
         {
-            await _jsRuntime.InvokeVoidAsync("sessionStorage.removeItem", "username");
+            await _js.InvokeVoidAsync("sessionStorage.removeItem", UsernameKey);
+            await _js.InvokeVoidAsync("sessionStorage.removeItem", RoleKey);
 
-            var anonymousUser = new ClaimsPrincipal(new ClaimsIdentity());
-            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(anonymousUser)));
+            _cachedUser = new ClaimsPrincipal(new ClaimsIdentity());
+            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(_cachedUser)));
         }
     }
 }
