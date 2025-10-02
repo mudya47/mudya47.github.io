@@ -36,7 +36,7 @@ namespace VehicleMonitoringWebApp.Models
         [Range(0, int.MaxValue)]
         public int? Parkir_Rp { get; set; }
 
-        public int Grand_Total => (Biaya_Toll_Rp ?? 0) + (Parkir_Rp ?? 0);
+        public decimal Grand_Total => (Biaya_Toll_Rp ?? 0) + (Parkir_Rp ?? 0) + ActualFuelConsumption;
 
         [Required]
         public string Supir { get; set; } = string.Empty;
@@ -52,5 +52,12 @@ namespace VehicleMonitoringWebApp.Models
         public string Dari { get; set; } = string.Empty;
         [Required]
         public string Tujuan { get; set; } = string.Empty;
+
+        [NotMapped]
+        public decimal ActualFuelConsumption => (KM / 8m) * Harga_BBM_Rp;
+        //Fair Amount = Total Fuel - Actual Fuel Consumption
+        [NotMapped]
+        public decimal FairAmountRp => Total_BBM_Rp - ActualFuelConsumption;
+
     }
 }

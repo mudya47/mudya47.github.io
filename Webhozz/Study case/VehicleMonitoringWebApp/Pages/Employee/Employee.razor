@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Components.Routing
 @using Microsoft.AspNetCore.Components.Web
 @using Microsoft.AspNetCore.Components.Forms
-@attribute [Authorize(Policy = "EmployeeOnly")]
+@attribute [Authorize]
 @page "/employee"
 @using VehicleMonitoringWebApp.Services
 @using VehicleMonitoringWebApp.Models
@@ -76,6 +76,8 @@
                                 <th>Odometer End</th>
                                 <th>KM</th>
                                 <th>Total Fuel (Rp)</th>
+                                <th>Actual Fuel Consumption (Rp)</th>
+                                <th>Unfair Amount (Rp)</th>
                                 <th>Toll Fee (Rp)</th>
                                 <th>Parking Fee (Rp)</th>
                                 <th>Grand Total</th>
@@ -103,6 +105,8 @@
                                         <td>@log.Adometer_Tutup</td>
                                         <td>@log.KM.ToString("N0")</td>
                                         <td><p>Rp @log.Total_BBM_Rp.ToString("N0")</p></td>
+                                        <td><p>Rp @log.ActualFuelConsumption.ToString("N0")</p></td>
+                                        <td><p>Rp @log.FairAmountRp.ToString("N0")</p></td>
                                         <td><p>Rp @Convert.ToDecimal(log.Biaya_Toll_Rp).ToString("N0")</p></td>
                                         <td><p>Rp @Convert.ToDecimal(log.Parkir_Rp).ToString("N0")</p></td>
                                         <td><p>Rp @log.Grand_Total.ToString("N0")</p></td>

@@ -17,20 +17,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <img src="css/img/odg-logo.png" class="logo" alt="Logo" />
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <AuthorizeView Roles="Driver, Admin">
                         <li class="nav-item">
                             <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
                                 Driver
                             </NavLink>
                         </li>
-                    </AuthorizeView>
-                    <AuthorizeView Roles="Employee, Admin">
                         <li class="nav-item">
                             <NavLink class="nav-link" href="/employee">
                                 Employee
                             </NavLink>
                         </li>
-                    </AuthorizeView>
                     <li class="nav-item">
                         <span class="me-3">👤 @auth?.User?.Identity?.Name</span>
                         <button class="btn btn-sm btn-outline-danger" @onclick="Logout">Logout</button>

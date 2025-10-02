@@ -30,11 +30,7 @@ builder.Services.AddScoped<EmployeeLogService>();
 
 // ✅ Tambahkan Authentication & Authorization
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
-builder.Services.AddAuthorizationCore(options =>
-{
-    options.AddPolicy("EmployeeOnly", p => p.RequireRole("Employee"));
-    options.AddPolicy("DriverOnly", p => p.RequireRole("Driver"));
-});
+builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<CustomAuthenticationStateProvider>();
 builder.Services.AddScoped<AuthenticationStateProvider>(provider => provider.GetRequiredService<CustomAuthenticationStateProvider>());
