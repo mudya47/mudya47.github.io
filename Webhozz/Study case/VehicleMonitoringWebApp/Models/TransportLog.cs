@@ -32,7 +32,7 @@ namespace VehicleMonitoringWebApp.Models
         [Range(0, int.MaxValue)]
         public int? Parkir_Rp { get; set; }
 
-        public int Grand_Total => (Biaya_Toll_Rp ?? 0) + (Parkir_Rp ?? 0);
+        public int Grand_Total => (Biaya_Toll_Rp ?? 0) + (Parkir_Rp ?? 0) + (Total_BBM_Rp);
 
         [Required]
         public string Supir { get; set; } = string.Empty;
