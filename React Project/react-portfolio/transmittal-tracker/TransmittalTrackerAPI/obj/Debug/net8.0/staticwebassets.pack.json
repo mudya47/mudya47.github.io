@@ -1,0 +1,81 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\171025\\20251017090951424-a926eab10f5c4c2c8d7dc6e6ed512de3.pdf",
+      "PackagePath": "staticwebassets\\uploads\\171025\\20251017090951424-a926eab10f5c4c2c8d7dc6e6ed512de3.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\17_638974054468893341.pdf",
+      "PackagePath": "staticwebassets\\uploads\\17_638974054468893341.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\268073d20ff5476290d7420078b5e8ed.pdf",
+      "PackagePath": "staticwebassets\\uploads\\268073d20ff5476290d7420078b5e8ed.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\31ce39acfb004e619980a681fdce592f.pdf",
+      "PackagePath": "staticwebassets\\uploads\\31ce39acfb004e619980a681fdce592f.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\51dab397461c41998039372bd66f9d46.pdf",
+      "PackagePath": "staticwebassets\\uploads\\51dab397461c41998039372bd66f9d46.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\7080\\20251017083458246-1c29a0092f4a4b15a84dc666397d5461.pdf",
+      "PackagePath": "staticwebassets\\uploads\\7080\\20251017083458246-1c29a0092f4a4b15a84dc666397d5461.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\7080\\20251017083553833-46ae636a7a8548e4bc6ec6a6476de582.pdf",
+      "PackagePath": "staticwebassets\\uploads\\7080\\20251017083553833-46ae636a7a8548e4bc6ec6a6476de582.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\7080\\20251017085338152-799145889152408fa7fd9a128efc1ec1.pdf",
+      "PackagePath": "staticwebassets\\uploads\\7080\\20251017085338152-799145889152408fa7fd9a128efc1ec1.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\75adc4f543ad4b4bad91aa2f78fa1a8e.pdf",
+      "PackagePath": "staticwebassets\\uploads\\75adc4f543ad4b4bad91aa2f78fa1a8e.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\9060\\20251016063051736-73f1ab2448b9419cbdbbdc2ed57abbd3.pdf",
+      "PackagePath": "staticwebassets\\uploads\\9060\\20251016063051736-73f1ab2448b9419cbdbbdc2ed57abbd3.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\9060\\20251017083341113-c3689bdf4dec4051b0fe2a31b5b7c6f0.pdf",
+      "PackagePath": "staticwebassets\\uploads\\9060\\20251017083341113-c3689bdf4dec4051b0fe2a31b5b7c6f0.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\cbcfb6a026254279914c0d4045b4b333.pdf",
+      "PackagePath": "staticwebassets\\uploads\\cbcfb6a026254279914c0d4045b4b333.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\d4c8ca837f2841de8ff0d49ba5472694.pdf",
+      "PackagePath": "staticwebassets\\uploads\\d4c8ca837f2841de8ff0d49ba5472694.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\test job 123\\20251017085454936-90eacc10b23d48bfa4c8eb163666ee5e.pdf",
+      "PackagePath": "staticwebassets\\uploads\\test job 123\\20251017085454936-90eacc10b23d48bfa4c8eb163666ee5e.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\react-portfolio\\transmittal-tracker\\TransmittalTrackerAPI\\wwwroot\\uploads\\test job 123\\20251017085526819-b0d690a5309242a79998fbfbe4657ca2.pdf",
+      "PackagePath": "staticwebassets\\uploads\\test job 123\\20251017085526819-b0d690a5309242a79998fbfbe4657ca2.pdf"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TransmittalTrackerAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.TransmittalTrackerAPI.props",
+      "PackagePath": "build\\TransmittalTrackerAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.TransmittalTrackerAPI.props",
+      "PackagePath": "buildMultiTargeting\\TransmittalTrackerAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.TransmittalTrackerAPI.props",
+      "PackagePath": "buildTransitive\\TransmittalTrackerAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
